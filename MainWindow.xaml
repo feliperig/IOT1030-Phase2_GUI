@@ -45,13 +45,22 @@
 			<!-- Panel for buttons -->
 			<StackPanel Grid.Row="1">
 				
-				<!-- Home button -->
+				<!-- Home page button -->
 				<!-- This is also an example on how to apply themes -->
 				<RadioButton Content="Home" 
 							 Height="50"
 							 Foreground="White"
 							 FontSize="14"
-							 Style="{StaticResource MenuButtonTheme}"/>
+							 Style="{StaticResource MenuButtonTheme}"
+							 Command="{Binding HomeViewCommand}"/>
+				
+				<!-- Phase 2 page button -->
+				<RadioButton Content="Phase 2"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+							 Style="{StaticResource MenuButtonTheme}"
+							 Command=""/>
 			</StackPanel>
 			
 			<!-- Contains the current page -->
