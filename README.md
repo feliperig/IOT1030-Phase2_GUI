@@ -6,6 +6,7 @@ This is the GUI for Phase 2 of our IOT1030 project
 - Felipe
 - Karam
 - Simran
+- Ayush
 
 ## File structure explanation
 - **View**
