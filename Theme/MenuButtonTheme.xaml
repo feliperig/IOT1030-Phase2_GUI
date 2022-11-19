@@ -1,0 +1,57 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<!-- This is a theme that you can apply to UI objects. This one is a theme for radio buttons -->
+	<!-- REMEMBER TO DEFINE THE PATH TO A NEWLY CREATED THEME IN App.xaml WHEN YOU ARE DONE -->
+	
+	<!-- Defining the UI object to make a theme for. The key is this theme's name for referencing in the xaml -->
+	<Style BasedOn="{StaticResource {x:Type ToggleButton}}"
+		   TargetType="{x:Type RadioButton}"
+		   x:Key="MenuButtonTheme">
+		
+		<!-- Getting into the template of the object -->
+		<Style.Setters>
+			<Setter Property="Template">
+				<Setter.Value>
+					
+					<!-- Set the TargetType to be able to access some properties (such as content) -->
+					<ControlTemplate TargetType="RadioButton">
+						
+						<!-- Inside here you can define what will display on the UI when this object is drawn on the ui -->
+						<!-- Very powerful feature and incredible things can be achieved here -->
+						<Grid VerticalAlignment="Stretch"
+							  HorizontalAlignment="Stretch"
+							  Background="{TemplateBinding Background}">
+
+							<TextBlock Text="{TemplateBinding Property=Content}" 
+									   VerticalAlignment="Center"
+									   Margin="50,0,0,0"/>
+
+						</Grid>
+						
+						
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+			
+			<!-- Setting default values of selected properties-->
+			<Setter Property="Background"
+					Value="Transparent" />
+			<Setter Property="BorderThickness"
+					Value="0" />
+			
+		</Style.Setters>
+		
+		<!-- Here you can define what happens when certain property values are triggered and changed -->
+		<Style.Triggers>
+			
+			<!-- When the the property "IsChecked" triggers a change, and the new value is "True", set the contained properties to what's defined here -->
+			<Trigger Property="IsChecked"
+					 Value="True">
+				<Setter Property="Background"
+						Value="#22202f"/>
+			</Trigger>
+			
+			
+		</Style.Triggers>
+	</Style>
+</ResourceDictionary>

@@ -2,8 +2,23 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:IOT1030_Phase2_GUI"
+			 xmlns:viewModel="clr-namespace:IOT1030_Phase2_GUI.MVVM.ViewModel"
+			 xmlns:view="clr-namespace:IOT1030_Phase2_GUI.MVVM.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
-    </Application.Resources>
+		
+		<!-- Defining the path to all the themes -->
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+
+			<!-- Connecting the Views to the ViewModels -->
+			<!-- Remember to add 'xmlns:viewModel' and 'xmlns:view' at the top of this file -->
+			<DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+				<view:HomeView />
+			</DataTemplate>
+
+		</ResourceDictionary>
+	</Application.Resources>
 </Application>

@@ -4,9 +4,62 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IOT1030_Phase2_GUI"
+		xmlns:viewModel="clr-namespace:IOT1030_Phase2_GUI.MVVM.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+		Height="600" 
+		Width="920"
+		WindowStyle="None"
+		Background="Transparent"
+		AllowsTransparency="True">
+
+	<!-- Connects this View to the ViewModel -->
+	<!-- Make sure to set xmlns:viewModel at the top -->
+	<Window.DataContext>
+		<viewModel:MainViewModel/>
+	</Window.DataContext>
+	
+	<!-- Background -->
+	<Border Background="#292b34"
+			CornerRadius="30">
+		
+		<!-- Grid Layout -->
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="200" />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<Grid.RowDefinitions>
+				<RowDefinition Height="75" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			
+			<!-- Window Title -->
+			<TextBlock Text="IOT-1030"
+					   VerticalAlignment="Center"
+					   HorizontalAlignment="Left"
+					   Foreground="White"
+					   FontSize="22"
+					   Margin="20,0,0,0"/>
+			
+			<!-- Panel for buttons -->
+			<StackPanel Grid.Row="1">
+				
+				<!-- Home button -->
+				<!-- This is also an example on how to apply themes -->
+				<RadioButton Content="Home" 
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+							 Style="{StaticResource MenuButtonTheme}"/>
+			</StackPanel>
+			
+			<!-- Contains the current page -->
+			<ContentControl Grid.Row="1"
+							Grid.Column="1"
+							Margin="10" 
+							Content="{Binding CurrentView}"/>
+		</Grid>
+		
+	</Border>
 </Window>
