@@ -1,5 +1,6 @@
 ﻿using IOT1030_Phase2_GUI.MVVM.ViewModel;
 using IOT1030_Phase2_GUI.Core;
+using System.Windows;
 
 namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 {
@@ -43,7 +44,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         // Defining RelayCommands for UI buttons
-        public RelayCommand HomeViewCommand;
+        public RelayCommand HomeViewCommand { get; set; }
+
+        public RelayCommand CloseWindowCommand { get; set; }
+        public RelayCommand MinimizeWindowCommand { get; set; }
 
         /// <summary>
         /// Initializes the RelayCommand functionality for UI buttons.
@@ -53,9 +57,17 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             // This is how to define a command
             HomeViewCommand = new RelayCommand(o =>
             {
-                // o can be referenced to get properties from the UI element that called this command!
+                // o can be referenced to get properties from the UI object that called this command!
                 // Any code in here is run when this command is called
                 CurrentView = HomeVM;
+            });
+            CloseWindowCommand = new RelayCommand(o =>
+            {
+                Application.Current.MainWindow.Close();
+            });
+            MinimizeWindowCommand = new RelayCommand(o =>
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Minimized;
             });
         }
     }

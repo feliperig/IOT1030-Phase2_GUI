@@ -24,5 +24,16 @@ namespace IOT1030_Phase2_GUI
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Handles the MouseDown event of the Window control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                this.DragMove();
+        }
     }
 }

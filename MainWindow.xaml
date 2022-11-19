@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:IOT1030_Phase2_GUI"
 		xmlns:viewModel="clr-namespace:IOT1030_Phase2_GUI.MVVM.ViewModel"
         mc:Ignorable="d"
+		MouseDown="Window_MouseDown"
+		ResizeMode="NoResize"
 		Height="600" 
 		Width="920"
 		WindowStyle="None"
@@ -35,13 +37,52 @@
 			</Grid.RowDefinitions>
 			
 			<!-- Window Title -->
-			<TextBlock Text="IOT-1030"
+			<TextBlock Text="IOT-1030 Project"
 					   VerticalAlignment="Center"
-					   HorizontalAlignment="Left"
+					   HorizontalAlignment="Center"
 					   Foreground="White"
 					   FontSize="22"
-					   Margin="20,0,0,0"/>
+					   FontFamily="Yu Gothic UI Semibold"/>
+
+			<Grid Grid.Row="0"
+				  Grid.Column="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="525"/>
+					<ColumnDefinition />
+					<ColumnDefinition />
+					<ColumnDefinition Width="20"/>
+				</Grid.ColumnDefinitions>
+
+				<!--Minimize button-->
+				<Button Margin="20"
+						Grid.Column="1"
+						Style="{StaticResource RoundedButtonTheme}"
+						Background="#FFAE7A0B"
+						Foreground="Black"
+						FontWeight="DemiBold"
+						FontSize="16"
+						BorderThickness="0"
+						Padding="10,0"
+						Content="-"
+						Command="{Binding MinimizeWindowCommand}" />
+
+				<!--Exit button-->
+				<Button Margin="20"
+						Grid.Column="2"
+						Style="{StaticResource RoundedButtonTheme}"
+						Background="#FF741D1D"
+						Foreground="Black"
+						FontWeight="DemiBold"
+						FontSize="16"
+						BorderThickness="0"
+						Padding="10,0"
+						Content="X"
+						Command="{Binding CloseWindowCommand}" />
+
+			</Grid>
+
 			
+
 			<!-- Panel for buttons -->
 			<StackPanel Grid.Row="1">
 				
@@ -51,16 +92,29 @@
 							 Height="50"
 							 Foreground="White"
 							 FontSize="14"
+							 FontFamily="Yu Gothic UI Semibold"
+							 IsChecked="True"
 							 Style="{StaticResource MenuButtonTheme}"
 							 Command="{Binding HomeViewCommand}"/>
 				
-				<!-- Phase 2 page button -->
-				<RadioButton Content="Phase 2"
+				<!-- Hero Creator page button -->
+				<RadioButton Content="Hero Creator"
 							 Height="50"
 							 Foreground="White"
 							 FontSize="14"
+							 FontFamily="Yu Gothic UI Semibold"
 							 Style="{StaticResource MenuButtonTheme}"
 							 Command=""/>
+				
+				<!-- My Heros page button -->
+				<RadioButton Content="My Heroes"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+							 FontFamily="Yu Gothic UI Semibold"
+							 Style="{StaticResource MenuButtonTheme}"
+							 Command="" />
+				
 			</StackPanel>
 			
 			<!-- Contains the current page -->
