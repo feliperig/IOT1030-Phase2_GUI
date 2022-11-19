@@ -12,11 +12,11 @@ This is the GUI for Phase 2 of our IOT1030 project
 - **Model**
 - **ViewModel**
 
-- *View*
+- *View:*
 The .xaml file responsible for defining UI elements
 
-- *Model*
+- *Model:*
 Represents the data access layer (I don't think this is used in our case)
 
-- *ViewModel*
+- *ViewModel:*
 Binds UI elements properties to code properties so functionality can be automated through property changes. This is where all the functions for the buttons are defined and where properties are defined.
