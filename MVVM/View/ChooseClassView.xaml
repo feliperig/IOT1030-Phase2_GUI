@@ -4,13 +4,152 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IOT1030_Phase2_GUI.MVVM.View"
-             mc:Ignorable="d" 
+			 xmlns:viewModel="clr-namespace:IOT1030_Phase2_GUI.MVVM.ViewModel"
+			 d:DataContext="{d:DesignInstance Type=viewModel:ChooseClassViewModel}"
+			 mc:Ignorable="d" 
              d:DesignHeight="450"
 			 d:DesignWidth="800">
 	<Grid Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		
 		<TextBlock Text="Choose a class for your hero!"
 				   Foreground="White"
 				   FontSize="30"
 				   FontFamily="Yu Gothic UI Semibold" />
+
+		<Grid Grid.Row="1">
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<Border Background="#112b4d"
+					CornerRadius="30"
+					Margin="10"
+					BorderThickness="3"
+					BorderBrush="Black">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition Height="50" />
+					</Grid.RowDefinitions>
+
+					<Image Source="/Images/KnightSprite.png" />
+					<TextBlock Text="Knight"
+							   HorizontalAlignment="Center"
+							   Foreground="White"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Row="1" />
+				</Grid>
+			</Border>
+			<Button Grid.Column="0" 
+					Grid.Row="0"
+					Style="{StaticResource RoundedClassButtonTheme}"
+					Background="Transparent"
+					Opacity="0.5"
+					Margin="10"
+					Command="{Binding KnightButtonCommand}"/>
+
+			<Border Background="#30114d"
+					CornerRadius="30"
+					Margin="10"
+					BorderThickness="3"
+					BorderBrush="Black"
+					Grid.Column="1">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition Height="50" />
+					</Grid.RowDefinitions>
+
+					<Image Source="/Images/WizardSprite.png" />
+					<TextBlock Text="Wizard"
+							   HorizontalAlignment="Center"
+							   Foreground="White"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Row="1" />
+				</Grid>
+			</Border>
+			<Button Grid.Column="1"
+					Grid.Row="0"
+					Style="{StaticResource RoundedClassButtonTheme}"
+					Background="Transparent"
+					Opacity="0.5"
+					Margin="10"
+					Command="{Binding WizardButtonCommand}"/>
+
+			<Border Background="#4d3511"
+					CornerRadius="30"
+					Margin="10"
+					BorderThickness="3"
+					BorderBrush="Black"
+					Grid.Column="2">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition Height="50" />
+					</Grid.RowDefinitions>
+
+					<Image Source="/Images/ArcherSprite.png" />
+					<TextBlock Text="Archer"
+							   HorizontalAlignment="Center"
+							   Foreground="White"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Row="1" />
+				</Grid>
+			</Border>
+			<Button Grid.Column="2"
+					Grid.Row="0"
+					Style="{StaticResource RoundedClassButtonTheme}"
+					Background="Transparent"
+					Opacity="0.5"
+					Margin="10"
+					Command="{Binding ArcherButtonCommand}" />
+
+			<Border Background="#294d11"
+					CornerRadius="30"
+					Margin="10"
+					BorderThickness="3"
+					BorderBrush="Black"
+					Grid.Column="1"
+					Grid.Row="1">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition Height="50" />
+					</Grid.RowDefinitions>
+
+					<Image Source="/Images/PlayerSprite.png" />
+					<TextBlock Text="Player"
+							   HorizontalAlignment="Center"
+							   Foreground="White"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Row="1" />
+				</Grid>
+			</Border>
+			<Button Grid.Column="1"
+					Grid.Row="1"
+					Style="{StaticResource RoundedClassButtonTheme}"
+					Background="Transparent"
+					Opacity="0.5"
+					Margin="10"
+					Command="{Binding PlayerButtonCommand}" />
+
+		</Grid>
 	</Grid>
 </UserControl>

@@ -12,6 +12,7 @@
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
 				<ResourceDictionary Source="Theme/RoundedButtonTheme.xaml" />
+				<ResourceDictionary Source="Theme/RoundedClassButtonTheme.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 
 			<!-- Connecting the Views to the ViewModels -->
@@ -26,6 +27,10 @@
 
 			<DataTemplate DataType="{x:Type viewModel:ChooseClassViewModel}">
 				<view:ChooseClassView />
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type viewModel:StatSelectionViewModel}">
+				<view:StatSelectionView />
 			</DataTemplate>
 
 		</ResourceDictionary>

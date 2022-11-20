@@ -31,13 +31,25 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 
         // Defining the ViewModels
         public ChooseClassViewModel ChooseClassVM;
+        public StatSelectionViewModel StatSelectionVM;
 
         /// <summary>
         /// Initializes the view models.
         /// </summary>
         private void InitializeViewModels()
         {
-            ChooseClassVM = new ChooseClassViewModel();
+            ChooseClassVM = new ChooseClassViewModel(this);
+            StatSelectionVM = new StatSelectionViewModel();
+        }
+
+        /// <summary>
+        /// Changes the page to the stats selection page.
+        /// </summary>
+        /// <param name="classSelection">The class selection.</param>
+        public void StatSelection(string classSelection)
+        {
+            StatSelectionVM.SetImagePathFromClassName(classSelection);
+            CurrentPage = StatSelectionVM;
         }
     }
 }
