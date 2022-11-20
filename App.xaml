@@ -20,6 +20,14 @@
 				<view:HomeView />
 			</DataTemplate>
 
+			<DataTemplate DataType="{x:Type viewModel:HeroCreatorViewModel}">
+				<view:HeroCreatorView />
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type viewModel:ChooseClassViewModel}">
+				<view:ChooseClassView />
+			</DataTemplate>
+
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

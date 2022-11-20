@@ -104,7 +104,7 @@
 							 FontSize="14"
 							 FontFamily="Yu Gothic UI Semibold"
 							 Style="{StaticResource MenuButtonTheme}"
-							 Command=""/>
+							 Command="{Binding HeroCreatorViewCommand}"/>
 				
 				<!-- My Heros page button -->
 				<RadioButton Content="My Heroes"

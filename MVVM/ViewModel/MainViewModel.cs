@@ -23,9 +23,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
-        // Defining the ViewModels (objects containing code for the CurrentView)
-        public HomeViewModel HomeVM;
-
         public MainViewModel()
         {
             InitializeViewModels();
@@ -35,16 +32,23 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             CurrentView = HomeVM;
         }
 
+        // Defining the ViewModels (objects containing code for the CurrentView)
+        public HomeViewModel HomeVM;
+        public HeroCreatorViewModel HeroCreatorVM;
+
         /// <summary>
         /// Initializes the view models.
         /// </summary>
         private void InitializeViewModels()
         {
             HomeVM = new HomeViewModel();
+            HeroCreatorVM = new HeroCreatorViewModel();
+
         }
 
         // Defining RelayCommands for UI buttons
         public RelayCommand HomeViewCommand { get; set; }
+        public RelayCommand HeroCreatorViewCommand { get; set; }
 
         public RelayCommand CloseWindowCommand { get; set; }
         public RelayCommand MinimizeWindowCommand { get; set; }
@@ -55,19 +59,25 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         private void InitializeCommands()
         {
             // This is how to define a command
-            HomeViewCommand = new RelayCommand(o =>
+            CloseWindowCommand = new RelayCommand(o =>
             {
                 // o can be referenced to get properties from the UI object that called this command!
                 // Any code in here is run when this command is called
-                CurrentView = HomeVM;
-            });
-            CloseWindowCommand = new RelayCommand(o =>
-            {
                 Application.Current.MainWindow.Close();
             });
             MinimizeWindowCommand = new RelayCommand(o =>
             {
                 Application.Current.MainWindow.WindowState = WindowState.Minimized;
+            });
+
+            // Page button commands
+            HomeViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = HomeVM;
+            });
+            HeroCreatorViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = HeroCreatorVM;
             });
         }
     }
