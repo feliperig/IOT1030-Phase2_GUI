@@ -260,7 +260,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-
+        
         private int _remainingPoints = 5;
         public string RemainingPoints
         {
@@ -317,6 +317,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         private string classSelection;
+        
         private HeroCreatorViewModel HeroCreatorVM;
 
         public StatSelectionViewModel(HeroCreatorViewModel HeroCreatorVM)
