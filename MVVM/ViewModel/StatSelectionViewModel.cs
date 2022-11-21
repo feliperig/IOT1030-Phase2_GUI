@@ -212,7 +212,21 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
-        private string classSelection;
+        private List<int> _heroStats = new List<int>() 
+        {
+            StrengthStat,
+            IntelligenceStat,
+            AgilityStat,
+            VitalityStat,
+            LuckStat,
+            MagicStat,
+            WeaponUseStat,
+            ParryStat,
+            DodgeStat,
+            StealthStat
+        };
+
+        private string _classSelection;
         private HeroCreatorViewModel HeroCreatorVM;
 
         public StatSelectionViewModel(HeroCreatorViewModel HeroCreatorVM)
@@ -227,7 +241,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             CreateCharacterButtonCommand = new RelayCommand(o =>
             {
-                HeroCreatorVM.CreateCharacter(new List<int>(), classSelection);
+                HeroCreatorVM.CreateCharacter(_heroStats, _classSelection);
             });
         }
 
