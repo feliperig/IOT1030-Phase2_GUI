@@ -36,7 +36,8 @@
 					FontSize="16"
 					BorderThickness="0"
 					Padding="10,0"
-					Content="Cancel" />
+					Content="Cancel"
+					Command=""/>
 
 			<TextBlock Text="Name:"
 					   HorizontalAlignment="Right"
@@ -55,7 +56,8 @@
 				 Background="#443b3b"
 				 Foreground="White"
 				 BorderThickness="3"
-				 BorderBrush="Black"/>
+				 BorderBrush="Black"
+				 Text="{Binding HeroName, UpdateSourceTrigger=PropertyChanged}"/>
 
 		<Grid Grid.Row="1">
 			<Grid.RowDefinitions>
@@ -118,7 +120,8 @@
 					FontSize="16"
 					BorderThickness="0"
 					Padding="10,0"
-					Content="Create Character!" />
+					Content="Create Character!"
+					Command="{Binding CreateCharacterButtonCommand}"/>
 		</Grid>
 
 		<Grid Grid.Row="1"
@@ -176,7 +179,7 @@
 					<TextBox Grid.Column="1"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="5"
+							 Text="{Binding StrengthStat, UpdateSourceTrigger=PropertyChanged}"
 							 Margin="5, 1, 5, 1"
 							 FontSize="20"
 							 FontFamily="Yu Gothic UI Semibold"

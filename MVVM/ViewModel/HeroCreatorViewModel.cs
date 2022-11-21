@@ -39,7 +39,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         private void InitializeViewModels()
         {
             ChooseClassVM = new ChooseClassViewModel(this);
-            StatSelectionVM = new StatSelectionViewModel();
+            StatSelectionVM = new StatSelectionViewModel(this);
         }
 
         /// <summary>
@@ -50,6 +50,16 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             StatSelectionVM.SetImagePathFromClassName(classSelection);
             CurrentPage = StatSelectionVM;
+        }
+
+        /// <summary>
+        /// Creates the character using the stats and class provided
+        /// </summary>
+        /// <param name="stats">The stats.</param>
+        /// <param name="classSelection">The class selection.</param>
+        public void CreateCharacter(List<int> stats, string classSelection, string heroName)
+        {
+
         }
     }
 }
