@@ -113,7 +113,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             if (string.IsNullOrEmpty(heroName))
             {
-                MessageBox.Show("You cannot have a blank character name!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("You cannot have a blank hero name!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
