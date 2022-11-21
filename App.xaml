@@ -33,6 +33,10 @@
 				<view:StatSelectionView />
 			</DataTemplate>
 
+			<DataTemplate DataType="{x:Type viewModel:HeroDisplayViewModel}">
+				<view:HeroDisplayView />
+			</DataTemplate>
+
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

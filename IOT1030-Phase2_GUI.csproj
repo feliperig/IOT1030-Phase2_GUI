@@ -77,6 +77,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\HeroDisplayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,6 +105,7 @@
   <ItemGroup>
     <Compile Include="MVVM\ViewModel\ChooseClassViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HeroCreatorViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\HeroDisplayViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\StatSelectionViewModel.cs" />
@@ -109,6 +114,9 @@
     </Compile>
     <Compile Include="MVVM\View\HeroCreatorView.xaml.cs">
       <DependentUpon>HeroCreatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\HeroDisplayView.xaml.cs">
+      <DependentUpon>HeroDisplayView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>

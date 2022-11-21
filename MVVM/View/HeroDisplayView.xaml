@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="IOT1030_Phase2_GUI.MVVM.View.HeroDisplayView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IOT1030_Phase2_GUI.MVVM.View"
+			 xmlns:viewModel="clr-namespace:IOT1030_Phase2_GUI.MVVM.ViewModel"
+			 d:DataContext="{d:DesignInstance Type=viewModel:HeroDisplayViewModel}"
+			 mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="700">
+    <Grid>
+		<!-- Go back button-->
+		<Button Margin="20"
+				Grid.Column="0"
+				Style="{StaticResource RoundedButtonTheme}"
+				Background="#FF3D5776"
+				Foreground="Black"
+				FontFamily="Yu Gothic UI Semibold"
+				FontSize="16"
+				BorderThickness="0"
+				Padding="10,0"
+				Content="Go back"
+				Command="{Binding GoBackButtonCommand}" />
+	</Grid>
+</UserControl>

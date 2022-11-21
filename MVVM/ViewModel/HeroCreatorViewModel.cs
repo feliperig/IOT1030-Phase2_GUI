@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml;
 using IOT1030_Phase2_GUI.Core;
 
@@ -22,6 +24,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HeroCreatorViewModel"/> class.
+        /// </summary>
         public HeroCreatorViewModel()
         {
             InitializeViewModels();
@@ -31,8 +36,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         // Defining the ViewModels
-        public ChooseClassViewModel ChooseClassVM;
-        public StatSelectionViewModel StatSelectionVM;
+        private ChooseClassViewModel ChooseClassVM;
+        private StatSelectionViewModel StatSelectionVM;
+        private HeroDisplayViewModel HeroDisplayVM; 
 
         /// <summary>
         /// Initializes the view models.
@@ -41,6 +47,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             ChooseClassVM = new ChooseClassViewModel(this);
             StatSelectionVM = new StatSelectionViewModel(this);
+            HeroDisplayVM = new HeroDisplayViewModel(this);
         }
 
         /// <summary>
@@ -71,7 +78,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// <param name="classSelection">The class selection.</param>
         public void CreateCharacter(List<int> stats, string classSelection, string heroName)
         {
-            using (XmlWriter writer = XmlWriter.Create("heroes.xml"))
+            if (!IsValidHeroName(heroName))
+                return;
+
+            using (XmlWriter writer = XmlWriter.Create(heroName + ".xml"))
             {
                 writer.WriteStartElement("hero");
                 writer.WriteAttributeString("name", heroName);
@@ -82,13 +92,45 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 writer.WriteAttributeString("Vitality", stats[3].ToString());
                 writer.WriteAttributeString("Luck", stats[4].ToString());
                 writer.WriteAttributeString("Magic", stats[5].ToString());
-                writer.WriteAttributeString("Weapon Use", stats[6].ToString());
+                writer.WriteAttributeString("WeaponUse", stats[6].ToString());
                 writer.WriteAttributeString("Parry", stats[7].ToString());
                 writer.WriteAttributeString("Dodge", stats[8].ToString());
                 writer.WriteAttributeString("Stealth", stats[9].ToString());
                 writer.WriteEndElement();
                 writer.WriteEndElement();
             }
+            CurrentPage = HeroDisplayVM;
+        }
+
+        /// <summary>
+        /// Determines whether [is valid hero name] [the specified hero name].
+        /// </summary>
+        /// <param name="heroName">Name of the hero.</param>
+        /// <returns>
+        ///   <c>true</c> if [is valid hero name] [the specified hero name]; otherwise, <c>false</c>.
+        /// </returns>
+        private bool IsValidHeroName(string heroName)
+        {
+            if (string.IsNullOrEmpty(heroName))
+            {
+                MessageBox.Show("You cannot have a blank character name!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if (heroName.IndexOfAny(Path.GetInvalidFileNameChars()) != -1)
+            {
+                MessageBox.Show("Your hero name contains an invalid character!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if (File.Exists(heroName + ".xml"))
+            {
+                var result = MessageBox.Show("A hero already exists with this name.\nWould you like to overwrite it?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.No)
+                    return false;
+            }
+
+            return true;
         }
     }
 }
