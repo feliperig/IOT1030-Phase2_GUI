@@ -297,8 +297,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         public bool CanEditStat
         {
             get { return _canEditStat; }
-            set 
-            { 
+            set
+            {
                 _canEditStat = value; 
                 OnPropertyChanged();
             }

@@ -330,7 +330,7 @@
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusAgility"
 							Command="{Binding EditStatButtonCommand}"
-							IsEnabled="{Binding CanEditStat}"/>
+							IsEnabled="{Binding CanEditStat}" />
 
 				</Grid>
 			</Border>
