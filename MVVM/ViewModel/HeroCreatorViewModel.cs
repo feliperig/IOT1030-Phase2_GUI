@@ -62,21 +62,21 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// <param name="classSelection">The class selection.</param>
         public void CreateCharacter(List<int> stats, string classSelection, string heroName)
         {
-            using(XmlWriter writer = XmlWriter.Create("heroes.xml"))
+            using (XmlWriter writer = XmlWriter.Create("heroes.xml"))
             {
                 writer.WriteStartElement("hero");
                 writer.WriteAttributeString("name", heroName);
                 writer.WriteStartElement("stats");
-                writer.WriteAttributeString("Strength", stats.Find(StrengthStat);
-                writer.WriteAttributeString("Intelligence", stats.Find(IntelligenceStat));
-                writer.WriteAttributeString("Agility", stats.Find(AgilityStat));
-                writer.WriteAttributeString("Vitality", stats.Find(VitalityStat));
-                writer.WriteAttributeString("Luck", stats.Find(LuckStat));
-                writer.WriteAttributeString("Magic", stats.Find(MagicStat));
-                writer.WriteAttributeString("Weapon Use", stats.Find(WeaponUseStat));
-                writer.WriteAttributeString("Parry", stats.Find(ParryStat));
-                writer.WriteAttributeString("Dodge", stats.Find(DodgeStat));
-                writer.WriteAttributeString("Stealth", stats.Find(StealthStat));
+                writer.WriteAttributeString("Strength", stats[0].ToString());
+                writer.WriteAttributeString("Intelligence", stats[1].ToString());
+                writer.WriteAttributeString("Agility", stats[2].ToString());
+                writer.WriteAttributeString("Vitality", stats[3].ToString());
+                writer.WriteAttributeString("Luck", stats[4].ToString());
+                writer.WriteAttributeString("Magic", stats[5].ToString());
+                writer.WriteAttributeString("Weapon Use", stats[6].ToString());
+                writer.WriteAttributeString("Parry", stats[7].ToString());
+                writer.WriteAttributeString("Dodge", stats[8].ToString());
+                writer.WriteAttributeString("Stealth", stats[9].ToString());
                 writer.WriteEndElement();
                 writer.WriteEndElement();
             }
