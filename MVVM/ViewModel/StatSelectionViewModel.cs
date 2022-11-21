@@ -40,6 +40,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 try
                 {
                     int newValue = int.Parse(value);
+                    if (newValue < 1)
+                        newValue = 1;
                     RemainingPoints = "" + (_remainingPoints + (_strengthStat - newValue));
                     _strengthStat = newValue;
                 }
@@ -61,6 +63,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 try
                 {
                     int newValue = int.Parse(value);
+                    if (newValue < 1)
+                        newValue = 1;
                     RemainingPoints = "" + (_remainingPoints + (_intelligenceStat - newValue));
                     _intelligenceStat = newValue;
                 }
@@ -82,6 +86,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 try
                 {
                     int newValue = int.Parse(value);
+                    if (newValue < 1)
+                        newValue = 1;
                     RemainingPoints = "" + (_remainingPoints + (_agilityStat - newValue));
                     _agilityStat = newValue;
                 }
@@ -103,6 +109,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 try
                 {
                     int newValue = int.Parse(value);
+                    if (newValue < 1)
+                        newValue = 1;
                     RemainingPoints = "" + (_remainingPoints + (_vitalityStat - newValue));
                     _vitalityStat = newValue;
                 }
@@ -124,6 +132,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 try
                 {
                     int newValue = int.Parse(value);
+                    if (newValue < 1)
+                        newValue = 1;
                     RemainingPoints = "" + (_remainingPoints + (_luckStat - newValue));
                     _luckStat = newValue;
                 }
@@ -145,6 +155,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 try
                 {
                     int newValue = int.Parse(value);
+                    if (newValue < 1)
+                        newValue = 1;
                     RemainingPoints = "" + (_remainingPoints + (_magicStat - newValue));
                     _magicStat = newValue;
                 }
@@ -166,6 +178,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 try
                 {
                     int newValue = int.Parse(value);
+                    if (newValue < 1)
+                        newValue = 1;
                     RemainingPoints = "" + (_remainingPoints + (_weaponUseStat - newValue));
                     _weaponUseStat = newValue;
                 }
@@ -187,6 +201,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 try
                 {
                     int newValue = int.Parse(value);
+                    if (newValue < 1)
+                        newValue = 1;
                     RemainingPoints = "" + (_remainingPoints + (_parryStat - newValue));
                     _parryStat = newValue;
                 }
@@ -208,6 +224,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 try
                 {
                     int newValue = int.Parse(value);
+                    if (newValue < 1)
+                        newValue = 1;
                     RemainingPoints = "" + (_remainingPoints + (_dodgeStat - newValue));
                     _dodgeStat = newValue;
                 }
@@ -229,6 +247,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 try
                 {
                     int newValue = int.Parse(value);
+                    if (newValue < 1)
+                        newValue = 1;
                     RemainingPoints = "" + (_remainingPoints + (_stealthStat - newValue));
                     _stealthStat = newValue;
                 }
@@ -354,16 +374,16 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 
         public void ClearStats()
         {
-            StrengthStat = "0";
-            IntelligenceStat = "0";
-            AgilityStat = "0";
-            VitalityStat = "0";
-            LuckStat = "0";
-            MagicStat = "0";
-            WeaponUseStat = "0";
-            ParryStat = "0";
-            DodgeStat = "0";
-            StealthStat = "0";
+            StrengthStat = "5";
+            IntelligenceStat = "5";
+            AgilityStat = "5";
+            VitalityStat = "5";
+            LuckStat = "5";
+            MagicStat = "5";
+            WeaponUseStat = "5";
+            ParryStat = "5";
+            DodgeStat = "5";
+            StealthStat = "5";
         }
     }
 }
