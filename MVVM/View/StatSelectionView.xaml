@@ -201,7 +201,8 @@
 							Opacity="0.5"
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusStrength"
-							Command="{Binding EditStatButtonCommand}"/>
+							Command="{Binding EditStatButtonCommand}"
+							IsEnabled="{Binding CanEditStat}"/>
 					
 				</Grid>
 			</Border>
@@ -264,7 +265,8 @@
 							Opacity="0.5"
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusIntelligence"
-							Command="{Binding EditStatButtonCommand}"/>
+							Command="{Binding EditStatButtonCommand}"
+							IsEnabled="{Binding CanEditStat}"/>
 
 				</Grid>
 			</Border >
@@ -327,7 +329,8 @@
 							Opacity="0.5"
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusAgility"
-							Command="{Binding EditStatButtonCommand}"/>
+							Command="{Binding EditStatButtonCommand}"
+							IsEnabled="{Binding CanEditStat}"/>
 
 				</Grid>
 			</Border>
@@ -390,7 +393,8 @@
 							Opacity="0.5"
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusVitality"
-							Command="{Binding EditStatButtonCommand}"/>
+							Command="{Binding EditStatButtonCommand}"
+							IsEnabled="{Binding CanEditStat}"/>
 
 				</Grid>
 			</Border>
@@ -453,7 +457,8 @@
 							Opacity="0.5"
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusLuck"
-							Command="{Binding EditStatButtonCommand}"/>
+							Command="{Binding EditStatButtonCommand}"
+							IsEnabled="{Binding CanEditStat}"/>
 
 				</Grid>
 			</Border>
@@ -516,7 +521,8 @@
 							Opacity="0.5"
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusMagic"
-							Command="{Binding EditStatButtonCommand}"/>
+							Command="{Binding EditStatButtonCommand}"
+							IsEnabled="{Binding CanEditStat}"/>
 
 				</Grid>
 			</Border>
@@ -579,7 +585,8 @@
 							Opacity="0.5"
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusWeaponUse"
-							Command="{Binding EditStatButtonCommand}"/>
+							Command="{Binding EditStatButtonCommand}"
+							IsEnabled="{Binding CanEditStat}"/>
 
 				</Grid>
 			</Border>
@@ -642,7 +649,8 @@
 							Opacity="0.5"
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusParry"
-							Command="{Binding EditStatButtonCommand}"/>
+							Command="{Binding EditStatButtonCommand}"
+							IsEnabled="{Binding CanEditStat}"/>
 
 				</Grid>
 			</Border>
@@ -705,7 +713,8 @@
 							Opacity="0.5"
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusDodge"
-							Command="{Binding EditStatButtonCommand}"/>
+							Command="{Binding EditStatButtonCommand}"
+							IsEnabled="{Binding CanEditStat}"/>
 
 				</Grid>
 			</Border>
@@ -768,7 +777,8 @@
 							Opacity="0.5"
 							Margin="10, 3, 15, 3"
 							CommandParameter="PlusStealth"
-							Command="{Binding EditStatButtonCommand}"/>
+							Command="{Binding EditStatButtonCommand}"
+							IsEnabled="{Binding CanEditStat}"/>
 
 				</Grid>
 			</Border>

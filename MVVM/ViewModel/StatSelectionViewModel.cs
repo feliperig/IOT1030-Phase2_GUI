@@ -275,12 +275,31 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 {
                     _remainingPoints = 0;
                 }
+                if (_remainingPoints < 0)
+                    _remainingPoints = 0;
 
                 if (_remainingPoints == 0)
+                {
                     CanCreateCharacter = true;
+                    CanEditStat= false;
+                }
                 else
+                {
                     CanCreateCharacter = false;
+                    CanEditStat = true;
+                }
+                OnPropertyChanged();
+            }
+        }
 
+        private bool _canEditStat;
+
+        public bool CanEditStat
+        {
+            get { return _canEditStat; }
+            set 
+            { 
+                _canEditStat = value; 
                 OnPropertyChanged();
             }
         }
@@ -296,7 +315,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-
 
         private string classSelection;
         private HeroCreatorViewModel HeroCreatorVM;
