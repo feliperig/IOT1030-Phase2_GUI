@@ -54,6 +54,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         if (newValue < 1)
                             newValue = 1;
                         RemainingPoints = "" + (_remainingPoints + (_strengthStat - newValue));
+                        if (_remainingPoints < 0)
+                        {
+                            newValue += _remainingPoints;
+                            RemainingPoints = "0";
+                        }
                         _strengthStat = newValue;
                     }
                     catch
@@ -80,6 +85,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         if (newValue < 1)
                             newValue = 1;
                         RemainingPoints = "" + (_remainingPoints + (_intelligenceStat - newValue));
+                        if (_remainingPoints < 0)
+                        {
+                            newValue += _remainingPoints;
+                            RemainingPoints = "0";
+                        }
                         _intelligenceStat = newValue;
                     }
                     catch
@@ -107,6 +117,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         if (newValue < 1)
                             newValue = 1;
                         RemainingPoints = "" + (_remainingPoints + (_agilityStat - newValue));
+                        if (_remainingPoints < 0)
+                        {
+                            newValue += _remainingPoints;
+                            RemainingPoints = "0";
+                        }
                         _agilityStat = newValue;
                     }
                     catch
@@ -133,6 +148,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         if (newValue < 1)
                             newValue = 1;
                         RemainingPoints = "" + (_remainingPoints + (_vitalityStat - newValue));
+                        if (_remainingPoints < 0)
+                        {
+                            newValue += _remainingPoints;
+                            RemainingPoints = "0";
+                        }
                         _vitalityStat = newValue;
                     }
                     catch
@@ -160,6 +180,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         if (newValue < 1)
                             newValue = 1;
                         RemainingPoints = "" + (_remainingPoints + (_luckStat - newValue));
+                        if (_remainingPoints < 0)
+                        {
+                            newValue += _remainingPoints;
+                            RemainingPoints = "0";
+                        }
                         _luckStat = newValue;
                     }
                     catch
@@ -186,6 +211,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         if (newValue < 1)
                             newValue = 1;
                         RemainingPoints = "" + (_remainingPoints + (_magicStat - newValue));
+                        if (_remainingPoints < 0)
+                        {
+                            newValue += _remainingPoints;
+                            RemainingPoints = "0";
+                        }
                         _magicStat = newValue;
                     }
                     catch
@@ -212,6 +242,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         if (newValue < 1)
                             newValue = 1;
                         RemainingPoints = "" + (_remainingPoints + (_weaponUseStat - newValue));
+                        if (_remainingPoints < 0)
+                        {
+                            newValue += _remainingPoints;
+                            RemainingPoints = "0";
+                        }
                         _weaponUseStat = newValue;
                     }
                     catch
@@ -238,6 +273,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         if (newValue < 1)
                             newValue = 1;
                         RemainingPoints = "" + (_remainingPoints + (_parryStat - newValue));
+                        if (_remainingPoints < 0)
+                        {
+                            newValue += _remainingPoints;
+                            RemainingPoints = "0";
+                        }
                         _parryStat = newValue;
                     }
                     catch
@@ -264,6 +304,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         if (newValue < 1)
                             newValue = 1;
                         RemainingPoints = "" + (_remainingPoints + (_dodgeStat - newValue));
+                        if (_remainingPoints < 0)
+                        {
+                            newValue += _remainingPoints;
+                            RemainingPoints = "0";
+                        }
                         _dodgeStat = newValue;
                     }
                     catch
@@ -290,6 +335,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         if (newValue < 1)
                             newValue = 1;
                         RemainingPoints = "" + (_remainingPoints + (_stealthStat - newValue));
+                        if(_remainingPoints < 0)
+                        {
+                            newValue += _remainingPoints;
+                            RemainingPoints = "0";
+                        }
                         _stealthStat = newValue;
                     }
                     catch
