@@ -46,20 +46,23 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             get { return "" + _strengthStat; }
             set
             {
-                try
+                if(value.Length < 3)
                 {
-                    int newValue = int.Parse(value);
-                    if (newValue < 1)
-                        newValue = 1;
-                    RemainingPoints = "" + (_remainingPoints + (_strengthStat - newValue));
-                    _strengthStat = newValue;
+                    try
+                    {
+                        int newValue = int.Parse(value);
+                        if (newValue < 1)
+                            newValue = 1;
+                        RemainingPoints = "" + (_remainingPoints + (_strengthStat - newValue));
+                        _strengthStat = newValue;
+                    }
+                    catch
+                    {
+                        RemainingPoints = "" + (_remainingPoints + _strengthStat - 1);
+                        _strengthStat = 1;
+                    }
+                    OnPropertyChanged();
                 }
-                catch
-                {
-                    RemainingPoints = "" + (_remainingPoints + _strengthStat);
-                    _strengthStat = 0;
-                }
-                OnPropertyChanged();
             }
         }
 
@@ -69,20 +72,24 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             get { return "" + _intelligenceStat; }
             set
             {
-                try
+                if (value.Length < 3)
                 {
-                    int newValue = int.Parse(value);
-                    if (newValue < 1)
-                        newValue = 1;
-                    RemainingPoints = "" + (_remainingPoints + (_intelligenceStat - newValue));
-                    _intelligenceStat = newValue;
+                    try
+                    {
+                        int newValue = int.Parse(value);
+                        if (newValue < 1)
+                            newValue = 1;
+                        RemainingPoints = "" + (_remainingPoints + (_intelligenceStat - newValue));
+                        _intelligenceStat = newValue;
+                    }
+                    catch
+                    {
+                        RemainingPoints = "" + (_remainingPoints + _intelligenceStat - 1);
+                        _intelligenceStat = 1;
+                    }
+                    OnPropertyChanged();
                 }
-                catch
-                {
-                    RemainingPoints = "" + (_remainingPoints + _intelligenceStat);
-                    _intelligenceStat = 0;
-                }
-                OnPropertyChanged();
+                
             }
         }
 
@@ -92,20 +99,23 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             get { return "" + _agilityStat; }
             set
             {
-                try
+                if (value.Length < 3)
                 {
-                    int newValue = int.Parse(value);
-                    if (newValue < 1)
-                        newValue = 1;
-                    RemainingPoints = "" + (_remainingPoints + (_agilityStat - newValue));
-                    _agilityStat = newValue;
+                    try
+                    {
+                        int newValue = int.Parse(value);
+                        if (newValue < 1)
+                            newValue = 1;
+                        RemainingPoints = "" + (_remainingPoints + (_agilityStat - newValue));
+                        _agilityStat = newValue;
+                    }
+                    catch
+                    {
+                        RemainingPoints = "" + (_remainingPoints + _agilityStat - 1);
+                        _agilityStat = 1;
+                    }
+                    OnPropertyChanged();
                 }
-                catch
-                {
-                    RemainingPoints = "" + (_remainingPoints + _agilityStat);
-                    _agilityStat = 0;
-                }
-                OnPropertyChanged();
             }
         }
 
@@ -115,21 +125,25 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             get { return "" + _vitalityStat; }
             set
             {
-                try
+                if (value.Length < 3)
                 {
-                    int newValue = int.Parse(value);
-                    if (newValue < 1)
-                        newValue = 1;
-                    RemainingPoints = "" + (_remainingPoints + (_vitalityStat - newValue));
-                    _vitalityStat = newValue;
+                    try
+                    {
+                        int newValue = int.Parse(value);
+                        if (newValue < 1)
+                            newValue = 1;
+                        RemainingPoints = "" + (_remainingPoints + (_vitalityStat - newValue));
+                        _vitalityStat = newValue;
+                    }
+                    catch
+                    {
+                        RemainingPoints = "" + (_remainingPoints + _vitalityStat - 1);
+                        _vitalityStat = 1;
+                    }
+                    OnPropertyChanged();
                 }
-                catch
-                {
-                    RemainingPoints = "" + (_remainingPoints + _vitalityStat);
-                    _vitalityStat = 0;
-                }
-                OnPropertyChanged();
             }
+                    
         }
 
         private int _luckStat = 5;
@@ -138,20 +152,23 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             get { return "" + _luckStat; }
             set
             {
-                try
+                if (value.Length < 3)
                 {
-                    int newValue = int.Parse(value);
-                    if (newValue < 1)
-                        newValue = 1;
-                    RemainingPoints = "" + (_remainingPoints + (_luckStat - newValue));
-                    _luckStat = newValue;
+                    try
+                    {
+                        int newValue = int.Parse(value);
+                        if (newValue < 1)
+                            newValue = 1;
+                        RemainingPoints = "" + (_remainingPoints + (_luckStat - newValue));
+                        _luckStat = newValue;
+                    }
+                    catch
+                    {
+                        RemainingPoints = "" + (_remainingPoints + _luckStat - 1);
+                        _luckStat = 1;
+                    }
+                    OnPropertyChanged();
                 }
-                catch
-                {
-                    RemainingPoints = "" + (_remainingPoints + _luckStat);
-                    _luckStat = 0;
-                }
-                OnPropertyChanged();
             }
         }
 
@@ -161,20 +178,23 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             get { return "" + _magicStat; }
             set
             {
-                try
+                if (value.Length < 3)
                 {
-                    int newValue = int.Parse(value);
-                    if (newValue < 1)
-                        newValue = 1;
-                    RemainingPoints = "" + (_remainingPoints + (_magicStat - newValue));
-                    _magicStat = newValue;
+                    try
+                    {
+                        int newValue = int.Parse(value);
+                        if (newValue < 1)
+                            newValue = 1;
+                        RemainingPoints = "" + (_remainingPoints + (_magicStat - newValue));
+                        _magicStat = newValue;
+                    }
+                    catch
+                    {
+                        RemainingPoints = "" + (_remainingPoints + _magicStat - 1);
+                        _magicStat = 1;
+                    }
+                    OnPropertyChanged();
                 }
-                catch
-                {
-                    RemainingPoints = "" + (_remainingPoints + _magicStat);
-                    _magicStat = 0;
-                }
-                OnPropertyChanged();
             }
         }
 
@@ -184,20 +204,23 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             get { return "" + _weaponUseStat; }
             set
             {
-                try
+                if (value.Length < 3)
                 {
-                    int newValue = int.Parse(value);
-                    if (newValue < 1)
-                        newValue = 1;
-                    RemainingPoints = "" + (_remainingPoints + (_weaponUseStat - newValue));
-                    _weaponUseStat = newValue;
+                    try
+                    {
+                        int newValue = int.Parse(value);
+                        if (newValue < 1)
+                            newValue = 1;
+                        RemainingPoints = "" + (_remainingPoints + (_weaponUseStat - newValue));
+                        _weaponUseStat = newValue;
+                    }
+                    catch
+                    {
+                        RemainingPoints = "" + (_remainingPoints + _weaponUseStat - 1);
+                        _weaponUseStat = 1;
+                    }
+                    OnPropertyChanged();
                 }
-                catch
-                {
-                    RemainingPoints = "" + (_remainingPoints + _weaponUseStat);
-                    _weaponUseStat = 0;
-                }
-                OnPropertyChanged();
             }
         }
 
@@ -207,20 +230,23 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             get { return "" + _parryStat; }
             set
             {
-                try
+                if (value.Length < 3)
                 {
-                    int newValue = int.Parse(value);
-                    if (newValue < 1)
-                        newValue = 1;
-                    RemainingPoints = "" + (_remainingPoints + (_parryStat - newValue));
-                    _parryStat = newValue;
+                    try
+                    {
+                        int newValue = int.Parse(value);
+                        if (newValue < 1)
+                            newValue = 1;
+                        RemainingPoints = "" + (_remainingPoints + (_parryStat - newValue));
+                        _parryStat = newValue;
+                    }
+                    catch
+                    {
+                        RemainingPoints = "" + (_remainingPoints + _parryStat - 1);
+                        _parryStat = 1;
+                    }
+                    OnPropertyChanged();
                 }
-                catch
-                {
-                    RemainingPoints = "" + (_remainingPoints + _parryStat);
-                    _parryStat = 0;
-                }
-                OnPropertyChanged();
             }
         }
 
@@ -230,20 +256,23 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             get { return "" + _dodgeStat; }
             set
             {
-                try
+                if (value.Length < 3)
                 {
-                    int newValue = int.Parse(value);
-                    if (newValue < 1)
-                        newValue = 1;
-                    RemainingPoints = "" + (_remainingPoints + (_dodgeStat - newValue));
-                    _dodgeStat = newValue;
+                    try
+                    {
+                        int newValue = int.Parse(value);
+                        if (newValue < 1)
+                            newValue = 1;
+                        RemainingPoints = "" + (_remainingPoints + (_dodgeStat - newValue));
+                        _dodgeStat = newValue;
+                    }
+                    catch
+                    {
+                        RemainingPoints = "" + (_remainingPoints + _dodgeStat - 1);
+                        _dodgeStat = 1;
+                    }
+                    OnPropertyChanged();
                 }
-                catch
-                {
-                    RemainingPoints = "" + (_remainingPoints + _dodgeStat);
-                    _dodgeStat = 0;
-                }
-                OnPropertyChanged();
             }
         }
 
@@ -253,20 +282,23 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             get { return "" + _stealthStat; }
             set
             {
-                try
+                if (value.Length < 3)
                 {
-                    int newValue = int.Parse(value);
-                    if (newValue < 1)
-                        newValue = 1;
-                    RemainingPoints = "" + (_remainingPoints + (_stealthStat - newValue));
-                    _stealthStat = newValue;
+                    try
+                    {
+                        int newValue = int.Parse(value);
+                        if (newValue < 1)
+                            newValue = 1;
+                        RemainingPoints = "" + (_remainingPoints + (_stealthStat - newValue));
+                        _stealthStat = newValue;
+                    }
+                    catch
+                    {
+                        RemainingPoints = "" + (_remainingPoints + _stealthStat - 1);
+                        _stealthStat = 1;
+                    }
+                    OnPropertyChanged();
                 }
-                catch
-                {
-                    RemainingPoints = "" + (_remainingPoints + _stealthStat);
-                    _stealthStat = 0;
-                }
-                OnPropertyChanged();
             }
         }
 
@@ -287,17 +319,22 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 {
                     _remainingPoints = 0;
                 }
-                if (_remainingPoints < 0)
-                    _remainingPoints = 0;
 
                 if (_remainingPoints == 0)
                 {
                     CanCreateCharacter = true;
-                    CanEditStat= false;
                 }
                 else
                 {
                     CanCreateCharacter = false;
+                }
+
+                if(_remainingPoints <= 0)
+                {
+                    CanEditStat = false;
+                }
+                else
+                {
                     CanEditStat = true;
                 }
                 OnPropertyChanged();
@@ -445,6 +482,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             ParryStat = "5";
             DodgeStat = "5";
             StealthStat = "5";
+            HeroName = "";
         }
     }
 }
