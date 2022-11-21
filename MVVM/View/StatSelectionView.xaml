@@ -37,7 +37,7 @@
 					BorderThickness="0"
 					Padding="10,0"
 					Content="Cancel"
-					Command=""/>
+					Command="{Binding CancelButtonCommand}"/>
 
 			<TextBlock Text="Name:"
 					   HorizontalAlignment="Right"
@@ -74,9 +74,8 @@
 					<RowDefinition />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition />
-					<ColumnDefinition Width="50"/>
-					<ColumnDefinition Width="40" />
+					<ColumnDefinition Width="255"/>
+					<ColumnDefinition Width="90" />
 				</Grid.ColumnDefinitions>
 
 				<TextBlock Text="Points remaining:"
@@ -88,7 +87,7 @@
 						   Grid.Column="0"
 						   Margin="10" />
 
-				<TextBlock Text="0"
+				<TextBlock Text="{Binding RemainingPoints}"
 						   HorizontalAlignment="Left"
 						   VerticalAlignment="Center"
 						   Foreground="White"
@@ -121,7 +120,8 @@
 					BorderThickness="0"
 					Padding="10,0"
 					Content="Create Character!"
-					Command="{Binding CreateCharacterButtonCommand}"/>
+					Command="{Binding CreateCharacterButtonCommand}"
+					IsEnabled="{Binding CanCreateCharacter}"/>
 		</Grid>
 
 		<Grid Grid.Row="1"
@@ -174,7 +174,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="15, 3, 10, 3"/>
+							Margin="15, 3, 10, 3"
+							CommandParameter="MinusStrength"
+							Command="{Binding EditStatButtonCommand}"/>
 
 					<TextBox Grid.Column="1"
 							 HorizontalContentAlignment="Center"
@@ -197,7 +199,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="10, 3, 15, 3" />
+							Margin="10, 3, 15, 3"
+							CommandParameter="PlusStrength"
+							Command="{Binding EditStatButtonCommand}"/>
 					
 				</Grid>
 			</Border>
@@ -233,13 +237,15 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="15, 3, 10, 3" />
+							Margin="15, 3, 10, 3"
+							CommandParameter="MinusIntelligence"
+							Command="{Binding EditStatButtonCommand}" />
 
 					<TextBox Grid.Column="1"
 							 Margin="5, 1, 5, 1"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="5"
+							 Text="{Binding IntelligenceStat, UpdateSourceTrigger=PropertyChanged}"
 							 FontSize="20"
 							 FontFamily="Yu Gothic UI Semibold"
 							 Background="#443b3b"
@@ -256,7 +262,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="10, 3, 15, 3" />
+							Margin="10, 3, 15, 3"
+							CommandParameter="PlusIntelligence"
+							Command="{Binding EditStatButtonCommand}"/>
 
 				</Grid>
 			</Border >
@@ -292,13 +300,15 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="15, 3, 10, 3" />
+							Margin="15, 3, 10, 3"
+							CommandParameter="MinusAgility"
+							Command="{Binding EditStatButtonCommand}"/>
 
 					<TextBox Grid.Column="1"
 							 Margin="5, 1, 5, 1"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="5"
+							 Text="{Binding AgilityStat, UpdateSourceTrigger=PropertyChanged}"
 							 FontSize="20"
 							 FontFamily="Yu Gothic UI Semibold"
 							 Background="#443b3b"
@@ -315,7 +325,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="10, 3, 15, 3" />
+							Margin="10, 3, 15, 3"
+							CommandParameter="PlusAgility"
+							Command="{Binding EditStatButtonCommand}"/>
 
 				</Grid>
 			</Border>
@@ -351,13 +363,15 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="15, 3, 10, 3" />
+							Margin="15, 3, 10, 3"
+							CommandParameter="MinusVitality"
+							Command="{Binding EditStatButtonCommand}"/>
 
 					<TextBox Grid.Column="1"
 							 Margin="5, 1, 5, 1"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="5"
+							 Text="{Binding VitalityStat, UpdateSourceTrigger=PropertyChanged}"
 							 FontSize="20"
 							 FontFamily="Yu Gothic UI Semibold"
 							 Background="#443b3b"
@@ -374,7 +388,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="10, 3, 15, 3" />
+							Margin="10, 3, 15, 3"
+							CommandParameter="PlusVitality"
+							Command="{Binding EditStatButtonCommand}"/>
 
 				</Grid>
 			</Border>
@@ -410,13 +426,15 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="15, 3, 10, 3" />
+							Margin="15, 3, 10, 3"
+							CommandParameter="MinusLuck"
+							Command="{Binding EditStatButtonCommand}"/>
 
 					<TextBox Grid.Column="1"
 							 Margin="5, 1, 5, 1"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="5"
+							 Text="{Binding LuckStat, UpdateSourceTrigger=PropertyChanged}"
 							 FontSize="20"
 							 FontFamily="Yu Gothic UI Semibold"
 							 Background="#443b3b"
@@ -433,7 +451,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="10, 3, 15, 3" />
+							Margin="10, 3, 15, 3"
+							CommandParameter="PlusLuck"
+							Command="{Binding EditStatButtonCommand}"/>
 
 				</Grid>
 			</Border>
@@ -469,19 +489,21 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="15, 3, 10, 3" />
+							Margin="15, 3, 10, 3"
+							CommandParameter="MinusMagic"
+							Command="{Binding EditStatButtonCommand}" />
 
 					<TextBox Grid.Column="1"
 							 Margin="5, 1, 5, 1"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="5"
+							 Text="{Binding MagicStat, UpdateSourceTrigger=PropertyChanged}"
 							 FontSize="20"
 							 FontFamily="Yu Gothic UI Semibold"
 							 Background="#443b3b"
 							 Foreground="White"
 							 BorderThickness="2"
-							 BorderBrush="Black" />
+							 BorderBrush="Black"/>
 
 					<Image Source="/Images/RightArrow.png"
 						   Grid.Column="2"
@@ -492,7 +514,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="10, 3, 15, 3" />
+							Margin="10, 3, 15, 3"
+							CommandParameter="PlusMagic"
+							Command="{Binding EditStatButtonCommand}"/>
 
 				</Grid>
 			</Border>
@@ -528,13 +552,15 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="15, 3, 10, 3" />
+							Margin="15, 3, 10, 3"
+							CommandParameter="MinusWeaponUse"
+							Command="{Binding EditStatButtonCommand}"/>
 
 					<TextBox Grid.Column="1"
 							 Margin="5, 1, 5, 1"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="5"
+							 Text="{Binding WeaponUseStat, UpdateSourceTrigger=PropertyChanged}"
 							 FontSize="20"
 							 FontFamily="Yu Gothic UI Semibold"
 							 Background="#443b3b"
@@ -551,7 +577,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="10, 3, 15, 3" />
+							Margin="10, 3, 15, 3"
+							CommandParameter="PlusWeaponUse"
+							Command="{Binding EditStatButtonCommand}"/>
 
 				</Grid>
 			</Border>
@@ -587,13 +615,15 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="15, 3, 10, 3" />
+							Margin="15, 3, 10, 3"
+							CommandParameter="MinusParry"
+							Command="{Binding EditStatButtonCommand}"/>
 
 					<TextBox Grid.Column="1"
 							 Margin="5, 1, 5, 1"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="5"
+							 Text="{Binding ParryStat, UpdateSourceTrigger=PropertyChanged}"
 							 FontSize="20"
 							 FontFamily="Yu Gothic UI Semibold"
 							 Background="#443b3b"
@@ -610,7 +640,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="10, 3, 15, 3" />
+							Margin="10, 3, 15, 3"
+							CommandParameter="PlusParry"
+							Command="{Binding EditStatButtonCommand}"/>
 
 				</Grid>
 			</Border>
@@ -646,13 +678,15 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="15, 3, 10, 3" />
+							Margin="15, 3, 10, 3"
+							CommandParameter="MinusDodge"
+							Command="{Binding EditStatButtonCommand}"/>
 
 					<TextBox Grid.Column="1"
 							 Margin="5, 1, 5, 1"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="5"
+							 Text="{Binding DodgeStat, UpdateSourceTrigger=PropertyChanged}"
 							 FontSize="20"
 							 FontFamily="Yu Gothic UI Semibold"
 							 Background="#443b3b"
@@ -669,7 +703,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="10, 3, 15, 3" />
+							Margin="10, 3, 15, 3"
+							CommandParameter="PlusDodge"
+							Command="{Binding EditStatButtonCommand}"/>
 
 				</Grid>
 			</Border>
@@ -705,13 +741,15 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="15, 3, 10, 3" />
+							Margin="15, 3, 10, 3"
+							CommandParameter="MinusStealth"
+							Command="{Binding EditStatButtonCommand}"/>
 
 					<TextBox Grid.Column="1"
 							 Margin="5, 1, 5, 1"
 							 HorizontalContentAlignment="Center"
 							 VerticalContentAlignment="Center"
-							 Text="5"
+							 Text="{Binding StealthStat, UpdateSourceTrigger=PropertyChanged}"
 							 FontSize="20"
 							 FontFamily="Yu Gothic UI Semibold"
 							 Background="#443b3b"
@@ -728,7 +766,9 @@
 							Style="{StaticResource RoundedButtonTheme}"
 							Background="Transparent"
 							Opacity="0.5"
-							Margin="10, 3, 15, 3" />
+							Margin="10, 3, 15, 3"
+							CommandParameter="PlusStealth"
+							Command="{Binding EditStatButtonCommand}"/>
 
 				</Grid>
 			</Border>

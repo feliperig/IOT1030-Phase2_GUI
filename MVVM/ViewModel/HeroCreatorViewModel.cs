@@ -43,11 +43,20 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         /// <summary>
+        /// Goes the back to choose class page.
+        /// </summary>
+        public void GoBackToChooseClass()
+        {
+            CurrentPage = ChooseClassVM;
+        }
+
+        /// <summary>
         /// Changes the page to the stats selection page.
         /// </summary>
         /// <param name="classSelection">The class selection.</param>
         public void StatSelection(string classSelection)
         {
+            StatSelectionVM.ClearStats();
             StatSelectionVM.SetImagePathFromClassName(classSelection);
             CurrentPage = StatSelectionVM;
         }

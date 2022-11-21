@@ -31,7 +31,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
-
         private int _strengthStat = 5;
         public string StrengthStat
         {
@@ -40,10 +39,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 try
                 {
-                    _strengthStat = int.Parse(value);
+                    int newValue = int.Parse(value);
+                    RemainingPoints = "" + (_remainingPoints + (_strengthStat - newValue));
+                    _strengthStat = newValue;
                 }
                 catch
                 {
+                    RemainingPoints = "" + (_remainingPoints + _strengthStat);
                     _strengthStat = 0;
                 }
                 OnPropertyChanged();
@@ -58,10 +60,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 try
                 {
-                    _intelligenceStat = int.Parse(value);
+                    int newValue = int.Parse(value);
+                    RemainingPoints = "" + (_remainingPoints + (_intelligenceStat - newValue));
+                    _intelligenceStat = newValue;
                 }
                 catch
                 {
+                    RemainingPoints = "" + (_remainingPoints + _intelligenceStat);
                     _intelligenceStat = 0;
                 }
                 OnPropertyChanged();
@@ -76,10 +81,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 try
                 {
-                    _agilityStat = int.Parse(value);
+                    int newValue = int.Parse(value);
+                    RemainingPoints = "" + (_remainingPoints + (_agilityStat - newValue));
+                    _agilityStat = newValue;
                 }
                 catch
                 {
+                    RemainingPoints = "" + (_remainingPoints + _agilityStat);
                     _agilityStat = 0;
                 }
                 OnPropertyChanged();
@@ -94,10 +102,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 try
                 {
-                    _vitalityStat = int.Parse(value);
+                    int newValue = int.Parse(value);
+                    RemainingPoints = "" + (_remainingPoints + (_vitalityStat - newValue));
+                    _vitalityStat = newValue;
                 }
                 catch
                 {
+                    RemainingPoints = "" + (_remainingPoints + _vitalityStat);
                     _vitalityStat = 0;
                 }
                 OnPropertyChanged();
@@ -112,10 +123,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 try
                 {
-                    _luckStat = int.Parse(value);
+                    int newValue = int.Parse(value);
+                    RemainingPoints = "" + (_remainingPoints + (_luckStat - newValue));
+                    _luckStat = newValue;
                 }
                 catch
                 {
+                    RemainingPoints = "" + (_remainingPoints + _luckStat);
                     _luckStat = 0;
                 }
                 OnPropertyChanged();
@@ -130,10 +144,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 try
                 {
-                    _magicStat = int.Parse(value);
+                    int newValue = int.Parse(value);
+                    RemainingPoints = "" + (_remainingPoints + (_magicStat - newValue));
+                    _magicStat = newValue;
                 }
                 catch
                 {
+                    RemainingPoints = "" + (_remainingPoints + _magicStat);
                     _magicStat = 0;
                 }
                 OnPropertyChanged();
@@ -148,10 +165,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 try
                 {
-                    _weaponUseStat = int.Parse(value);
+                    int newValue = int.Parse(value);
+                    RemainingPoints = "" + (_remainingPoints + (_weaponUseStat - newValue));
+                    _weaponUseStat = newValue;
                 }
                 catch
                 {
+                    RemainingPoints = "" + (_remainingPoints + _weaponUseStat);
                     _weaponUseStat = 0;
                 }
                 OnPropertyChanged();
@@ -166,10 +186,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 try
                 {
-                    _parryStat = int.Parse(value);
+                    int newValue = int.Parse(value);
+                    RemainingPoints = "" + (_remainingPoints + (_parryStat - newValue));
+                    _parryStat = newValue;
                 }
                 catch
                 {
+                    RemainingPoints = "" + (_remainingPoints + _parryStat);
                     _parryStat = 0;
                 }
                 OnPropertyChanged();
@@ -184,10 +207,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 try
                 {
-                    _dodgeStat = int.Parse(value);
+                    int newValue = int.Parse(value);
+                    RemainingPoints = "" + (_remainingPoints + (_dodgeStat - newValue));
+                    _dodgeStat = newValue;
                 }
                 catch
                 {
+                    RemainingPoints = "" + (_remainingPoints + _dodgeStat);
                     _dodgeStat = 0;
                 }
                 OnPropertyChanged();
@@ -202,15 +228,55 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 try
                 {
-                    _stealthStat = int.Parse(value);
+                    int newValue = int.Parse(value);
+                    RemainingPoints = "" + (_remainingPoints + (_stealthStat - newValue));
+                    _stealthStat = newValue;
                 }
                 catch
                 {
+                    RemainingPoints = "" + (_remainingPoints + _stealthStat);
                     _stealthStat = 0;
                 }
                 OnPropertyChanged();
             }
         }
+
+        private int _remainingPoints = 5;
+        public string RemainingPoints
+        {
+            get { return "" + _remainingPoints; }
+            set
+            {
+                try
+                {
+                    _remainingPoints = int.Parse(value);
+                }
+                catch
+                {
+                    _remainingPoints = 0;
+                }
+
+                if (_remainingPoints == 0)
+                    CanCreateCharacter = true;
+                else
+                    CanCreateCharacter = false;
+
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _canCreateCharacter;
+
+        public bool CanCreateCharacter
+        {
+            get { return _canCreateCharacter; }
+            set
+            {
+                _canCreateCharacter = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private string classSelection;
         private HeroCreatorViewModel HeroCreatorVM;
@@ -222,12 +288,61 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         public RelayCommand CreateCharacterButtonCommand { get; set; }
+        public RelayCommand EditStatButtonCommand { get; set; }
+        public RelayCommand CancelButtonCommand { get; set; }
 
         public void InitializeCommands()
         {
             CreateCharacterButtonCommand = new RelayCommand(o =>
             {
-                HeroCreatorVM.CreateCharacter(new List<int>(), classSelection);
+                List<int> stats = new List<int>
+                {
+                    _strengthStat,
+                    _intelligenceStat,
+                    _agilityStat,
+                    _vitalityStat,
+                    _luckStat,
+                    _magicStat,
+                    _weaponUseStat,
+                    _parryStat,
+                    _dodgeStat,
+                    _stealthStat
+                };
+                HeroCreatorVM.CreateCharacter(stats, classSelection, HeroName);
+            });
+            EditStatButtonCommand = new RelayCommand(o =>
+            {
+                string buttonName = (string)o;
+                int amountToAdd = 0;
+                if (buttonName.StartsWith("Plus"))
+                    amountToAdd = 1;
+                else if (buttonName.StartsWith("Minus"))
+                    amountToAdd = -1;
+
+                if(buttonName.EndsWith("Strength"))
+                    StrengthStat = "" + (_strengthStat + amountToAdd);
+                else if (buttonName.EndsWith("Intelligence"))
+                    IntelligenceStat = "" + (_intelligenceStat + amountToAdd);
+                else if (buttonName.EndsWith("Agility"))
+                    AgilityStat = "" + (_agilityStat + amountToAdd);
+                else if (buttonName.EndsWith("Vitality"))
+                    VitalityStat = "" + (_vitalityStat + amountToAdd);
+                else if (buttonName.EndsWith("Luck"))
+                    LuckStat = "" + (_luckStat + amountToAdd);
+                else if (buttonName.EndsWith("Magic"))
+                    MagicStat = "" + (_magicStat + amountToAdd);
+                else if (buttonName.EndsWith("WeaponUse"))
+                    WeaponUseStat = "" + (_weaponUseStat + amountToAdd);
+                else if (buttonName.EndsWith("Parry"))
+                    ParryStat = "" + (_parryStat + amountToAdd);
+                else if (buttonName.EndsWith("Dodge"))
+                    DodgeStat = "" + (_dodgeStat + amountToAdd);
+                else if (buttonName.EndsWith("Stealth"))
+                    StealthStat = "" + (_stealthStat + amountToAdd);
+            });
+            CancelButtonCommand = new RelayCommand(o =>
+            {
+                HeroCreatorVM.GoBackToChooseClass();
             });
         }
 
@@ -235,6 +350,20 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             this.classSelection = classSelection;
             ImagePath = "/Images/" + classSelection + "Sprite.png";
+        }
+
+        public void ClearStats()
+        {
+            StrengthStat = "0";
+            IntelligenceStat = "0";
+            AgilityStat = "0";
+            VitalityStat = "0";
+            LuckStat = "0";
+            MagicStat = "0";
+            WeaponUseStat = "0";
+            ParryStat = "0";
+            DodgeStat = "0";
+            StealthStat = "0";
         }
     }
 }

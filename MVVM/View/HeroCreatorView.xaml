@@ -12,7 +12,7 @@
 	
 	<Border Background="#383a46"
 			CornerRadius="30">
-		<ContentControl Content="{Binding CurrentPage}" />
+		<ContentControl Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}" />
 	</Border>
 	
 </UserControl>
