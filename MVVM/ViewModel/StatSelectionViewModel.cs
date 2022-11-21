@@ -9,6 +9,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 {
     class StatSelectionViewModel : ObservableObject
     {
+        /// <summary>
+        /// The image path for the class icon
+        /// </summary>
         private object _imagePath;
         public object ImagePath
         {
@@ -20,6 +23,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The hero's name
+        /// </summary>
         private string _heroName;
         public string HeroName
         {
@@ -31,6 +37,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Character Stats
+        /// </summary>
         private int _strengthStat = 5;
         public string StrengthStat
         {
@@ -260,7 +269,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-        
+
+        /// <summary>
+        /// The remaining points left to allocate
+        /// </summary>
         private int _remainingPoints = 5;
         public string RemainingPoints
         {
@@ -292,8 +304,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Enables edit buttons
+        /// </summary>
         private bool _canEditStat;
-
         public bool CanEditStat
         {
             get { return _canEditStat; }
@@ -303,9 +317,14 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-
         private bool _canCreateCharacter;
 
+        /// <summary>
+        /// Enables the "Create Character" button
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance can create character; otherwise, <c>false</c>.
+        /// </value>
         public bool CanCreateCharacter
         {
             get { return _canCreateCharacter; }
@@ -316,20 +335,36 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The class selection
+        /// </summary>
         private string classSelection;
-        
+
+        /// <summary>
+        /// Defining the ViewModels
+        /// </summary>
         private HeroCreatorViewModel HeroCreatorVM;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StatSelectionViewModel"/> class.
+        /// </summary>
+        /// <param name="HeroCreatorVM">The hero creator vm.</param>
         public StatSelectionViewModel(HeroCreatorViewModel HeroCreatorVM)
         {
             this.HeroCreatorVM = HeroCreatorVM;
             InitializeCommands();
         }
 
+        /// <summary>
+        /// Defining the RelayCommands for the buttons
+        /// </summary>
         public RelayCommand CreateCharacterButtonCommand { get; set; }
         public RelayCommand EditStatButtonCommand { get; set; }
         public RelayCommand CancelButtonCommand { get; set; }
 
+        /// <summary>
+        /// Initializes the commands for the button RelayCommands
+        /// </summary>
         public void InitializeCommands()
         {
             CreateCharacterButtonCommand = new RelayCommand(o =>
@@ -385,12 +420,19 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             });
         }
 
+        /// <summary>
+        /// Sets the name of the image path from the selected class name.
+        /// </summary>
+        /// <param name="classSelection">The class selection.</param>
         public void SetImagePathFromClassName(string classSelection)
         {
             this.classSelection = classSelection;
             ImagePath = "/Images/" + classSelection + "Sprite.png";
         }
 
+        /// <summary>
+        /// Clears the stats.
+        /// </summary>
         public void ClearStats()
         {
             StrengthStat = "5";
