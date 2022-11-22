@@ -10,6 +10,20 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
     class HeroDisplayViewModel : ObservableObject
     {
         /// <summary>
+        /// The image path for the class icon
+        /// </summary>
+        private object _imagePath;
+        public object ImagePath
+        {
+            get { return _imagePath; }
+            set
+            {
+                _imagePath = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
         /// The parent ViewModel
         /// </summary>
         private object ParentVM;

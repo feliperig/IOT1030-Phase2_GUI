@@ -81,7 +81,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             if (!IsValidHeroName(heroName))
                 return;
 
-            using (XmlWriter writer = XmlWriter.Create(heroName + ".xml"))
+            using (XmlWriter writer = XmlWriter.Create("../Heroes/" + heroName + ".xml"))
             {
                 writer.WriteStartElement("hero");
                 writer.WriteAttributeString("name", heroName);
@@ -99,6 +99,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 writer.WriteEndElement();
                 writer.WriteEndElement();
             }
+
             CurrentPage = HeroDisplayVM;
         }
 
@@ -123,7 +124,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 return false;
             }
 
-            if (File.Exists(heroName + ".xml"))
+            if (File.Exists("../Heroes/" + heroName + ".xml"))
             {
                 var result = MessageBox.Show("A hero already exists with this name.\nWould you like to overwrite it?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.No)

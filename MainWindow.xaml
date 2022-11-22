@@ -85,7 +85,6 @@
 
 			<!-- Panel for buttons -->
 			<StackPanel Grid.Row="1">
-				
 				<!-- Home page button -->
 				<!-- This is also an example on how to apply themes -->
 				<RadioButton Content="Home" 
