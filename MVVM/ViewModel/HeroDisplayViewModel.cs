@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        public ObservableCollection<int> StatsList;
+
         /// <summary>
         /// The parent ViewModel
         /// </summary>
@@ -36,6 +39,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             this.ParentVM = ParentVM;
             InitializeCommands();
+            
         }
 
         /// <summary>
