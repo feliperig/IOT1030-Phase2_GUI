@@ -9,25 +9,25 @@ namespace IOT1030_Phase2_GUI.Core
 {
     public class HeroStats
     {
-        public List<int> stats { get; set; }
-        public string heroName { get; set; }
-        public string className { get; set; }
+        public List<int> Stats { get; set; }
+        public string HeroName { get; set; }
+        public string ClassName { get; set; }
 
         public HeroStats(List<int> stats, string heroName, string className) 
         {
-            this.stats = stats;
-            this.heroName = heroName;
-            this.className = className;
+            this.Stats = stats;
+            this.HeroName = heroName;
+            this.ClassName = className;
         }
 
         public HeroStats()
         {
-            stats = new List<int>
+            Stats = new List<int>
             {
                 5,5,5,5,5,5,5,5,5,5
             };
-            heroName = "None";
-            className = "None";
+            HeroName = "None";
+            ClassName = "None";
         }
     }
 }

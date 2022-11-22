@@ -35,10 +35,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         string jsonString = File.ReadAllText(filePath);
                         HeroStats hero = JsonSerializer.Deserialize<HeroStats>(jsonString);
                         Console.WriteLine("Found saved hero:");
-                        Console.WriteLine("Name: " + hero.heroName + "\nClass: " + hero.className);
+                        Console.WriteLine("Name: " + hero.HeroName + "\nClass: " + hero.ClassName);
                         Console.Write("Stats: ");
                         string statsOutput = "";
-                        foreach (int i in hero.stats)
+                        foreach (int i in hero.Stats)
                         {
                             statsOutput += i + ",";
                         }
