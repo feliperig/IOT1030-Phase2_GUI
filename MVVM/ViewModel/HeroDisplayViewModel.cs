@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using IOT1030_Phase2_GUI.Core;
@@ -49,12 +50,20 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             this.ParentVM = ParentVM;
             InitializeCommands();
+            _attackDescriptions = new List<string>
+            { 
+                "Description 1",
+                "Description 2",
+                "Description 3",
+                "Description 4"
+            };
         }
 
         /// <summary>
         /// Defining the RelayCommands for the buttons
         /// </summary>
         public RelayCommand GoBackButtonCommand { get; set; }
+        public RelayCommand DescriptionButtonCommand { get; set; }
 
         /// <summary>
         /// Initializes the RelayCommands for the buttons
@@ -65,6 +74,37 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 GoBackButton();
             });
+
+            DescriptionButtonCommand = new RelayCommand(o => 
+            {
+                int index = int.Parse((string)o);
+                DescriptionButton(index);
+            });
+        }
+
+        private string _descriptionText;
+
+        public string DescriptionText
+        {
+            get { return _descriptionText; }
+            set 
+            { 
+                _descriptionText = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private List<string> _attackDescriptions;
+
+        /// <summary>
+        /// Description for character attack
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void DescriptionButton(int index)
+        {
+            if (index > _attackDescriptions.Count - 1)
+                return;
+            DescriptionText = _attackDescriptions[index];
         }
 
         /// <summary>
@@ -77,6 +117,15 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 HeroCreatorViewModel HeroCreatorVM = (HeroCreatorViewModel)ParentVM;
                 HeroCreatorVM.GoBackToChooseClass();
             }
+        }
+
+        /// <summary>
+        /// Get list of stats from created hero
+        /// </summary>
+        /// <param name="heroName">Hero name for stats</param>
+        public void GetStatsList(string heroName) 
+        { 
+
         }
     }
 }

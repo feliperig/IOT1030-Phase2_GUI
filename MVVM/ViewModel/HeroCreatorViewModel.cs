@@ -81,6 +81,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             if (!IsValidHeroName(heroName))
                 return;
+            if (!Directory.Exists("../Heroes"))
+            {
+                Directory.CreateDirectory("../Heroes");
+            }
 
             using (XmlWriter writer = XmlWriter.Create("../Heroes/" + heroName + ".xml"))
             {
