@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -100,6 +101,19 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 writer.WriteEndElement();
             }
 
+            ObservableCollection<int> StatsList = new ObservableCollection<int>
+            {
+                stats[0],
+                stats[1],
+                stats[2],
+                stats[3],
+                stats[4],
+                stats[5],
+                stats[6],
+                stats[7],
+                stats[8],
+                stats[9],
+            };
             CurrentPage = HeroDisplayVM;
         }
 

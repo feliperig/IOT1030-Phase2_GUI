@@ -24,7 +24,17 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
-        public ObservableCollection<int> StatsList;
+
+        private ObservableCollection<int> _statsList;
+        public ObservableCollection<int> StatsList
+        {
+            get { return _statsList; }
+            set
+            {
+                _statsList = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// The parent ViewModel
@@ -39,7 +49,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             this.ParentVM = ParentVM;
             InitializeCommands();
-            
         }
 
         /// <summary>
