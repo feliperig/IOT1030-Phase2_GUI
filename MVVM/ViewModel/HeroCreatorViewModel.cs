@@ -4,9 +4,11 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml;
+using System.Xml.Serialization;
 using IOT1030_Phase2_GUI.Core;
 
 namespace IOT1030_Phase2_GUI.MVVM.ViewModel
@@ -84,8 +86,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             if (!Directory.Exists("../Heroes"))
             {
                 Directory.CreateDirectory("../Heroes");
-            }
+            };
 
+            HeroStats hero = new HeroStats(stats, heroName, classSelection);
+            string jsonString = JsonSerializer.Serialize(hero);
+            File.WriteAllText("../Heroes/" + heroName + ".json", jsonString);
+
+            /*
             using (XmlWriter writer = XmlWriter.Create("../Heroes/" + heroName + ".xml"))
             {
                 writer.WriteStartElement("hero");
@@ -104,6 +111,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 writer.WriteEndElement();
                 writer.WriteEndElement();
             }
+            */
 
             ObservableCollection<int> StatsList = new ObservableCollection<int>
             {
@@ -118,6 +126,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 stats[8],
                 stats[9],
             };
+            HeroDisplayVM.StatsList = StatsList;
+            HeroDisplayVM.HeroName = heroName;
             CurrentPage = HeroDisplayVM;
         }
 

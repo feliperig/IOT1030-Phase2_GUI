@@ -7,17 +7,27 @@ using System.Threading.Tasks;
 
 namespace IOT1030_Phase2_GUI.Core
 {
-    class HeroStats
+    public class HeroStats
     {
-        public List<int> Stats { get; set; }
-
-        public string _heroName;
-
-        public string _className;
+        public List<int> stats { get; set; }
+        public string heroName { get; set; }
+        public string className { get; set; }
 
         public HeroStats(List<int> stats, string heroName, string className) 
         {
-            Stats = new List<int>();
+            this.stats = stats;
+            this.heroName = heroName;
+            this.className = className;
+        }
+
+        public HeroStats()
+        {
+            stats = new List<int>
+            {
+                5,5,5,5,5,5,5,5,5,5
+            };
+            heroName = "None";
+            className = "None";
         }
     }
 }

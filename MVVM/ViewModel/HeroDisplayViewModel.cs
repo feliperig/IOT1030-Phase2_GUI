@@ -25,6 +25,20 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The hero name
+        /// </summary>
+        private string _heroName;
+        public string HeroName
+        {
+            get { return _heroName; }
+            set
+            {
+                _heroName = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private ObservableCollection<int> _statsList;
         public ObservableCollection<int> StatsList
