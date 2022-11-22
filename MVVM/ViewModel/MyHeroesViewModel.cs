@@ -13,14 +13,50 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 {
     class MyHeroesViewModel : ObservableObject
     {
-        private ObservableCollection<HeroStats> Heroes;
+        /// <summary>
+        /// The heroes data provided to the datagrid
+        /// </summary>
+        private ObservableCollection<HeroStats> _heroes;
+        public ObservableCollection<HeroStats> Heroes
+        {
+            get { return _heroes; }
+            set
+            {
+                _heroes = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private MainViewModel mainVM;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MyHeroesViewModel"/> class.
         /// </summary>
-        public MyHeroesViewModel()
+        public MyHeroesViewModel(MainViewModel mainVM)
         {
+            this.mainVM = mainVM;
             Heroes = new ObservableCollection<HeroStats>();
+            InitializeCommands();
+        }
+
+        public RelayCommand HeroDisplayCommand { get; set; }
+
+        /// <summary>
+        /// Initializes the commands.
+        /// </summary>
+        private void InitializeCommands()
+        {
+            HeroDisplayCommand = new RelayCommand(o =>
+            {
+                foreach(HeroStats hero in Heroes)
+                {
+                    if(hero.HeroName == (string)o)
+                    {
+                        mainVM.ShowHeroDisplay(hero);
+                        break;
+                    }
+                }
+            });
         }
 
         public void GetHeroes()

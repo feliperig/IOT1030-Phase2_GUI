@@ -13,6 +13,14 @@ namespace IOT1030_Phase2_GUI.Core
         public string HeroName { get; set; }
         public string ClassName { get; set; }
 
+        public string ImagePath
+        {
+            get
+            {
+                return "/Images/" + ClassName + "Sprite.png";
+            }
+        }
+
         public HeroStats(List<int> stats, string heroName, string className) 
         {
             this.Stats = stats;

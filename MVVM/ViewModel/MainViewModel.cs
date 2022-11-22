@@ -36,6 +36,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         public HomeViewModel HomeVM;
         public HeroCreatorViewModel HeroCreatorVM;
         public MyHeroesViewModel MyHeroesVM;
+        public HeroDisplayViewModel HeroDisplayVM;
 
         /// <summary>
         /// Initializes the view models.
@@ -44,7 +45,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             HomeVM = new HomeViewModel();
             HeroCreatorVM = new HeroCreatorViewModel();
-            MyHeroesVM = new MyHeroesViewModel();
+            HeroDisplayVM = new HeroDisplayViewModel(this);
+            MyHeroesVM = new MyHeroesViewModel(this);
         }
 
         // Defining RelayCommands for UI buttons
@@ -86,6 +88,26 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 MyHeroesVM.GetHeroes();
                 CurrentView = MyHeroesVM;
             });
+        }
+
+        /// <summary>
+        /// Shows the hero display.
+        /// </summary>
+        /// <param name="hero">The hero.</param>
+        public void ShowHeroDisplay(HeroStats hero)
+        {
+            HeroDisplayVM.HeroName = hero.HeroName;
+            HeroDisplayVM.SetStatsList(hero.Stats);
+            HeroDisplayVM.SetImagePathFromClassName(hero.ClassName);
+            CurrentView = HeroDisplayVM;
+        }
+
+        /// <summary>
+        /// Goes back to my heroes page.
+        /// </summary>
+        public void GoBackToMyHeroes()
+        {
+            CurrentView = MyHeroesVM;
         }
     }
 }

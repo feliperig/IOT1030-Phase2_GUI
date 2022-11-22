@@ -39,6 +39,19 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        private string _classSelection;
+
+        public string ClassSelection
+        {
+            get { return _classSelection; }
+            set
+            {
+                _classSelection = value;
+                OnPropertyChanged();
+            }
+        }
+
+
 
         private ObservableCollection<int> _statsList;
         public ObservableCollection<int> StatsList
@@ -130,6 +143,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 HeroCreatorViewModel HeroCreatorVM = (HeroCreatorViewModel)ParentVM;
                 HeroCreatorVM.GoBackToChooseClass();
+            }else if (ParentVM.GetType() == typeof(MainViewModel))
+            {
+                MainViewModel MainVM = (MainViewModel)ParentVM;
+                MainVM.GoBackToMyHeroes();
             }
         }
 
@@ -140,6 +157,29 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         public void GetStatsList(string heroName) 
         { 
 
+        }
+
+        /// <summary>
+        /// Sets the stats list using List<int>
+        /// </summary>
+        /// <param name="stats">The stats.</param>
+        public void SetStatsList(List<int> stats)
+        {
+            StatsList = new ObservableCollection<int>();
+            foreach(int i in stats)
+            {
+                StatsList.Add(i);
+            }
+        }
+
+        /// <summary>
+        /// Sets the name of the image path from the selected class name.
+        /// </summary>
+        /// <param name="classSelection">The class selection.</param>
+        public void SetImagePathFromClassName(string classSelection)
+        {
+            ClassSelection = classSelection;
+            ImagePath = "/Images/" + classSelection + "Sprite.png";
         }
     }
 }

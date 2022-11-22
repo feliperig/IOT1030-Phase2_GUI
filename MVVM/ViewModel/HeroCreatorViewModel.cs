@@ -128,6 +128,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             };
             HeroDisplayVM.StatsList = StatsList;
             HeroDisplayVM.HeroName = heroName;
+            HeroDisplayVM.SetImagePathFromClassName(classSelection);
             CurrentPage = HeroDisplayVM;
         }
 
