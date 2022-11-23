@@ -782,7 +782,11 @@
 
 				</Grid>
 			</Border>
-
+			
 		</Grid>
+		<Border Grid.Row="1"
+				Grid.Column="1"
+				BorderThickness="2"
+				BorderBrush="Black" />
 	</Grid>
 </UserControl>
