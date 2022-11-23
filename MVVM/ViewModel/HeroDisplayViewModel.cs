@@ -82,7 +82,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 "Description 1",
                 "Description 2",
                 "Description 3",
-                "Description 4"
+                "Description 4",
+                "Description 5"
             };
         }
 
