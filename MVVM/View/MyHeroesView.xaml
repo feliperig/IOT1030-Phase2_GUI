@@ -110,7 +110,8 @@
 														<Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
 															   Margin="10" />
 													</Border>
-													<Grid Grid.Column="1">
+													<Grid Grid.Column="1"
+														  Margin="10">
 														<Grid.RowDefinitions>
 															<RowDefinition />
 															<RowDefinition />

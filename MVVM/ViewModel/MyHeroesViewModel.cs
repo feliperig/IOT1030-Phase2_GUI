@@ -73,6 +73,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                     {
                         string jsonString = File.ReadAllText(filePath);
                         HeroStats hero = JsonSerializer.Deserialize<HeroStats>(jsonString);
+
+                        /*
                         Console.WriteLine("Found saved hero:");
                         Console.WriteLine("Name: " + hero.HeroName + "\nClass: " + hero.ClassName);
                         Console.Write("Stats: ");
@@ -83,6 +85,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                         }
                         statsOutput = statsOutput.Substring(0, statsOutput.Length - 1);
                         Console.WriteLine(statsOutput);
+                        */
+
                         Heroes.Add(hero);
                     }
                     catch

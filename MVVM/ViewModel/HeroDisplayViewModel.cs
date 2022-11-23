@@ -78,7 +78,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             this.ParentVM = ParentVM;
             InitializeCommands();
             _attackDescriptions = new List<string>
-            { 
+            {
                 "Description 1",
                 "Description 2",
                 "Description 3",
@@ -110,12 +110,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         private string _descriptionText;
-
         public string DescriptionText
         {
             get { return _descriptionText; }
-            set 
-            { 
+            set
+            {
                 _descriptionText = value;
                 OnPropertyChanged();
             }
@@ -155,7 +154,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// </summary>
         /// <param name="heroName">Hero name for stats</param>
         public void GetStatsList(string heroName) 
-        { 
+        {
 
         }
 
