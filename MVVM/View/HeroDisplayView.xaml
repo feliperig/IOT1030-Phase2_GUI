@@ -135,7 +135,7 @@
 							Opacity="0.5"
 							Margin="4"
 							Command="{Binding DescriptionButtonCommand}"
-							CommandParameter="0" />
+							CommandParameter="2" />
 
 					<TextBlock Text="SimpleAttack"
 							   HorizontalAlignment="Center"
@@ -153,7 +153,7 @@
 							Opacity="0.5"
 							Margin="4"
 							Command="{Binding DescriptionButtonCommand}"
-							CommandParameter="0" />
+							CommandParameter="3" />
 
 					<TextBlock Text="Whatever"
 							   HorizontalAlignment="Center"
@@ -171,7 +171,7 @@
 							Opacity="0.5"
 							Margin="4"
 							Command="{Binding DescriptionButtonCommand}"
-							CommandParameter="1" />
+							CommandParameter="4" />
 
 
 				</Grid>
