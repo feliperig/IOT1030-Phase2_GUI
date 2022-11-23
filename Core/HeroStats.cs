@@ -9,11 +9,10 @@ namespace IOT1030_Phase2_GUI.Core
 {
     public class HeroStats
     {
-        public List<int> Stats { get; set; }
-        public string HeroName { get; set; }
-        public string ClassName { get; set; }
-
-        public string ImagePath
+        public List<int> Stats { get; set; }    // list of hero stats
+        public string HeroName { get; set; }    // hero given name
+        public string ClassName { get; set; }   // hero class
+        public string ImagePath                 // hero image
         {
             get
             {

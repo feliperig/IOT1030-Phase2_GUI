@@ -17,73 +17,107 @@
 				<RowDefinition />
 				<RowDefinition />
 			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition />
-				<ColumnDefinition />
-			</Grid.ColumnDefinitions>
-
-			<Border Background="#1b101c"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border Background="#2B0B00"
 					CornerRadius="30"
-					Margin="10">
-				<StackPanel Grid.Row="0"
-							Grid.Column="0"
-							Margin="20,10,20,10">
-					<TextBlock Text="Group Members:"
-							   Foreground="White"
-							   FontSize="27"
-							   FontFamily="Yu Gothic UI Semibold" />
-
-					<TextBlock Text="Lane"
-							   Foreground="White"
-							   FontSize="22"
-							   FontFamily="Yu Gothic UI Semibold" />
-
-					<TextBlock Text="Felipe"
-							   Foreground="White"
-							   FontSize="22"
-							   FontFamily="Yu Gothic UI Semibold" />
-
-					<TextBlock Text="Simran"
-							   Foreground="White"
-							   FontSize="22"
-							   FontFamily="Yu Gothic UI Semibold" />
-
-					<TextBlock Text="Karam"
-							   Foreground="White"
-							   FontSize="22"
-							   FontFamily="Yu Gothic UI Semibold" />
-
-					<TextBlock Text="Ayush"
-							   Foreground="White"
-							   FontSize="22"
-							   FontFamily="Yu Gothic UI Semibold" />
-
-				</StackPanel>
-			</Border>
-
-			<Border Background="#101c16"
+					Margin="10"
+					Grid.Column="0"
+					Grid.Row="0">
+                <Image Source="/Images/college_icon_cambrian.png"/>
+            </Border >
+            <Border Background="#1c1510"
 					CornerRadius="30"
 					Margin="10"
 					Grid.Column="1"
 					Grid.Row="0">
-
-			</Border >
-
-			<Border Background="#1c1510"
+                <TextBlock Text="Computer Programming Internet of Things"
+							   Foreground="White"
+                               HorizontalAlignment="Center"
+                           VerticalAlignment="center"
+							   FontSize="27"
+							   FontFamily="Yu Gothic UI Semibold" 
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"/>
+            </Border >
+            <Border Background="#10141c"
 					CornerRadius="30"
 					Margin="10"
 					Grid.Column="0"
 					Grid.Row="1">
-
-			</Border >
-
-			<Border Background="#10141c"
+                <StackPanel Margin="20,10,20,10"
+                            VerticalAlignment="Center">
+                    <!-- <TextBlock Text="IOT1030:"
+							   Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+							   FontSize="25"
+							   FontFamily="Yu Gothic UI Semibold" /> -->
+                    <TextBlock Text="Object-Oriented Programming II"
+							   Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+							   FontSize="27"
+							   FontFamily="Yu Gothic UI Semibold" 
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,30"/>
+                    <TextBlock Text="Project Phase 2"
+							   Foreground="LightGray"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold" />
+                    <TextBlock Text="Heroes and Character Generation"
+							   Foreground="LightGray"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+							   FontSize="17"
+							   FontFamily="Yu Gothic UI Semibold" 
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border >
+            <Border Background="#1b101c"
 					CornerRadius="30"
 					Margin="10"
-					Grid.Column="1"
-					Grid.Row="1">
+                    Grid.Column="1"
+                    Grid.Row="1">
+                <StackPanel Margin="20,10,20,10">
+                    <TextBlock Text="Group Members:"
+							   Foreground="White"
+                               HorizontalAlignment="Center"
+							   FontSize="27"
+							   FontFamily="Yu Gothic UI Semibold"
+                               Margin="0,0,0,10"/>
 
-			</Border >
-		</Grid>
+                    <TextBlock Text="Lane"
+							   Foreground="LightGray"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold" />
+
+                    <TextBlock Text="Felipe Rocha - A00249642"
+							   Foreground="LightGray"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold" />
+
+                    <TextBlock Text="Simran"
+							   Foreground="LightGray"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold" />
+
+                    <TextBlock Text="Karam"
+							   Foreground="LightGray"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold" />
+
+                    <TextBlock Text="Ayush"
+							   Foreground="LightGray"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold" />
+
+                </StackPanel>
+            </Border>
+        </Grid>
 	</Border>
 </UserControl>

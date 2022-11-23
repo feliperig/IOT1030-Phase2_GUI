@@ -53,7 +53,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand HeroCreatorViewCommand { get; set; }
         public RelayCommand MyHeroesViewCommand { get; set; }
-
         public RelayCommand CloseWindowCommand { get; set; }
         public RelayCommand MinimizeWindowCommand { get; set; }
 
@@ -77,23 +76,23 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             // Page button commands
             HomeViewCommand = new RelayCommand(o =>
             {
-                CurrentView = HomeVM;
+                CurrentView = HomeVM;   // sets current page to "Home"
             });
             HeroCreatorViewCommand = new RelayCommand(o =>
             {
-                CurrentView = HeroCreatorVM;
+                CurrentView = HeroCreatorVM;    // sets current page to "Hero Creator"
             });
             MyHeroesViewCommand = new RelayCommand(o =>
             {
-                MyHeroesVM.GetHeroes();
-                CurrentView = MyHeroesVM;
+                MyHeroesVM.GetHeroes(); // get heroes created list
+                CurrentView = MyHeroesVM; // sets current page to "My Heroes"
             });
         }
 
         /// <summary>
         /// Shows the hero display.
         /// </summary>
-        /// <param name="hero">The hero.</param>
+        /// <param name="hero">Object containing hero's stats, class and name</param>
         public void ShowHeroDisplay(HeroStats hero)
         {
             HeroDisplayVM.HeroName = hero.HeroName;
