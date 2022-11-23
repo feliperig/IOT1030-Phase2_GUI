@@ -8,422 +8,424 @@
 			 d:DataContext="{d:DesignInstance Type=viewModel:HeroDisplayViewModel}"
 			 mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="700">
-	<Grid Margin="10">
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition />
-		</Grid.ColumnDefinitions>
-
-		<Grid.RowDefinitions>
-			<RowDefinition Height="300"/>
-			<RowDefinition />
-		</Grid.RowDefinitions>
-
-		<Grid Grid.Row="0">
+	<Border Background="#383a46"
+			CornerRadius="30">
+		<Grid Margin="15">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
 			<Grid.RowDefinitions>
-				<RowDefinition Height="50"/>
+				<RowDefinition Height="300" />
 				<RowDefinition />
-				<RowDefinition Height="100" />
 			</Grid.RowDefinitions>
 
-            <Grid Grid.Row="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                
-                <TextBlock Text="Special Attacks"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="#B52C0F"
-						   FontSize="20"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-						   Margin="4" />
-                <TextBlock Text="SimpleAttack"
-						   HorizontalAlignment="Left"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="20"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-                           Grid.Row="1"
-						   Margin="4" />
-                <Button Grid.Column="0" 
-					Grid.Row="1"
-					Background="Transparent"
-					Opacity="0.5"
-					Margin="0,0,200,0"
-					Command="{Binding DescriptionButtonCommand}"
-                    CommandParameter="0"/>
-                <TextBlock Text="Whatever"
-						   HorizontalAlignment="Left"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="20"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-                           Grid.Row="2"
-						   Margin="4" />
-                <Button Grid.Column="0" 
-					Grid.Row="2"
-					Background="Transparent"
-					Opacity="0.5"
-					Margin="0,0,200,0"
-					Command="{Binding DescriptionButtonCommand}"
-                    CommandParameter="1"/>
-                
-            </Grid>
-
-            <Grid Grid.Column="1" 
-                  Grid.Row="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                
-                <TextBlock Text="Rage"
-						   HorizontalAlignment="Left"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="20"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-						   Margin="4" />
-                <Button Grid.Column="0" 
-					Grid.Row="0"
-					Background="Transparent"
-					Opacity="0.5"
-					Margin="0,0,200,0"
-					Command="{Binding DescriptionButtonCommand}"
-                    CommandParameter="2"/>
-                <TextBlock Text="SimpleAttack"
-						   HorizontalAlignment="Left"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="20"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-                           Grid.Row="1"
-						   Margin="4" />
-                <Button Grid.Column="0" 
-					Grid.Row="1"
-					Background="Transparent"
-					Opacity="0.5"
-					Margin="0,0,200,0"
-					Command="{Binding DescriptionButtonCommand}"
-                    CommandParameter="3"/>
-                <TextBlock Text="Whatever"
-						   HorizontalAlignment="Left"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="20"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-                           Grid.Row="2"
-						   Margin="4" />
-                <Button Grid.Column="0" 
-					Grid.Row="2"
-					Background="Transparent"
-					Opacity="0.5"
-					Margin="0,0,200,0"
-					Command="{Binding DescriptionButtonCommand}"
-                    CommandParameter="4"/>
-            </Grid>
-			
-			<Grid>
+			<Grid Grid.Row="0">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
 
-				<Button Margin="10"
-						Grid.Column="0"
-						Style="{StaticResource RoundedButtonTheme}"
-						Background="#FF3D5776"
-						Foreground="Black"
-						FontFamily="Yu Gothic UI Semibold"
-						FontSize="16"
-						BorderThickness="0"
-						Padding="10,0"
-						Content="Go back"
-						Command="{Binding GoBackButtonCommand}" />
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50" />
+					<RowDefinition />
+					<RowDefinition Height="100" />
+				</Grid.RowDefinitions>
 
-				<TextBlock Text="Name:"
-						   HorizontalAlignment="Right"
+				<Grid Grid.Row="2">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<TextBlock Text="Special Attacks"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="#B52C0F"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Margin="4" />
+					<TextBlock Text="SimpleAttack"
+							   HorizontalAlignment="Left"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Grid.Row="1"
+							   Margin="4" />
+					<Button Grid.Column="0"
+							Grid.Row="1"
+							Background="Transparent"
+							Opacity="0.5"
+							Margin="0,0,200,0"
+							Command="{Binding DescriptionButtonCommand}"
+							CommandParameter="0" />
+					<TextBlock Text="Whatever"
+							   HorizontalAlignment="Left"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Grid.Row="2"
+							   Margin="4" />
+					<Button Grid.Column="0"
+							Grid.Row="2"
+							Background="Transparent"
+							Opacity="0.5"
+							Margin="0,0,200,0"
+							Command="{Binding DescriptionButtonCommand}"
+							CommandParameter="1" />
+
+				</Grid>
+
+				<Grid Grid.Column="1"
+					  Grid.Row="2">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<TextBlock Text="Rage"
+							   HorizontalAlignment="Left"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Margin="4" />
+					<Button Grid.Column="0"
+							Grid.Row="0"
+							Background="Transparent"
+							Opacity="0.5"
+							Margin="0,0,200,0"
+							Command="{Binding DescriptionButtonCommand}"
+							CommandParameter="2" />
+					<TextBlock Text="SimpleAttack"
+							   HorizontalAlignment="Left"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Grid.Row="1"
+							   Margin="4" />
+					<Button Grid.Column="0"
+							Grid.Row="1"
+							Background="Transparent"
+							Opacity="0.5"
+							Margin="0,0,200,0"
+							Command="{Binding DescriptionButtonCommand}"
+							CommandParameter="3" />
+					<TextBlock Text="Whatever"
+							   HorizontalAlignment="Left"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="20"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Grid.Row="2"
+							   Margin="4" />
+					<Button Grid.Column="0"
+							Grid.Row="2"
+							Background="Transparent"
+							Opacity="0.5"
+							Margin="0,0,200,0"
+							Command="{Binding DescriptionButtonCommand}"
+							CommandParameter="4" />
+				</Grid>
+
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+
+					<Button Margin="10"
+							Grid.Column="0"
+							Style="{StaticResource RoundedButtonTheme}"
+							Background="#FF3D5776"
+							Foreground="Black"
+							FontFamily="Yu Gothic UI Semibold"
+							FontSize="16"
+							BorderThickness="0"
+							Padding="10,0"
+							Content="Go back"
+							Command="{Binding GoBackButtonCommand}" />
+
+					<TextBlock Text="Name:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="25"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Margin="10" />
+				</Grid>
+
+				<TextBlock Text="{Binding HeroName}"
+						   HorizontalAlignment="Left"
 						   VerticalAlignment="Center"
 						   Foreground="White"
 						   FontSize="25"
 						   FontFamily="Yu Gothic UI Semibold"
 						   Grid.Column="1"
 						   Margin="10" />
+
+				<Border Background="#3b0e0d"
+						CornerRadius="30"
+						Margin="60, 15, 60, 15"
+						BorderThickness="3"
+						BorderBrush="Black"
+						Grid.Column="0"
+						Grid.Row="1">
+					<Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
+						   Margin="15" />
+				</Border>
+
+				<Grid Grid.Row="1"
+					  Grid.Column="1">
+					<Grid.ColumnDefinitions>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<Border Grid.Column="0"
+							Grid.Row="0"
+							Background="#444755" />
+
+					<Border Grid.Column="0"
+							Grid.Row="1"
+							Background="#23242b" />
+
+					<Border Grid.Column="0"
+							Grid.Row="2"
+							Background="#444755" />
+
+					<Border Grid.Column="0"
+							Grid.Row="3"
+							Background="#23242b" />
+
+					<Border Grid.Column="0"
+							Grid.Row="4"
+							Background="#444755" />
+
+				</Grid>
+
+				<Grid Grid.Row="1"
+					  Grid.Column="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="40" />
+						<ColumnDefinition />
+						<ColumnDefinition Width="40" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+
+					<TextBlock Text="Strength:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="0"
+							   Grid.Row="0" />
+
+					<TextBlock Text="{Binding StatsList[0]}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Grid.Row="0" />
+
+					<TextBlock Text="Intelligence:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="0"
+							   Grid.Row="1" />
+
+					<TextBlock Text="{Binding StatsList[1]}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Grid.Row="1" />
+
+					<TextBlock Text="Agility:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="0"
+							   Grid.Row="2" />
+
+					<TextBlock Text="{Binding StatsList[2]}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Grid.Row="2" />
+
+					<TextBlock Text="Vitality:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="0"
+							   Grid.Row="3" />
+
+					<TextBlock Text="{Binding StatsList[3]}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Grid.Row="3" />
+
+					<TextBlock Text="Luck:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="0"
+							   Grid.Row="4" />
+
+					<TextBlock Text="{Binding StatsList[4]}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="1"
+							   Grid.Row="4" />
+
+					<TextBlock Text="Magic:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="2"
+							   Grid.Row="0" />
+
+					<TextBlock Text="{Binding StatsList[5]}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="3"
+							   Grid.Row="0" />
+
+					<TextBlock Text="Weapon use:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="2"
+							   Grid.Row="1" />
+
+					<TextBlock Text="{Binding StatsList[6]}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="3"
+							   Grid.Row="1" />
+
+					<TextBlock Text="Parry:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="2"
+							   Grid.Row="2" />
+
+					<TextBlock Text="{Binding StatsList[7]}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="3"
+							   Grid.Row="2" />
+
+					<TextBlock Text="Dodge:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="2"
+							   Grid.Row="3" />
+
+					<TextBlock Text="{Binding StatsList[8]}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="3"
+							   Grid.Row="3" />
+
+					<TextBlock Text="Stealth:"
+							   HorizontalAlignment="Right"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="2"
+							   Grid.Row="4" />
+
+					<TextBlock Text="{Binding StatsList[9]}"
+							   HorizontalAlignment="Center"
+							   VerticalAlignment="Center"
+							   Foreground="White"
+							   FontSize="22"
+							   FontFamily="Yu Gothic UI Semibold"
+							   Grid.Column="3"
+							   Grid.Row="4" />
+
+				</Grid>
+
 			</Grid>
-
-			<TextBlock Text="{Binding HeroName}"
-					   HorizontalAlignment="Left"
-					   VerticalAlignment="Center"
-					   Foreground="White"
-					   FontSize="25"
-					   FontFamily="Yu Gothic UI Semibold"
-					   Grid.Column="1"
-					   Margin="10" />
-
-			<Border Background="#3b0e0d"
-					CornerRadius="30"
-					Margin="60, 15, 60, 15"
-					BorderThickness="3"
-					BorderBrush="Black"
-					Grid.Column="0"
-					Grid.Row="1">
-				<Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
-					   Margin="15" />
-			</Border>
-
-			<Grid Grid.Row="1"
-				  Grid.Column="1">
-				<Grid.ColumnDefinitions>
-				</Grid.ColumnDefinitions>
+			<Grid Grid.Row="1">
 				<Grid.RowDefinitions>
-					<RowDefinition />
-					<RowDefinition />
-					<RowDefinition />
-					<RowDefinition />
+					<RowDefinition Height="30" />
 					<RowDefinition />
 				</Grid.RowDefinitions>
-
-				<Border Grid.Column="0"
-						Grid.Row="0"
-						Background="#444755" />
-
-				<Border Grid.Column="0"
-						Grid.Row="1"
-						Background="#23242b" />
-
-				<Border Grid.Column="0"
-						Grid.Row="2"
-						Background="#444755" />
-
-				<Border Grid.Column="0"
-						Grid.Row="3"
-						Background="#23242b" />
-
-				<Border Grid.Column="0"
-						Grid.Row="4"
-						Background="#444755" />
-
-			</Grid>
-
-			<Grid Grid.Row="1"
-				  Grid.Column="1">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition />
-					<ColumnDefinition Width="40"/>
-					<ColumnDefinition />
-					<ColumnDefinition Width="40"/>
-				</Grid.ColumnDefinitions>
-				<Grid.RowDefinitions>
-					<RowDefinition />
-					<RowDefinition />
-					<RowDefinition />
-					<RowDefinition />
-					<RowDefinition />
-				</Grid.RowDefinitions>
-
-				<TextBlock Text="Strength:"
-						   HorizontalAlignment="Right"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="0"
-						   Grid.Row="0"/>
-
-				<TextBlock Text="{Binding StatsList[0]}"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-						   Grid.Row="0"/>
-
-				<TextBlock Text="Intelligence:"
-						   HorizontalAlignment="Right"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="0"
-						   Grid.Row="1" />
-
-                <TextBlock Text="{Binding StatsList[1]}"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-						   Grid.Row="1" />
-
-				<TextBlock Text="Agility:"
-						   HorizontalAlignment="Right"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="0"
-						   Grid.Row="2" />
-
-                <TextBlock Text="{Binding StatsList[2]}"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-						   Grid.Row="2" />
-
-				<TextBlock Text="Vitality:"
-						   HorizontalAlignment="Right"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="0"
-						   Grid.Row="3" />
-
-                <TextBlock Text="{Binding StatsList[3]}"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-						   Grid.Row="3" />
-
-				<TextBlock Text="Luck:"
-						   HorizontalAlignment="Right"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="0"
-						   Grid.Row="4" />
-
-                <TextBlock Text="{Binding StatsList[4]}"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="1"
-						   Grid.Row="4" />
-
-				<TextBlock Text="Magic:"
-						   HorizontalAlignment="Right"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="2"
-						   Grid.Row="0" />
-
-                <TextBlock Text="{Binding StatsList[5]}"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="3"
-						   Grid.Row="0" />
-
-				<TextBlock Text="Weapon use:"
-						   HorizontalAlignment="Right"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="2"
-						   Grid.Row="1" />
-
-                <TextBlock Text="{Binding StatsList[6]}"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="3"
-						   Grid.Row="1" />
-
-				<TextBlock Text="Parry:"
-						   HorizontalAlignment="Right"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="2"
-						   Grid.Row="2" />
-
-                <TextBlock Text="{Binding StatsList[7]}"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="3"
-						   Grid.Row="2" />
-
-				<TextBlock Text="Dodge:"
-						   HorizontalAlignment="Right"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="2"
-						   Grid.Row="3" />
-
-                <TextBlock Text="{Binding StatsList[8]}"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="3"
-						   Grid.Row="3" />
-
-				<TextBlock Text="Stealth:"
-						   HorizontalAlignment="Right"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="2"
-						   Grid.Row="4" />
-
-                <TextBlock Text="{Binding StatsList[9]}"
-						   HorizontalAlignment="Center"
-						   VerticalAlignment="Center"
-						   Foreground="White"
-						   FontSize="22"
-						   FontFamily="Yu Gothic UI Semibold"
-						   Grid.Column="3"
-						   Grid.Row="4" />
-
-			</Grid>
-
-		</Grid>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="Description"
+				<TextBlock Text="Description"
 						   HorizontalAlignment="Left"
 						   VerticalAlignment="Center"
 						   Foreground="#B52C0F"
@@ -431,16 +433,17 @@
 						   FontFamily="Yu Gothic UI Semibold"
 						   Grid.Column="1"
 						   Margin="20,0,0,0" />
-            <TextBlock Text="{Binding DescriptionText}"
+				<TextBlock Text="{Binding DescriptionText}"
 						   HorizontalAlignment="Left"
 						   VerticalAlignment="Top"
 						   Foreground="White"
 						   FontSize="10"
 						   FontFamily="Yu Gothic UI Semibold"
 						   Grid.Column="1"
-                           Grid.Row="1"
+						   Grid.Row="1"
 						   Margin="4" />
-        </Grid>
-		
-	</Grid>
+			</Grid>
+
+		</Grid>
+	</Border>
 </UserControl>

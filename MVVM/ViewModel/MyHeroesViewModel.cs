@@ -59,6 +59,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             });
         }
 
+        /// <summary>
+        /// Gets the heroes.
+        /// </summary>
         public void GetHeroes()
         {
             Heroes = new ObservableCollection<HeroStats>();
