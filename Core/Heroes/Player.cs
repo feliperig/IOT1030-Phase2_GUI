@@ -13,6 +13,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         protected List<int> _stats;
         protected string _characterName;
         protected PlayerName _characterClass;
+        private List<string> _attacks;
 
         //public Player(PlayerName name)
         //{

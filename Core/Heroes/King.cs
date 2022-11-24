@@ -13,6 +13,20 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         private int _powerUp = +10;
         private int _luck = 30;
         private int _stealth;
+        private List<string> _attacks = new List<string>()
+        {
+            "Normal Attack",
+            "Luck Factor",
+            "Power Up",
+            "Rage King"
+        };
+        private List<string> _attacksDescription = new List<string>()
+        {
+            "Simple attack with equipped weapon",
+            "Luck Factor magic (?)",
+            "Powerful attack",
+            "King enrages"
+        };
 
         public King(List<int> stats, string heroName) : base(stats, PlayerName.King, heroName) { }
         //public King() : base(PlayerName.King) { }
@@ -32,7 +46,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             return _strength;
         }
 
-        public int Luckfactor()
+        public int LuckFactor()
         {
             if (_luck >= 30)
             {

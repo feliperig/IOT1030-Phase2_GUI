@@ -13,6 +13,20 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         private int _powerUp = +10;
         private int _luck = 50;
         private int _stealth;
+        private List<string> _attacks = new List<string>()
+        {
+            "Normal Attack",
+            "Death Match",
+            "Luck",
+            "Rage Queen"
+        };
+        private List<string> _attacksDescription = new List<string>()
+        {
+            "Simple attack with equipped weapon",
+            "Queen's special attack",
+            "Luck attack",
+            "Queen enrages"
+        };
 
         public Queen(List<int> stats, string heroName) : base(stats, PlayerName.Queen, heroName) { }
         //public Queen() : base(PlayerName.Queen) { }
@@ -61,7 +75,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             return _health;
         }
 
-        public int Ragequeen(int amount)
+        public int RageQueen(int amount)
         {
             const int Maxamount = 100;
             if (amount <= 0)
