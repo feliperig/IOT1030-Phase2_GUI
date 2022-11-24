@@ -91,6 +91,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\Heroes\King.cs" />
+    <Compile Include="Core\Heroes\Knight.cs" />
+    <Compile Include="Core\Heroes\Mage.cs" />
+    <Compile Include="Core\Heroes\Player.cs" />
+    <Compile Include="Core\Heroes\Queen.cs" />
     <Compile Include="Core\HeroStats.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />

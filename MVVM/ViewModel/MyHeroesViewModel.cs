@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using IOT1030_Phase2_GUI.Core;
+using IOT1030_Phase2_GUI.Core.Heroes;
 
 namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 {

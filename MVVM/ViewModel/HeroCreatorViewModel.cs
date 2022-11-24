@@ -10,6 +10,7 @@ using System.Windows;
 using System.Xml;
 using System.Xml.Serialization;
 using IOT1030_Phase2_GUI.Core;
+using IOT1030_Phase2_GUI.Core.Heroes;
 
 namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 {
