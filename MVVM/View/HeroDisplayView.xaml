@@ -81,7 +81,7 @@
 
 					
 
-					<TextBlock Text="SimpleAttack"
+					<TextBlock Text="{Binding AttackNames[0], UpdateSourceTrigger=PropertyChanged}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
 							   Foreground="White"
@@ -101,7 +101,7 @@
 						
 					</Button>
 
-						<TextBlock Text="Whatever"
+					<TextBlock Text="{Binding AttackNames[1], UpdateSourceTrigger=PropertyChanged}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
 							   Foreground="White"
@@ -119,7 +119,7 @@
 							Command="{Binding DescriptionButtonCommand}"
 							CommandParameter="1" />
 
-					<TextBlock Text="Rage"
+					<TextBlock Text="{Binding AttackNames[2], UpdateSourceTrigger=PropertyChanged}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
 							   Foreground="White"
@@ -137,7 +137,7 @@
 							Command="{Binding DescriptionButtonCommand}"
 							CommandParameter="2" />
 
-					<TextBlock Text="SimpleAttack"
+					<TextBlock Text="{Binding AttackNames[3], UpdateSourceTrigger=PropertyChanged}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
 							   Foreground="White"
@@ -155,7 +155,7 @@
 							Command="{Binding DescriptionButtonCommand}"
 							CommandParameter="3" />
 
-					<TextBlock Text="Whatever"
+					<TextBlock Text="{Binding AttackNames[4], UpdateSourceTrigger=PropertyChanged}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
 							   Foreground="White"
@@ -498,7 +498,8 @@
 									   FontFamily="Yu Gothic UI Semibold"
 									   Grid.Column="1"
 									   Grid.Row="1"
-									   Margin="5"/>
+									   Margin="5"
+									   TextWrapping="Wrap"/>
 						</Border>
 						
 					</Grid>

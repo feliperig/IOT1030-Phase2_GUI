@@ -41,7 +41,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         private string _classSelection;
-
         public string ClassSelection
         {
             get { return _classSelection; }
@@ -52,7 +51,16 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
-
+        private ObservableCollection<string> _attackNames;
+        public ObservableCollection<string> AttackNames
+        {
+            get { return _attackNames; }
+            set
+            {
+                _attackNames = value;
+                OnPropertyChanged();
+            }
+        }
 
         private ObservableCollection<int> _statsList;
         public ObservableCollection<int> StatsList
@@ -174,6 +182,43 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         /// <summary>
+        /// Gets the stats list as a List<int>
+        /// </summary>
+        /// <returns></returns>
+        private List<int> GetStatsList()
+        {
+            List<int> returnList = new List<int>();
+            foreach(int i in StatsList)
+            {
+                returnList.Add(i);
+            }
+            return returnList;
+        }
+
+        /// <summary>
+        /// Converts a List<string> to ObservableCollection<string>
+        /// </summary>
+        /// <param name="stringList">The string list.</param>
+        /// <returns></returns>
+        private ObservableCollection<string> StringListToCollection(List<string> stringList)
+        {
+            ObservableCollection<string> returnList = new ObservableCollection<string>();
+            foreach(string str in stringList)
+            {
+                returnList.Add(str);
+            }
+
+            if(returnList.Count < 5)
+            {
+                for(int i = returnList.Count; i <= 5; i++)
+                {
+;                    returnList.Add("");
+                }
+            }
+            return returnList;
+        }
+
+        /// <summary>
         /// Sets the name of the image path from the selected class name.
         /// </summary>
         /// <param name="classSelection">The class selection.</param>
@@ -181,6 +226,38 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             ClassSelection = classSelection;
             ImagePath = "/Images/" + classSelection + "Sprite.png";
+        }
+
+        public void GetHeroClass(string classSelection)
+        {
+            Player player = new Player(GetStatsList(), Player.PlayerName.Player, HeroName);
+
+            Console.WriteLine(ClassSelection);
+            classSelection = classSelection.ToLower();
+            switch (classSelection)
+            {
+                case "wizard":
+                    Console.WriteLine("Wizard selected");
+                    player = new Mage(GetStatsList(), HeroName);
+                    break;
+                case "knight":
+                    player = new Knight(GetStatsList(), HeroName);
+                    break;
+                case "king":
+                    player = new King(GetStatsList(), HeroName);
+                    break;
+                case "queen":
+                    player = new Queen(GetStatsList(), HeroName);
+                    break;
+                default:
+                    break;
+            }
+
+            Console.WriteLine(player.GetAttackDescriptions()[2]);
+
+            AttackNames = StringListToCollection(player.GetAttackNames());
+            _attackDescriptions = player.GetAttackDescriptions();
+            DescriptionText = _attackDescriptions[0];
         }
     }
 }

@@ -98,6 +98,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             HeroDisplayVM.HeroName = hero.HeroName;
             HeroDisplayVM.SetStatsList(hero.Stats);
             HeroDisplayVM.SetImagePathFromClassName(hero.ClassName);
+            HeroDisplayVM.GetHeroClass(hero.ClassName);
             CurrentView = HeroDisplayVM;
         }
 

@@ -13,22 +13,24 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         private int _powerUp = +6;
         private int _luck = 80;
         private int _stealth;
-        private List<string> _attacks = new List<string>()
-        {
-            "Normal Attack",
-            "One Time Ability",
-            "Mage Protection",
-            "Rage Mage"
-        };
-        private List<string> _attacksDescription = new List<string>()
-        {
-            "Simple attack with equipped weapon",
-            "Mage special sorcery, available only once",
-            "Mage protects himself from damage",
-            "Mage enrages"
-        };
 
-        public Mage(List<int> stats, string heroName) : base(stats, PlayerName.Mage, heroName) { }
+        public Mage(List<int> stats, string heroName) : base(stats, PlayerName.Mage, heroName) 
+        {
+            _attacks = new List<string>()
+            {
+                "Normal Attack",
+                "One Time Ability",
+                "Mage Protection",
+                "Rage Mage"
+            };
+            _attackDescriptions = new List<string>()
+            {
+                "Simple attack with equipped weapon",
+                "Mage special sorcery, available only once",
+                "Mage protects himself from damage",
+                "Mage enrages"
+            };
+        }
         //public Mage() : base(PlayerName.Mage) { }
 
         public PlayerName GetMageName() { return _name; }

@@ -18,6 +18,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 
         // Defining the RelayCommands for the buttons
         public RelayCommand KnightButtonCommand { get; set; }
+        public RelayCommand KingButtonCommand { get; set; }
+        public RelayCommand QueenButtonCommand { get; set; }
         public RelayCommand WizardButtonCommand { get; set; }
         public RelayCommand ArcherButtonCommand { get; set; }
         public RelayCommand PlayerButtonCommand { get; set; }
@@ -42,6 +44,14 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             PlayerButtonCommand = new RelayCommand(o =>
             {
                 HeroCreatorVM.StatSelection("Player");
+            });
+            KingButtonCommand = new RelayCommand(o =>
+            {
+                HeroCreatorVM.StatSelection("King");
+            });
+            QueenButtonCommand = new RelayCommand(o =>
+            {
+                HeroCreatorVM.StatSelection("Queen");
             });
         }
 

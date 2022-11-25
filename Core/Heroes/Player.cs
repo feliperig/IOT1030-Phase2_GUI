@@ -13,12 +13,20 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         protected List<int> _stats;
         protected string _characterName;
         protected PlayerName _characterClass;
-        private List<string> _attacks;
-
-        //public Player(PlayerName name)
-        //{
-        //    _name = name;
-        //}
+        protected List<string> _attacks = new List<string>()
+        {
+            "Normal Attack",
+            "One Time Ability",
+            "Player Protection",
+            "Rage Player"
+        };
+        protected List<string> _attackDescriptions = new List<string>()
+        {
+            "Simple attack with equipped weapon",
+            "Player special sorcery, available only once",
+            "Player protects himself from damage",
+            "Player enrages"
+        };
 
         protected virtual int NormalAttack() { return 10; }
 
@@ -50,7 +58,17 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             _characterClass = playerClass;
             _characterName = name;
         }
-        public enum PlayerName { King, Queen, Knight, Mage };
+        public enum PlayerName { King, Queen, Knight, Mage, Player, Archer };
+
+        public List<string> GetAttackNames()
+        {
+            return _attacks;
+        }
+
+        public List<string> GetAttackDescriptions()
+        {
+            return _attackDescriptions;
+        }
     }
 }
 

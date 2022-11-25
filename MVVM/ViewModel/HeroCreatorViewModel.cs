@@ -93,27 +93,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             string jsonString = JsonSerializer.Serialize(hero);
             File.WriteAllText("../Heroes/" + heroName + ".json", jsonString);
 
-            /*
-            using (XmlWriter writer = XmlWriter.Create("../Heroes/" + heroName + ".xml"))
-            {
-                writer.WriteStartElement("hero");
-                writer.WriteAttributeString("name", heroName);
-                writer.WriteStartElement("stats");
-                writer.WriteAttributeString("Strength", stats[0].ToString());
-                writer.WriteAttributeString("Intelligence", stats[1].ToString());
-                writer.WriteAttributeString("Agility", stats[2].ToString());
-                writer.WriteAttributeString("Vitality", stats[3].ToString());
-                writer.WriteAttributeString("Luck", stats[4].ToString());
-                writer.WriteAttributeString("Magic", stats[5].ToString());
-                writer.WriteAttributeString("WeaponUse", stats[6].ToString());
-                writer.WriteAttributeString("Parry", stats[7].ToString());
-                writer.WriteAttributeString("Dodge", stats[8].ToString());
-                writer.WriteAttributeString("Stealth", stats[9].ToString());
-                writer.WriteEndElement();
-                writer.WriteEndElement();
-            }
-            */
-
             ObservableCollection<int> StatsList = new ObservableCollection<int>
             {
                 stats[0],
@@ -130,6 +109,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             HeroDisplayVM.StatsList = StatsList;
             HeroDisplayVM.HeroName = heroName;
             HeroDisplayVM.SetImagePathFromClassName(classSelection);
+            HeroDisplayVM.GetHeroClass(classSelection);
             CurrentPage = HeroDisplayVM;
         }
 
@@ -154,7 +134,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 return false;
             }
 
-            if (File.Exists("../Heroes/" + heroName + ".xml"))
+            if (File.Exists("../Heroes/" + heroName + ".json"))
             {
                 var result = MessageBox.Show("A hero already exists with this name.\nWould you like to overwrite it?", "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.No)

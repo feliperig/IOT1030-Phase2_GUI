@@ -13,22 +13,24 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         private int _powerUp = +20;
         private int _luck = 10;
         private int _stealth;
-        private List<string> _attacks = new List<string>()
-        {
-            "Normal Attack",
-            "Knockout Smash",
-            "Unexpected Luck",
-            "Rage Knight"
-        };
-        private List<string> _attacksDescription = new List<string>()
-        {
-            "Simple attack with equipped weapon",
-            "Special powerful knight attacks that deals a massive damage",
-            "Lucky knight heals himself",
-            "Knight enrages"
-        };
 
-        public Knight(List<int> stats, string heroName) : base(stats, PlayerName.Knight, heroName) { }
+        public Knight(List<int> stats, string heroName) : base(stats, PlayerName.Knight, heroName)
+        {
+            _attacks = new List<string>()
+            {
+                "Normal Attack",
+                "Knockout Smash",
+                "Unexpected Luck",
+                "Rage Knight"
+            };
+            _attackDescriptions = new List<string>()
+            {
+                "Simple attack with equipped weapon",
+                "Special powerful knight attacks that deals a massive damage",
+                "Lucky knight heals himself",
+                "Knight enrages"
+            };
+        }
         //public Knight() : base(PlayerName.Knight) { }
 
         protected override int NormalAttack()
