@@ -91,6 +91,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\Heroes\Archer.cs" />
     <Compile Include="Core\Heroes\King.cs" />
     <Compile Include="Core\Heroes\Knight.cs" />
     <Compile Include="Core\Heroes\Mage.cs" />
@@ -223,6 +224,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\KingSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\QueenSprite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

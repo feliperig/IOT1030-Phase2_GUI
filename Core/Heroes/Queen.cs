@@ -31,7 +31,6 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
                 "Queen enrages"
             };
         }
-        //public Queen() : base(PlayerName.Queen) { }
 
         public PlayerName GetQueentName() { return _name; }
         public int GetQueenStrength() { return _strength; }
