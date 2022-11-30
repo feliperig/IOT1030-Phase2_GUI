@@ -68,7 +68,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         
         public virtual int NormalAttack()
         {
-                return _strength + _powerUp;
+                return MaxHealth/2;
         }
 
         protected void Damage(int amount)
@@ -78,25 +78,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             {
                 _health = 0;
             }
-        }
-        
-        protected void DamagedWeapon(int amount, InventoryItem item)
-        {
-            int damagedweapon = item.GetHitpoint();
-            int damagedweaponhitpoint = 0;
-            damagedweapon -= amount;
-            if(damagedweapon <= damagedweaponhitpoint && Hit)
-            {
-                _health -= amount;
-                _health--;
-                if(_health < damagedweaponhitpoint)
-                {
-                    Kill("Weapon got damaged and you wasn't able to save yourself.");
-                }
-            }
-        }  
-        
-        public void UpdateGold(int availablegold) => _herogold += availablegold;
+        } 
         
         public Player(List<int> stats, PlayerName playerClass, string name) 
         { 
