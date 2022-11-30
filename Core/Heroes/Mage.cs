@@ -8,20 +8,13 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
 {
     class Mage : Player
     {
-        private List<Player> players = new();
-        private new PlayerName _name = PlayerName.Mage;
-        private new int _strength = 8;
-        private new int _powerUp = +6;
-        private new int _luck = 80;
-        private new int _stealth;
+        private PlayerName _name = PlayerName.Mage;
+        private int _strength = 8;
+        private int _powerUp = +6;
+        private int _luck = 80;
+        private int _stealth;
 
-        public Mage() : base(new Location(0, 0), 500) 
-        {
-            inventory.AddItem(new MagicStick());
-            players.Add(new King());
-            players.Add(new Queen());
-            players.Add(new Knight());
-        }
+        //public Mage() : base(new Location(0, 0), 500) { inventory.AddItem(new MagicStick()); }
 
         public Mage(List<int> stats, string heroName) : base(stats, PlayerName.Mage, heroName) 
         {
@@ -47,39 +40,13 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             int criticalhealth = 10;
             if (_health <= criticalhealth)
             {
-                if(equipItem.Armour != null)
-                {
-                    Console.WriteLine("Would you like to use heal hero to full health or defend/tolerate against the attack?");
-                    Console.WriteLine("Press 0 to defend/tolerate or H to use max health ability");
-                    if(Console.ReadKey().Key == 0)
-                    {
-                        for(int i = 0; i < MaxHealth/2; i++)
-                        {
-                            Damage(0);
-                            _health++;
-                        }
-                    }
-                    if(Console.ReadKey().Key == ConsoleKey.H)
-                    {
-                        _health = MaxHealth;
-                    }
-                }
+                _health = MaxHealth;  
             }
             return _health;
         }
         
-        public void MageProtection(Player player)
+        public void MageProtection()
         {
-            var random = new Random();
-            int index = random.Next(players.Count);
-            if(index == 0 || index == 1 || index == 3)
-            {
-                _strength += player.GetStrength();
-                _powerUp += player.GetPower();
-                _luck += player.GetLuck();
-                _stealth += player.GetStealth();
-                _health += _health;
-            }
             int multiplier = 2;
             if (_luck >= MaxHealth / multiplier)
             {
@@ -92,13 +59,13 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             }
         }
         
-        public int RageMage(int amount, Player player)
+        public int RageMage(int amount)
         {
             const int Maxamount = 100;
             if (amount <= Maxamount && amount > Maxamount/2)
             {
                 Heal(amount);
-                MageProtection(player);
+                MageProtection();
                 return NormalAttack();
             }
             if (amount > Maxamount/10 && amount <= Maxamount/2)
@@ -114,15 +81,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         
         public override int NormalAttack()
         {
-            MagicStick magicStick = null;
-            bool equipmagicStick = equipItem.MagicStickEquipped();
-            if (equipmagicStick)
-            {
-                magicStick = equipItem.MagicStick;
-                return magicStick.GetDamage() + _strength;
-            }
-            magicStick = equipItem.MagicStick;
-            return magicStick.GetDamage() + (_strength * magicStick.GetPowerUp());
+            return (_strength + _powerUp);
         }
        
         public override string ToString()
