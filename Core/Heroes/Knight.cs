@@ -12,7 +12,8 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         private int _strength = 40;
         private int _powerUp = +20;
         private int _luck = 10;
-        private int _stealth;
+        private int _stealth; 
+        private readonly int thunderboltstrike = 80;
 
         public Knight(List<int> stats, string heroName) : base(stats, PlayerName.Knight, heroName)
         {
