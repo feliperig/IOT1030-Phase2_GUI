@@ -8,11 +8,20 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
 {
     class Mage : Player
     {
-        private PlayerName _name = PlayerName.Mage;
-        private int _strength = 8;
-        private int _powerUp = +6;
-        private int _luck = 80;
-        private int _stealth;
+        private List<Player> players = new();
+        private new PlayerName _name = PlayerName.Mage;
+        private new int _strength = 8;
+        private new int _powerUp = +6;
+        private new int _luck = 80;
+        private new int _stealth;
+
+        public Mage() : base(new Location(0, 0), 500) 
+        {
+            inventory.AddItem(new MagicStick());
+            players.Add(new King());
+            players.Add(new Queen());
+            players.Add(new Knight());
+        }
 
         public Mage(List<int> stats, string heroName) : base(stats, PlayerName.Mage, heroName) 
         {
