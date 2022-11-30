@@ -8,11 +8,11 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
 {
     public class Knight : Player
     {
-        protected new PlayerName _name = PlayerName.Knight;
-        protected new int _strength = 40;
-        private new int _powerUp = +20;
-        private new int _luck = 10;
-        private new int _stealth;
+        protected PlayerName _name = PlayerName.Knight;
+        protected int _strength = 40;
+        private int _powerUp = +20;
+        private int _luck = 10;
+        private int _stealth;
         private readonly int thunderboltstrike = 80;
 
         public Knight(List<int> stats, string heroName) : base(stats, PlayerName.Knight, heroName)
@@ -33,53 +33,34 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             };
         }
         //public Knight() : base(PlayerName.Knight) { }
-
-        public int Thunderbolt()
-        {
-            Armour armour = equipItem.Armour;
-            bool equiparmour = equipItem.Equip(armour);
-            if (equiparmour)
-            {
-                return _strength += (armour.GetHitpoint() + _powerUp);
-            }
-            return thunderboltstrike;
-        }
         
         public int KnockoutSmash()
         {
-            Sword sword = equipItem.Sword;
-            bool equipsword = equipItem.Equip(sword);
-            if (equipsword)
-            {
-                return (sword.GetDamage() + _powerUp);
-            }
-            return Thunderbolt();
+            return thunderboltstrike + _strength;
         }
         
         public int UnexpectedLuck()
         {
-            int min = 0;
-            int times = 2;
-            if (_luck <= MaxHealth/4 && _luck >= min)
+            if (_luck <= MaxHealth/3)
             {
-                Map map = equipItem.Map;
-                bool equipMap = equipItem.Equip(map);
-                if (equipMap)
+                if (_health <= MaxHealth/10)
                 {
-                    _strength += _strength;
-                    _powerUp += _strength;
-                    _strength += _powerUp;
-                    if(_health <= _luck)
-                    {
-                        _health += _health;
-                    }
+                    _health = MaxHealth;
                 }
-                if (!equipMap)
+                else if (_health > (MaxHealth / 10) && _health <= (MaxHealth/2))
                 {
-                    return RageKnight(_luck + _luck);
+                    Heal(MaxHealth/2);
+                }
+                else
+                {
+                    Heal(0);
                 }
             }
-            return (_strength * times);
+            else
+            {
+                Heal(_luck);
+            }
+            return _health;
         }
         
         public override int NormalAttack()
@@ -100,34 +81,25 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         public int RageKnight(int rageamount)
         {
             const int MaxRageamount = 100;
-            RagePotion ragepotion = equipItem.RagePotion;
-            bool equipRage = equipItem.UseRagePotion();
-            if(rageamount <= MaxRageamount && rageamount >= MaxRageamount/2)
-            {
-                if (PlayerHasItem(ragepotion) || equipRage)
-                {  
-                    _strength += ragepotion.GetPowerUp();
-                    _powerUp += ragepotion.GetPowerUp();
-                    return (_powerUp + _strength);
-                }
-            }
-            if (rageamount > 0 && rageamount < MaxRageamount/2)
-            {
-                if(_health <= rageamount)
-                {
-                    if(PlayerHasItem(ragepotion) || equipRage)
-                    {
-                        _health += ragepotion.Getheal();
-                    }
-                }
-                Heal(rageamount);
-                return _strength + (_powerUp / 2);
-            }
             if (rageamount <= 0)
             {
                 return _strength;
             }
-            return rageamount;
+            else if (rageamount > 0 && rageamount <= MaxRageamount/2)
+            {
+                Heal(rageamount);
+                return _strength + (_powerUp / 2);
+            }
+            else if (rageamount <= MaxRageamount)
+            {
+                Heal(rageamount);
+                return _stealth = rageamount;
+            }
+            else
+            {
+                Heal(MaxRageamount);
+                return _health;
+            }
         }
 
         public override string ToString()
