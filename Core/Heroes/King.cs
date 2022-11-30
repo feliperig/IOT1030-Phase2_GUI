@@ -32,73 +32,102 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             };
         }
 
-        public PlayerName GetKingName() { return _name; }
-        public int GetKingStrength() { return _strength; }
-        public void SetKingStrength(int strength) { _strength = strength; }
-        public int GetKingPower() { return _powerUp; }
-        public void SetKingPower(int powerUp) { _powerUp = powerUp; }
-        public int GetKingLuck() { return _luck; }
-        public void SetKingLuck(int luck) { _luck = luck; }
-        public int GetKingStealth() { return _stealth; }
-        public void SetKingStealth(int stealth) { _stealth = stealth; }
-
-        protected override int NormalAttack()
+         public int Luckfactor()
         {
-            return _strength;
-        }
-
-        public int LuckFactor()
-        {
-            if (_luck >= 30)
+            Shield shield = new();
+            int expectedlevel = 30;
+            if (_luck >= expectedlevel)
             {
-                if (_health <= 50)
+                if (_health <= expectedlevel)
                 {
-                    Heal(20);
-                    _health++;
+                    Heal(_luck);
                 }
                 else
                 {
-                    Heal(0);
+                    Heal(expectedlevel);
                 }
             }
-            else
+            if(_luck < expectedlevel)
             {
-                Damage(_luck);
+                if(_health < expectedlevel)
+                {
+                    for (int i = 0; i < expectedlevel + shield.GetHitpoint(); i++)      // Shield hitpoint will work as defence for king.
+                    {
+                        _health++;
+                    }
+                }
             }
             return _health;
         }
-
         public int PowerUpAttack()
         {
-            return 2 * (_strength + _powerUp);
-        }
+            int min = 0;
+            int multiplier = 2;
+            int max = 100;
+            if(_health == MaxHealth)
+            {
+                if ((_strength + _powerUp) < max / 2)
+                {
+                    return (_strength + _powerUp) * multiplier;
+                }
 
+            }
+            if(_health < MaxHealth && _health > min)
+            {
+                return _strength + _powerUp;
+            }
+            return RageKing(MaxHealth / 4);
+        }
+        public int DoubleKingStrength()
+        {
+            int times = 2;
+            return times * _strength;
+        }
         public int RageKing(int amount)
         {
             const int Maxamount = 100;
-            if (amount <= 0)
+            int multiplier = 2;
+            if (amount <= Maxamount / 10)
             {
                 Heal(10);
-                amount = NormalAttack() + (2 * _powerUp);
+                Defend();
+                return NormalAttack();
             }
-            else if (amount > 0 && amount <= 50)
+            else if (amount > 10 && amount <= Maxamount / 2)
             {
-                Heal(2 * amount);
+                Heal(multiplier * amount);
+                Defend();
                 return _stealth = amount + 20;
             }
-            else if (amount > 50 && amount <= Maxamount)
+            else if (amount > Maxamount / 2 && amount <= Maxamount)
             {
                 _stealth = amount;
-                Heal(amount);
+                Heal(_stealth);
+                Defend();
                 return PowerUpAttack();
             }
             else
             {
                 amount = Maxamount;
                 Heal(amount / 2);
+                Defend();
                 return PowerUpAttack();
             }
-            return amount;
+        }
+        public override int NormalAttack()
+        {
+            int multiplier = 2;
+            Sword sword = new();
+            if(sword != null)
+            {
+                return sword.GetDamage() + _strength * multiplier;
+            }
+            else
+            {
+                return (multiplier * multiplier * _strength) + _powerUp;
+            }
+        }
+        
         }
         public override string ToString()
         {
