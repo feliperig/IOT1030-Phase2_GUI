@@ -8,11 +8,11 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
 {
     class King : Player
     {
-        private new PlayerName _name = PlayerName.King;
-        private new int _strength = 15;
-        private new int _powerUp = +10;
-        private new int _luck = 10;
-        private new int _stealth;
+        private PlayerName _name = PlayerName.King;
+        private int _strength = 15;
+        private int _powerUp = +10;
+        private int _luck = 10;
+        private int _stealth;
 
         public King(List<int> stats, string heroName) : base(stats, PlayerName.King, heroName) 
         {
@@ -34,7 +34,6 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
 
          public int Luckfactor()
         {
-            Shield shield = new();
             int expectedlevel = 30;
             if (_luck >= expectedlevel)
             {
@@ -47,11 +46,9 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
                     Heal(expectedlevel);
                 }
             }
-            if(_luck < expectedlevel)
+            if(_luck < expectedlevel && _health < expectedlevel)
             {
-                if(_health < expectedlevel)
-                {
-                    for (int i = 0; i < expectedlevel + shield.GetHitpoint(); i++)      // Shield hitpoint will work as defence for king.
+                    for (int i = 0; i < expectedlevel; i++) 
                     {
                         _health++;
                     }
@@ -121,15 +118,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         public override int NormalAttack()
         {
             int multiplier = 2;
-            Sword sword = new();
-            if(sword != null)
-            {
-                return sword.GetDamage() + _strength * multiplier;
-            }
-            else
-            {
-                return (multiplier * multiplier * _strength) + _powerUp;
-            }
+            return (multiplier * _strength) + _powerUp;
         }
         
         public override string ToString()
