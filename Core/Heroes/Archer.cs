@@ -47,6 +47,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             }
             return _strength + bow.GetDamage();
         }
+        
         public int Ragequeen(int amount)
         {
             RagePotion ragePotion = equipItem.RagePotion;
