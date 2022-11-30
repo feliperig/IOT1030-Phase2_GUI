@@ -1,4 +1,12 @@
-class InventoryItem
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IOT1030_Phase2_GUI.Core.Heroes
+{
+    class InventoryItem
     {
         public InventoryItemEnum _name;
         public string info;                 
@@ -161,3 +169,4 @@ class InventoryItem
         public override int GetHitpoint() { return _hitpoint; }
         public override string ToString() { return _name.ToString(); }
     }
+}
