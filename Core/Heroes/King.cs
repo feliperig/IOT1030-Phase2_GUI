@@ -25,10 +25,10 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             };
             _attackDescriptions = new List<string>()
             {
-                "Simple attack with equipped weapon",
-                "Luck Factor magic (?)",
-                "Powerful attack",
-                "King enrages"
+                "Simple Attack depending on strength.",
+                "Higher the luck, higher the healing amount in health",
+                "King attack with the double capacity of his strength.",
+                "Super strength, increased health and powered attack."
             };
         }
 
