@@ -59,6 +59,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             }
             return _health;
         }
+        
         public int PowerUpAttack()
         {
             int min = 0;
@@ -78,11 +79,13 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             }
             return RageKing(MaxHealth / 4);
         }
+        
         public int DoubleKingStrength()
         {
             int times = 2;
             return times * _strength;
         }
+        
         public int RageKing(int amount)
         {
             const int Maxamount = 100;
@@ -114,6 +117,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
                 return PowerUpAttack();
             }
         }
+        
         public override int NormalAttack()
         {
             int multiplier = 2;
@@ -128,7 +132,6 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             }
         }
         
-        }
         public override string ToString()
         {
             string ret = "The King burst into rage, recovering a large amount of health and getting a boost to his speed and attack power\n";
