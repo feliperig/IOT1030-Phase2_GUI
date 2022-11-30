@@ -8,22 +8,13 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
 {
     public class Player
     {
-        protected readonly Inventory inventory = new();     // Player inventory
-        protected readonly EquipItems equipItem = new();
         protected const int MaxHealth = 100;
         protected static int _health = MaxHealth;
         protected List<int> _stats;
         protected bool hit = true;
         protected bool _hasMap = true;
         protected bool _hasSword = false;
-        public Location Location { get; set; }
         protected string _characterName;
-        public Player(Location start, int herogold)
-        {
-            Location = start;
-            _herogold = herogold;
-
-        }
         protected PlayerName _characterClass;
         protected List<string> _attacks = new List<string>()
         {
@@ -48,18 +39,6 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         {
             get { return hit; }
             protected set { hit = value; }
-        }
-
-        public bool HasMap
-        {
-            get => inventory.HasMap();
-            set => _hasMap = value;
-        }
-
-        public bool HasSword
-        {
-            get => inventory.HasSword();
-            set => _hasSword = value;
         }
 
         protected void Defend()
@@ -89,31 +68,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         
         public virtual int NormalAttack()
         {
-            Bow bow = new();
-            Sword sword = new();
-            MagicStick magicStick = new();
-            bool swordequipped = equipItem.Equip(sword);
-            bool bowequipped = equipItem.Equip(bow);
-            bool magicstickequipped = equipItem.Equip(magicStick);
-            if (swordequipped)
-            {
-                sword = equipItem.Sword;
-                return sword.GetDamage() + _strength;
-            }
-            else if (bowequipped)
-            {
-                bow = equipItem.Bow;
-                return bow.GetDamage() + _strength;
-            }
-            else if (magicstickequipped)
-            {
-                magicStick = equipItem.MagicStick;
-                return magicStick.GetDamage() + _strength;
-            }
-            else
-            {
                 return _strength + _powerUp;
-            }
         }
 
         protected void Damage(int amount)
@@ -140,14 +95,8 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
                 }
             }
         }  
-
-        public void ItemAdd(InventoryItem item) { inventory.AddItem(item); }
         
         public void UpdateGold(int availablegold) => _herogold += availablegold;
- 
-        public void ItemRemove(InventoryItem item) => inventory.RemoveItem(item);
-
-        public bool PlayerHasItem(InventoryItem item) { return inventory.ItemInInventory(item); }
         
         public Player(List<int> stats, PlayerName playerClass, string name) 
         { 
@@ -173,9 +122,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             _health = 0;
             CauseOfDeath = cause;
         }
-        public Player(Location start) { Location = start; }
     }
-    public record Location(int Row, int Column);
 
     public enum PlayerName { King, Queen, Knight, Mage, Player, Archer };
 }
