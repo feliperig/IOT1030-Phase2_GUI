@@ -116,10 +116,6 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             }
         }
 
-        /// <summary>
-        /// Decreases the health
-        /// </summary>
-        /// <param name="amount"> amount with which health can be decreased </param>
         protected void Damage(int amount)
         {
             _health -= amount;
