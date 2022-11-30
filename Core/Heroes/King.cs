@@ -52,7 +52,6 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
                     {
                         _health++;
                     }
-                }
             }
             return _health;
         }
