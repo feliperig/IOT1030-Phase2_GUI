@@ -33,72 +33,89 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         }
         //public Mage() : base(PlayerName.Mage) { }
 
-        public PlayerName GetMageName() { return _name; }
-        public int GetMageStrength() { return _strength; }
-        public void SetMageStrength(int strength) { _strength = strength; }
-        public int GetMagePower() { return _powerUp; }
-        public void SetMagePower(int powerUp) { _powerUp = powerUp; }
-        public int GetMageLuck() { return _luck; }
-        public void SetMageLuck(int luck) { _luck = luck; }
-        public int GetMageStealth() { return _stealth; }
-        public void SetMageStealth(int stealth) { _stealth = stealth; }
-
-        protected override int NormalAttack()
+       public int OneTimeAbility()
         {
-            return _strength;
-        }
-
-        public int OneTimeAbility()
-        {
-            if (_health <= 0)
+            int criticalhealth = 10;
+            if (_health <= criticalhealth)
             {
-                _health = MaxHealth;
-            }
-            return MaxHealth;
-        }
-
-        public int MageProtection()
-        {
-            if (_luck >= 50)
-            {
-                if (_health <= 50)
+                if(equipItem.Armour != null)
                 {
-                    Heal(50);
-                    _health++;
+                    Console.WriteLine("Would you like to use heal hero to full health or defend/tolerate against the attack?");
+                    Console.WriteLine("Press 0 to defend/tolerate or H to use max health ability");
+                    if(Console.ReadKey().Key == 0)
+                    {
+                        for(int i = 0; i < MaxHealth/2; i++)
+                        {
+                            Damage(0);
+                            _health++;
+                        }
+                    }
+                    if(Console.ReadKey().Key == ConsoleKey.H)
+                    {
+                        _health = MaxHealth;
+                    }
                 }
-                else
-                {
-                    Heal(10);
-                    _health++;
-                }
-                return _strength = (8 * _strength) + _powerUp;
             }
-            else
-            {
-                Damage(_luck / 20);
-            }
-            return _health = (_luck + 20);
+            return _health;
         }
-
-        public int RageMage(int amount)
+        
+        public void MageProtection(Player player)
+        {
+            var random = new Random();
+            int index = random.Next(players.Count);
+            if(index == 0 || index == 1 || index == 3)
+            {
+                _strength += player.GetStrength();
+                _powerUp += player.GetPower();
+                _luck += player.GetLuck();
+                _stealth += player.GetStealth();
+                _health += _health;
+            }
+            int multiplier = 2;
+            if (_luck >= MaxHealth / multiplier)
+            {
+                if (_health <= MaxHealth / multiplier)
+                {
+                    Heal(MaxHealth / multiplier);
+                    Defend();
+                }
+                _strength =  (multiplier * multiplier * multiplier * _strength) + _powerUp;
+            }
+        }
+        
+        public int RageMage(int amount, Player player)
         {
             const int Maxamount = 100;
-            if (amount <= 0)
+            if (amount <= Maxamount && amount > Maxamount/2)
             {
-                amount = (Maxamount / 10);
                 Heal(amount);
-                return (3 * NormalAttack());
+                MageProtection(player);
+                return NormalAttack();
             }
-            else if (amount > 0 && amount <= 50)
+            if (amount > Maxamount/10 && amount <= Maxamount/2)
             {
-                _stealth = MageProtection();
-                return _stealth;
+                Heal(amount);
+                return _stealth = _luck;
             }
             else
             {
                 return OneTimeAbility();
             }
         }
+        
+        public override int NormalAttack()
+        {
+            MagicStick magicStick = null;
+            bool equipmagicStick = equipItem.MagicStickEquipped();
+            if (equipmagicStick)
+            {
+                magicStick = equipItem.MagicStick;
+                return magicStick.GetDamage() + _strength;
+            }
+            magicStick = equipItem.MagicStick;
+            return magicStick.GetDamage() + (_strength * magicStick.GetPowerUp());
+        }
+       
         public override string ToString()
         {
             string ret = "The Mage radiates the health boosting Aura that improves with every level. All attacks and defences will get increased damage.\n";
