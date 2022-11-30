@@ -8,11 +8,11 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
 {
     public class Archer : Player
     {
-        private PlayerName _name = PlayerName.Archer;
-        private int _strength = 40;
-        private int _powerUp = +20;
-        private int _luck = 10;
-        private int _stealth;
+        private new PlayerName _name = PlayerName.Archer;
+        private new int _strength = 10;
+        private new int _powerUp = +10;
+        private new int _luck = 50;
+        private new int _stealth;
 
         public Archer(List<int> stats, string heroName) : base(stats, PlayerName.Archer, heroName)
         {
