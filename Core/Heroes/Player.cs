@@ -16,7 +16,14 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         protected bool hit = true;
         protected bool _hasMap = true;
         protected bool _hasSword = false;
+        public Location Location { get; set; }
         protected string _characterName;
+        public Player(Location start, int herogold)
+        {
+            Location = start;
+            _herogold = herogold;
+
+        }
         protected PlayerName _characterClass;
         protected List<string> _attacks = new List<string>()
         {
@@ -138,24 +145,12 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             }
         }  
 
-        /// <summary>
-        /// Add items in the player inventory
-        /// </summary>
-        /// <param name="item"> Items defined in the InventoryItem </param>
         public void ItemAdd(InventoryItem item) { inventory.AddItem(item); }
         
         public void UpdateGold(int availablegold) => _herogold += availablegold;
-        /// <summary>
-        /// Remove items from the player inventory.
-        /// </summary>
-        /// <param name="item"> Items defined in the InventoryItem </param>
+ 
         public void ItemRemove(InventoryItem item) => inventory.RemoveItem(item);
 
-        /// <summary>
-        /// Check whether player has an item or not
-        /// </summary>
-        /// <param name="item"> Items defined in the InventoryItem</param>
-        /// <returns> Item present in the inventory </returns>
         public bool PlayerHasItem(InventoryItem item) { return inventory.ItemInInventory(item); }
         
         public Player(List<int> stats, PlayerName playerClass, string name) 
@@ -164,7 +159,6 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             _characterClass = playerClass;
             _characterName = name;
         }
-        public enum PlayerName { King, Queen, Knight, Mage, Player, Archer };
 
         public List<string> GetAttackNames()
         {
@@ -175,6 +169,18 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         {
             return _attackDescriptions;
         }
+        
+        public string CauseOfDeath { get; private set; }
+        
+        public void Kill(string cause)
+        {
+            _health = 0;
+            CauseOfDeath = cause;
+        }
+        public Player(Location start) { Location = start; }
     }
+    public record Location(int Row, int Column);
+
+    public enum PlayerName { King, Queen, Knight, Mage, Player, Archer };
 }
 
