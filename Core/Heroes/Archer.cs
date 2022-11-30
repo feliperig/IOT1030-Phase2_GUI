@@ -31,73 +31,131 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
                 "Archer enrages"
             };
         }
-        //public Knight() : base(PlayerName.Knight) { }
-
-        protected override int NormalAttack()
+        
+        public int DeathMatch()
         {
-            Console.WriteLine(_strength);
-            return _strength;
+            Bow bow = equipItem.Bow;
+            bool equipbow = equipItem.Equip(bow);
+            if (equipbow)
+            {
+                return (_strength) + bow.GetDamage();
+            }
+            if (!equipbow)
+            {
+                equipbow = equipItem.Equip(bow);
+                return (_strength) + bow.GetDamage();
+            }
+            return _strength + bow.GetDamage();
+        }
+        public int Ragequeen(int amount)
+        {
+            RagePotion ragePotion = equipItem.RagePotion;
+            bool equipRage = equipItem.UseRagePotion();
+            const int Maxamount = 100;
+            int min = 0;
+            if (amount <= min)
+            {
+                Console.WriteLine("Can't Rage the queen with rageamout");
+            }
+            if (amount > min && amount <= Maxamount / 2)
+            {
+                if (equipRage || Hit)
+                {
+                    Hit = false;                  // Hit needs to beed implemented in monster class. It is just an idea.
+                    _strength += ragePotion.GetPowerUp();
+                    _stealth += amount;
+                    _luck += amount;
+                    return _health += ragePotion.Getheal();
+                }
+                return NormalAttack();
+            }
+            if (amount > (Maxamount / 2))
+            {
+                if (amount > Maxamount)
+                {
+                    if (equipRage || Hit)
+                    {
+                        Console.WriteLine($"Rageamount can't be greater than {Maxamount}. Changing entered rageamount '{amount} to {Maxamount}");
+                        amount = Maxamount;
+                        Hit = false;                  // Hit needs to beed implemented in monster class. It is just an idea.
+                        _strength = (amount / 2) + ragePotion.GetPowerUp();
+                        _powerUp = (amount / 2) + ragePotion.GetPowerUp();
+                        _stealth += (amount / 2);
+                        _luck += (amount / 2);
+                        return _health += ragePotion.Getheal();
+                    }
+                    return NormalAttack();
+                }
+                if (amount <= Maxamount)
+                {
+                    if (equipRage || Hit)
+                    {
+                        Hit = false;                  // Hit needs to beed implemented in monster class. It is just an idea.
+                        _strength += ragePotion.GetPowerUp();
+                        _powerUp += ragePotion.GetPowerUp();
+                        _stealth += amount;
+                        _luck += amount;
+                        Heal(amount);
+                        return DeathMatch();
+                    }
+                    return NormalAttack();
+                }
+            }
+            return DeathMatch();
         }
 
-        public PlayerName GetKnightName() { return _name; }
-        public int GetKnightStrength() { return _strength; }
-        public void SetKnightStrength(int strength) { _strength = strength; }
-        public int GetKnightPower() { return _powerUp; }
-        public void SetKnightPower(int powerUp) { _powerUp = powerUp; }
-        public int GetKnightLuck() { return _luck; }
-        public void SetKnightLuck(int luck) { _luck = luck; }
-        public int GetKnightStealth() { return _stealth; }
-        public void SetKnightStealth(int stealth) { _stealth = stealth; }
-
-        public int RageKnight(int rageamount)
+        public override int NormalAttack()
         {
-            const int MaxRageamount = 100;
-            if (rageamount <= 0)
-            {
-                rageamount = (_strength) + (_powerUp * 2);
-            }
-            else if (rageamount > 0 && rageamount <= 50)
-            {
-                return rageamount = (_strength + _powerUp / 2);
-            }
-            else if (rageamount <= MaxRageamount)
-            {
-                return _stealth = rageamount;
-            }
-            else
-            {
-                return rageamount = MaxRageamount;
-            }
-            return rageamount;
+            return _strength + _powerUp;
         }
-        public int KnockoutSmash()
+        
+        public void Luck(InvisiblePotion invisiblepotion)
         {
-            return (2 * _strength) + _powerUp;
-        }
-
-        public int UnexpectedLuck()
-        {
-            if (_luck <= 10)
+            int min = 0;
+            int max = 100;
+            if (PlayerHasItem(invisiblepotion))
             {
-                if (_health <= 10)
+                Console.WriteLine("Press 'I' on Keypad to use invisible spell and protect your Queen");
+                if(Console.ReadKey().Key == ConsoleKey.I)
                 {
-                    _health = MaxHealth;
+                    if(_luck >= max / 2 && Hit == true)
+                    {
+                        Hit = false;
+                        Damage(min);
+                        Defend();
+                        if(_health < _luck)
+                        {
+                            Heal(_luck);
+                        }
+                    }
+                    if(_luck >= max / 2)
+                    {
+                        Hit = false;                // This need to be implemented in monster class
+                        _strength += _strength;
+                        _powerUp += invisiblepotion.GetPowerUp();
+                        _strength = max;
+                        Damage(min);   
+                    }
+                    if(_luck < max/2 && _luck > 0)
+                    {
+                        Heal(_luck);
+                        Damage(min);
+                        for (int i = 0; i < _luck; i++)
+                        {
+                            _strength++;
+                        }
+                    }
+                    _strength += invisiblepotion.GetPowerUp();
                 }
-                else if (_health > 10 && _health <= 50)
+                if(Console.ReadKey().Key != ConsoleKey.I)
                 {
-                    Heal(_luck);
-                    _health++;
-                }
-                else
-                {
-                    Damage(_luck);
+                    Console.WriteLine("Invisible Potion not equipped.");
                 }
             }
-            else
+            if (!PlayerHasItem(invisiblepotion))
             {
-                Heal(_luck);
+                Console.WriteLine("You need equip invisible potion to make your luck workable");
             }
-            return _health;
         }
 
         public override string ToString()
