@@ -19,16 +19,16 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             _attacks = new List<string>()
             {
                 "Normal Attack",
-                "Knockout Smash",
-                "Unexpected Luck",
-                "Rage Archer"
+                "Luck",
+                "DeathMatch",
+                "RageQueen"
             };
             _attackDescriptions = new List<string>()
             {
-                "Simple attack with equipped weapon",
-                "Special powerful archer attacks that deals a massive damage",
-                "Lucky archer heals himself",
-                "Archer enrages"
+                "Simple Attack depending on strength.",
+                "Higher the luck higher the healing amount for queen",
+                "Knockout the enemy",
+                "Agile queen has powerful attack when in rage ability"
             };
         }
         
