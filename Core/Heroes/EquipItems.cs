@@ -1,4 +1,6 @@
-class EquipItems
+namespace IOT1030_Phase2_GUI.Core.Heroes
+{
+    class EquipItems
     {
         protected readonly Player player;
         public Map Map { get; private set;  }
@@ -141,3 +143,4 @@ class EquipItems
             return sb.ToString();
         }
     }
+}
