@@ -230,7 +230,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 
         public void GetHeroClass(string classSelection)
         {
-            Player player = new Player(GetStatsList(), Player.PlayerName.Player, HeroName);
+            Player player = new Player(GetStatsList(), PlayerName.Player, HeroName);
 
             Console.WriteLine(ClassSelection);
             classSelection = classSelection.ToLower();
