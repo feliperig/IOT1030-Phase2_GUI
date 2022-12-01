@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IOT1030_Phase2_GUI.Core.Inventory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,18 @@ namespace IOT1030_Phase2_GUI.Core.NewHeroes
         public HeroClass HeroClass { get { return _heroClass; } }
 
         /// <summary>
+        /// The equipped weapon
+        /// </summary>
+        protected Weapon _equippedWeapon;
+        public Weapon EquippedWeapon { get { return _equippedWeapon; } }
+
+        /// <summary>
+        /// The equipped armour
+        /// </summary>
+        protected Armour _equippedArmour;
+        public Armour EquippedArmour { get { return _equippedArmour; } }
+
+        /// <summary>
         /// The stats of the hero
         /// </summary>
         protected Dictionary<Stats, int> _stats;
@@ -65,7 +78,7 @@ namespace IOT1030_Phase2_GUI.Core.NewHeroes
         {
             if (index > _attacks.Count)
                 return 0;
-            return _attacks[index].UseAttack(Stats);
+            return _attacks[index].UseAttack(Stats, EquippedWeapon);
         }
 
         /// <summary>

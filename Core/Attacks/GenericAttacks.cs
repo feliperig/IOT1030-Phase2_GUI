@@ -1,4 +1,5 @@
-﻿using IOT1030_Phase2_GUI.Core.NewHeroes;
+﻿using IOT1030_Phase2_GUI.Core.Inventory;
+using IOT1030_Phase2_GUI.Core.NewHeroes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <param name="heroStats">The hero stats of the hero that used this attack.</param>
         /// <returns>The amount of damage calculated</returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public override int UseAttack(Dictionary<Stats, int> heroStats)
+        public override int UseAttack(Dictionary<Stats, int> heroStats, Weapon equippedWeapon)
         {
             throw new NotImplementedException();
         }

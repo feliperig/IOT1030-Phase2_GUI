@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IOT1030_Phase2_GUI.Core.Inventory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,6 @@ namespace IOT1030_Phase2_GUI.Core.NewHeroes
         /// </summary>
         /// <param name="heroStats">The hero stats of the hero that used this attack.</param>
         /// <returns></returns>
-        public abstract int UseAttack(Dictionary<Stats, int> heroStats);
+        public abstract int UseAttack(Dictionary<Stats, int> heroStats, Weapon equippedWeapon);
     }
 }
