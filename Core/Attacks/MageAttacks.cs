@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace IOT1030_Phase2_GUI.Core.Attacks
 {
-    public class KingPowerAttack : Attack
+    public class MageFireballAttack : Attack
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="KingPowerAttack"/> class.
+        /// Initializes a new instance of the <see cref="MageFireballAttack"/> class.
         /// </summary>
-        public KingPowerAttack()
+        public MageFireballAttack()
         {
-            _name = "King Power Attack";
-            _description = "King attack with the double capacity of his strength.";
+            _name = "Mage Fireball Attack";
+            _description = "Mage fires a massive fireball dealing damage scaled with Magic and Weapon Use stats";
         }
 
         /// <summary>
@@ -31,15 +31,15 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         }
     }
 
-    public class KingRageAttack : Attack
+    public class MageIceBlastAttack : Attack
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="KingRageAttack"/> class.
+        /// Initializes a new instance of the <see cref="MageIceBlastAttack"/> class.
         /// </summary>
-        public KingRageAttack() 
+        public MageIceBlastAttack()
         {
-            _name = "Rage King";
-            _description = "Super strength, increased health and powered attack.";
+            _name = "Mage Ice Blast Attack";
+            _description = "Mage fires a blast of ice dealing damage scaled with Magic and Agility stats";
         }
 
         /// <summary>

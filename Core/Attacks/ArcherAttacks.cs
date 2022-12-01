@@ -1,5 +1,5 @@
-﻿using IOT1030_Phase2_GUI.Core.Inventory;
-using IOT1030_Phase2_GUI.Core.Heroes;
+﻿using IOT1030_Phase2_GUI.Core.Heroes;
+using IOT1030_Phase2_GUI.Core.Inventory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace IOT1030_Phase2_GUI.Core.Attacks
 {
-    public class KingPowerAttack : Attack
+    public class ArcherPreciseShotAttack : Attack
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="KingPowerAttack"/> class.
+        /// Initializes a new instance of the <see cref="ArcherPreciseShotAttack"/> class.
         /// </summary>
-        public KingPowerAttack()
+        public ArcherPreciseShotAttack()
         {
-            _name = "King Power Attack";
-            _description = "King attack with the double capacity of his strength.";
+            _name = "Archer Precise Shot Attack";
+            _description = "Archer attacks with an expert bow shot scaled with Weapon Use stat";
         }
 
         /// <summary>
@@ -31,15 +31,15 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         }
     }
 
-    public class KingRageAttack : Attack
+    public class ArcherQuickAttack : Attack
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="KingRageAttack"/> class.
+        /// Initializes a new instance of the <see cref="ArcherQuickAttack"/> class.
         /// </summary>
-        public KingRageAttack() 
+        public ArcherQuickAttack()
         {
-            _name = "Rage King";
-            _description = "Super strength, increased health and powered attack.";
+            _name = "Archer Quick Attack";
+            _description = "Archer quickly attacks dealing damage scaled with Agility and Weapon Use stats";
         }
 
         /// <summary>

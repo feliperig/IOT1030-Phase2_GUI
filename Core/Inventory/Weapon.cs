@@ -1,4 +1,4 @@
-﻿using IOT1030_Phase2_GUI.Core.NewHeroes;
+﻿using IOT1030_Phase2_GUI.Core.Heroes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

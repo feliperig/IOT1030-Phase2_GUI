@@ -94,14 +94,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\Attacks\ArcherAttacks.cs" />
+    <Compile Include="Core\Attacks\GenericAttacks.cs" />
+    <Compile Include="Core\Attacks\KingAttacks.cs" />
+    <Compile Include="Core\Attacks\KnightAttacks.cs" />
+    <Compile Include="Core\Attacks\MageAttacks.cs" />
+    <Compile Include="Core\Attacks\QueenAttacks.cs" />
+    <Compile Include="Core\HeroStats.cs" />
+    <Compile Include="Core\Attacks\Attack.cs" />
+    <Compile Include="Core\Inventory\Armour.cs" />
+    <Compile Include="Core\Inventory\Inventory.cs" />
+    <Compile Include="Core\Inventory\Item.cs" />
+    <Compile Include="Core\Inventory\Weapon.cs" />
     <Compile Include="Core\Heroes\Archer.cs" />
+    <Compile Include="Core\Heroes\Hero.cs" />
     <Compile Include="Core\Heroes\King.cs" />
     <Compile Include="Core\Heroes\Knight.cs" />
     <Compile Include="Core\Heroes\Mage.cs" />
     <Compile Include="Core\Heroes\Player.cs" />
     <Compile Include="Core\Heroes\Queen.cs" />
-    <Compile Include="Core\HeroStats.cs" />
-    <Compile Include="Core\NewHeroes\Hero.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">

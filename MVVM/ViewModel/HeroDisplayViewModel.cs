@@ -230,33 +230,31 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 
         public void GetHeroClass(string classSelection)
         {
-            Player player = new Player(GetStatsList(), PlayerName.Player, HeroName);
-
-            Console.WriteLine(ClassSelection);
             classSelection = classSelection.ToLower();
+            Hero hero = new Player(GetStatsList(), HeroName);
             switch (classSelection)
             {
                 case "wizard":
                     Console.WriteLine("Wizard selected");
-                    player = new Mage(GetStatsList(), HeroName);
+                    hero = new Mage(GetStatsList(), HeroName);
                     break;
                 case "knight":
-                    player = new Knight(GetStatsList(), HeroName);
+                    hero = new Knight(GetStatsList(), HeroName);
                     break;
                 case "king":
-                    player = new King(GetStatsList(), HeroName);
+                    hero = new King(GetStatsList(), HeroName);
                     break;
                 case "queen":
-                    player = new Queen(GetStatsList(), HeroName);
+                    hero = new Queen(GetStatsList(), HeroName);
                     break;
                 default:
                     break;
             }
 
-            Console.WriteLine(player.GetAttackDescriptions()[2]);
+            Console.WriteLine(hero.GetAttackDescriptions()[2]);
 
-            AttackNames = StringListToCollection(player.GetAttackNames());
-            _attackDescriptions = player.GetAttackDescriptions();
+            AttackNames = StringListToCollection(hero.GetAttackNames());
+            _attackDescriptions = hero.GetAttackDescriptions();
             DescriptionText = _attackDescriptions[0];
         }
     }

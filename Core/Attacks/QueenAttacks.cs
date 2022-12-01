@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace IOT1030_Phase2_GUI.Core.Attacks
 {
-    public class KingPowerAttack : Attack
+    public class QueenRoyalAttack : Attack
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="KingPowerAttack"/> class.
+        /// Initializes a new instance of the <see cref="QueenRoyalAttack"/> class.
         /// </summary>
-        public KingPowerAttack()
+        public QueenRoyalAttack()
         {
-            _name = "King Power Attack";
-            _description = "King attack with the double capacity of his strength.";
+            _name = "Queen Royal Attack";
+            _description = "Queen attacks dealing damage scaled using Weapon Use and Intelligence";
         }
 
         /// <summary>
@@ -31,15 +31,15 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         }
     }
 
-    public class KingRageAttack : Attack
+    public class QueenRageAttack : Attack
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="KingRageAttack"/> class.
+        /// Initializes a new instance of the <see cref="QueenRageAttack"/> class.
         /// </summary>
-        public KingRageAttack() 
+        public QueenRageAttack()
         {
-            _name = "Rage King";
-            _description = "Super strength, increased health and powered attack.";
+            _name = "Queen Rage Attack";
+            _description = "Queen throws a frenzy of attacks dealing damage scaled using Luck and Intelligence";
         }
 
         /// <summary>
