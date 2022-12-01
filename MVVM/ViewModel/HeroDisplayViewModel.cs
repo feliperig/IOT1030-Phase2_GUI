@@ -235,7 +235,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             switch (classSelection)
             {
                 case "wizard":
-                    Console.WriteLine("Wizard selected");
                     hero = new Mage(GetStatsList(), HeroName);
                     break;
                 case "knight":
@@ -253,8 +252,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 default:
                     break;
             }
-
-            Console.WriteLine(hero.GetAttackDescriptions()[2]);
 
             AttackNames = StringListToCollection(hero.GetAttackNames());
             _attackDescriptions = hero.GetAttackDescriptions();
