@@ -101,6 +101,7 @@
     <Compile Include="Core\Heroes\Player.cs" />
     <Compile Include="Core\Heroes\Queen.cs" />
     <Compile Include="Core\HeroStats.cs" />
+    <Compile Include="Core\NewHeroes\Hero.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
