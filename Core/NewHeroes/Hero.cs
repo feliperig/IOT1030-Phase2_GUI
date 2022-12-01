@@ -82,6 +82,34 @@ namespace IOT1030_Phase2_GUI.Core.NewHeroes
 
             return true; // Hero still alive
         }
+
+        /// <summary>
+        /// Gets the attack names.
+        /// </summary>
+        /// <returns>List of attack names</returns>
+        public virtual List<string> GetAttackNames()
+        {
+            List<string> attackNames = new List<string>();
+            foreach(Attack attack in _attacks)
+            {
+                attackNames.Add(attack.Name);
+            }
+            return attackNames;
+        }
+
+        /// <summary>
+        /// Gets the attack descriptions.
+        /// </summary>
+        /// <returns>List of attack descriptions</returns>
+        public virtual List<string> GetAttackDescriptions()
+        {
+            List<string> attackDescriptions = new List<string>();
+            foreach(Attack attack in _attacks)
+            {
+                attackDescriptions.Add(attack.Description);
+            }
+            return attackDescriptions;
+        }
     }
 
     /// <summary>
