@@ -228,6 +228,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             ImagePath = "/Images/" + classSelection + "Sprite.png";
         }
 
+        /// <summary>
+        /// Gets the hero class from the class selection
+        /// </summary>
+        /// <param name="classSelection">The class selection.</param>
         public void GetHeroClass(string classSelection)
         {
             classSelection = classSelection.ToLower();
