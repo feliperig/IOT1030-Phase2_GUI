@@ -45,7 +45,8 @@ namespace IOT1030_Phase2_GUI.Core.NewHeroes
             _heroClass = HeroClass.Archer;
             _attacks = new List<Attack>
             {
-                 new NormalAttack()
+                new NormalAttack(),
+                new WeaponAttack()
             };
         }
     }
