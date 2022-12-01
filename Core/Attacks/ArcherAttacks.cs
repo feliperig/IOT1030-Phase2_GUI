@@ -15,7 +15,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// </summary>
         public ArcherPreciseShotAttack()
         {
-            _name = "Archer Precise Shot Attack";
+            _name = "Precise Shot Attack";
             _description = "Archer attacks with an expert bow shot scaled with Weapon Use stat";
         }
 

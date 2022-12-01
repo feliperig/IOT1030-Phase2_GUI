@@ -15,7 +15,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// </summary>
         public KnightKnockoutAttack()
         {
-            _name = "Knight Knockout Attack";
+            _name = "Knockout Attack";
             _description = "Knight attacks with incredible strength";
         }
 

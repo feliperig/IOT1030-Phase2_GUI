@@ -247,6 +247,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 case "queen":
                     hero = new Queen(GetStatsList(), HeroName);
                     break;
+                case "archer":
+                    hero = new Archer(GetStatsList(), HeroName);
+                    break;
                 default:
                     break;
             }
