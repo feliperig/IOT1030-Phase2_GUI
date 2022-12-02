@@ -75,8 +75,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 
         /// <summary>
         /// Creates the character using the stats and class provided
-        /// returns a xml file with Hero's name and stats
-        /// we can also print hero's special attacks to make it more complete
+        /// Writes the resulting Hero to a Json file in the Heroes folder
+        /// Then loads the HeroDisplay Page with the newly created Hero's values
         /// </summary>
         /// <param name="stats">The stats.</param>
         /// <param name="classSelection">The class selection.</param>

@@ -65,7 +65,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         /// <summary>
-        /// Gets the heroes.
+        /// Gets the heroes from the Heroes folder and loads them into the Heroes list.
+        /// Deserializes saved Json Hero objects.
         /// </summary>
         public void GetHeroes()
         {

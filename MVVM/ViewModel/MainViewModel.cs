@@ -97,7 +97,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         /// <summary>
-        /// Shows the hero display.
+        /// Shows the hero display page.
         /// </summary>
         /// <param name="hero">Object containing hero's stats, class and name</param>
         public void ShowHeroDisplay(Hero hero)

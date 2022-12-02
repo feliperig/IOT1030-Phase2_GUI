@@ -152,7 +152,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// <summary>
         /// Description for character attack
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
         private void DescriptionButton(int index)
         {
             if (index > _attackDescriptions.Count - 1)
@@ -192,7 +191,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// <summary>
         /// Gets the stats list as a List<int>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List<int> stats</returns>
         private List<int> GetStatsList()
         {
             List<int> returnList = new List<int>();
