@@ -2,13 +2,29 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace IOT1030_Phase2_GUI.Core.Heroes
 {
+    [JsonConverter(typeof(HeroConverter))]
     public abstract class Hero
     {
+        /// <summary>
+        /// Gets the type of the hero
+        /// </summary>
+        public string Type { get { return GetType().ToString().Split('.').Last(); } }
+
+        /// <summary>
+        /// Gets the image path.
+        /// </summary>
+        /// <value>
+        /// The image path.
+        /// </value>
+        public string ImagePath { get { return "/Images/" + HeroClass.ToString() + "Sprite.png"; } }
+
         /// <summary>
         /// The maximum health of the hero
         /// </summary>
@@ -32,6 +48,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// </summary>
         protected HeroClass _heroClass;
         public HeroClass HeroClass { get { return _heroClass; } }
+        public string ClassName { get { return HeroClass.ToString(); } }
 
         /// <summary>
         /// The equipped weapon

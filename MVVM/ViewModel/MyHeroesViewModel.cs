@@ -17,8 +17,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// <summary>
         /// The heroes data provided to the datagrid
         /// </summary>
-        private ObservableCollection<HeroStats> _heroes;
-        public ObservableCollection<HeroStats> Heroes
+        private ObservableCollection<Hero> _heroes;
+        public ObservableCollection<Hero> Heroes
         {
             get { return _heroes; }
             set
@@ -39,7 +39,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         public MyHeroesViewModel(MainViewModel mainVM)
         {
             this.mainVM = mainVM;
-            Heroes = new ObservableCollection<HeroStats>();
+            Heroes = new ObservableCollection<Hero>();
             InitializeCommands();
         }
 
@@ -53,9 +53,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             HeroDisplayCommand = new RelayCommand(o =>
             {
-                foreach(HeroStats hero in Heroes)
+                foreach(Hero hero in Heroes)
                 {
-                    if(hero.HeroName == (string)o)
+                    if(hero.Name == (string)o)
                     {
                         mainVM.ShowHeroDisplay(hero);
                         break;
@@ -69,7 +69,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// </summary>
         public void GetHeroes()
         {
-            Heroes = new ObservableCollection<HeroStats>();
+            ObservableCollection<Hero> heroes = new ObservableCollection<Hero>();
             foreach (string filePath in Directory.GetFiles("..\\Heroes"))
             {
                 if (filePath.EndsWith(".json"))
@@ -77,9 +77,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                     try
                     {
                         string jsonString = File.ReadAllText(filePath);
-                        HeroStats hero = JsonSerializer.Deserialize<HeroStats>(jsonString);
+                        JsonSerializerOptions options = new JsonSerializerOptions() { WriteIndented = true };
+                        Hero hero = JsonSerializer.Deserialize<Hero>(jsonString, options);
 
-                        Heroes.Add(hero);
+                        heroes.Add(hero);
                     }
                     catch
                     {
@@ -87,6 +88,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                     }
                 }
             }
+            Heroes = heroes;
         }
     }
 }

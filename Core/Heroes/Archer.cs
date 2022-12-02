@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace IOT1030_Phase2_GUI.Core.Heroes
@@ -30,6 +31,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// </summary>
         /// <param name="stats">The stats.</param>
         /// <param name="name">The name.</param>
+        [JsonConstructor]
         public Archer(Dictionary<Stats, int> stats, string name) : this(name)
         {
             _stats = stats;

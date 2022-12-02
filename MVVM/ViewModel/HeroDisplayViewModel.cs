@@ -177,15 +177,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         /// <summary>
-        /// Get list of stats from created hero
-        /// </summary>
-        /// <param name="heroName">Hero name for stats</param>
-        public void GetStatsList(string heroName) 
-        {
-
-        }
-
-        /// <summary>
         /// Sets the stats list using List<int>
         /// </summary>
         /// <param name="stats">The stats.</param>
@@ -239,35 +230,34 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// Sets the name of the image path from the selected class name.
         /// </summary>
         /// <param name="classSelection">The class selection.</param>
-        public void SetImagePathFromClassName(string classSelection)
+        public void SetImagePathFromClassName(HeroClass classSelection)
         {
-            ClassSelection = classSelection;
-            ImagePath = "/Images/" + classSelection + "Sprite.png";
+            ClassSelection = classSelection.ToString();
+            ImagePath = "/Images/" + classSelection.ToString() + "Sprite.png";
         }
 
         /// <summary>
         /// Gets the hero class from the class selection
         /// </summary>
         /// <param name="classSelection">The class selection.</param>
-        public void GetHeroClass(string classSelection)
+        public void GetHeroClass(HeroClass classSelection)
         {
-            classSelection = classSelection.ToLower();
             Hero hero = new Player(GetStatsList(), HeroName);
             switch (classSelection)
             {
-                case "wizard":
+                case HeroClass.Mage:
                     hero = new Mage(GetStatsList(), HeroName);
                     break;
-                case "knight":
+                case HeroClass.Knight:
                     hero = new Knight(GetStatsList(), HeroName);
                     break;
-                case "king":
+                case HeroClass.King:
                     hero = new King(GetStatsList(), HeroName);
                     break;
-                case "queen":
+                case HeroClass.Queen:
                     hero = new Queen(GetStatsList(), HeroName);
                     break;
-                case "archer":
+                case HeroClass.Archer:
                     hero = new Archer(GetStatsList(), HeroName);
                     break;
                 default:

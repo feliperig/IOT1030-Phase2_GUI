@@ -80,7 +80,7 @@
 						<RowDefinition Height="50" />
 					</Grid.RowDefinitions>
 
-					<Image Source="/Images/WizardSprite.png" />
+					<Image Source="/Images/MageSprite.png" />
 					<TextBlock Text="Wizard"
 							   HorizontalAlignment="Center"
 							   Foreground="White"

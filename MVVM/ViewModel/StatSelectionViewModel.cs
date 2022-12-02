@@ -453,7 +453,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// <summary>
         /// The class selection
         /// </summary>
-        private string classSelection;
+        private HeroClass _classSelection;
 
         /// <summary>
         /// Defining the ViewModels
@@ -497,7 +497,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                     _dodgeStat,
                     _stealthStat
                 };
-                HeroCreatorVM.CreateCharacter(stats, classSelection, HeroName);
+                HeroCreatorVM.CreateCharacter(stats, _classSelection, HeroName);
             });
             EditStatButtonCommand = new RelayCommand(o =>
             {
@@ -539,10 +539,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// Sets the name of the image path from the selected class name.
         /// </summary>
         /// <param name="classSelection">The class selection.</param>
-        public void SetImagePathFromClassName(string classSelection)
+        public void SetImagePathFromClassName(HeroClass classSelection)
         {
-            this.classSelection = classSelection;
-            ImagePath = "/Images/" + classSelection + "Sprite.png";
+            _classSelection = classSelection;
+            ImagePath = "/Images/" + classSelection.ToString() + "Sprite.png";
         }
 
         /// <summary>

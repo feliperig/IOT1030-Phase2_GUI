@@ -100,7 +100,7 @@
     <Compile Include="Core\Attacks\KnightAttacks.cs" />
     <Compile Include="Core\Attacks\MageAttacks.cs" />
     <Compile Include="Core\Attacks\QueenAttacks.cs" />
-    <Compile Include="Core\HeroStats.cs" />
+    <Compile Include="Core\Heroes\HeroConverter.cs" />
     <Compile Include="Core\Attacks\Attack.cs" />
     <Compile Include="Core\Inventory\Armour.cs" />
     <Compile Include="Core\Inventory\Inventory.cs" />
@@ -226,7 +226,7 @@
     <Resource Include="Images\PlayerSprite.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\WizardSprite.png" />
+    <Resource Include="Images\MageSprite.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\LeftArrow.png" />

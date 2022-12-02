@@ -66,7 +66,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// Changes the page to the stats selection page.
         /// </summary>
         /// <param name="classSelection">The class selection.</param>
-        public void StatSelection(string classSelection)
+        public void StatSelection(HeroClass classSelection)
         {
             StatSelectionVM.ClearStats();
             StatSelectionVM.SetImagePathFromClassName(classSelection);
@@ -80,7 +80,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// </summary>
         /// <param name="stats">The stats.</param>
         /// <param name="classSelection">The class selection.</param>
-        public void CreateCharacter(List<int> stats, string classSelection, string heroName)
+        public void CreateCharacter(List<int> stats, HeroClass classSelection, string heroName)
         {
             if (!IsValidHeroName(heroName))
                 return;
@@ -89,27 +89,39 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                 Directory.CreateDirectory("../Heroes");
             };
 
-            HeroStats hero = new HeroStats(stats, heroName, classSelection);
-            string jsonString = JsonSerializer.Serialize(hero);
+            // Create hero object using classSelection
+            Hero hero = new Player(stats, heroName);
+            switch (classSelection)
+            {
+                case HeroClass.Archer:
+                    hero = new Archer(stats, heroName);
+                    break;
+                case HeroClass.Queen:
+                    hero = new Queen(stats, heroName);
+                    break;
+                case HeroClass.Mage:
+                    hero = new Mage(stats, heroName);
+                    break;
+                case HeroClass.King:
+                    hero = new King(stats, heroName);
+                    break;
+                case HeroClass.Knight:
+                    hero = new Knight(stats, heroName);
+                    break;
+            }
+
+            // Serialize to json string and write to file
+            JsonSerializerOptions options = new JsonSerializerOptions() { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(hero, options);
             File.WriteAllText("../Heroes/" + heroName + ".json", jsonString);
 
-            ObservableCollection<int> StatsList = new ObservableCollection<int>
-            {
-                stats[0],
-                stats[1],
-                stats[2],
-                stats[3],
-                stats[4],
-                stats[5],
-                stats[6],
-                stats[7],
-                stats[8],
-                stats[9],
-            };
-            HeroDisplayVM.StatsList = StatsList;
+            // Set values in the hero display page
+            HeroDisplayVM.SetStatsList(stats);
             HeroDisplayVM.HeroName = heroName;
             HeroDisplayVM.SetImagePathFromClassName(classSelection);
             HeroDisplayVM.GetHeroClass(classSelection);
+
+            // Change page to hero display
             CurrentPage = HeroDisplayVM;
         }
 

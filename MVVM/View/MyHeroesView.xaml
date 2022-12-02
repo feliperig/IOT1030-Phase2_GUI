@@ -136,7 +136,7 @@
 															<RowDefinition />
 															<RowDefinition />
 														</Grid.RowDefinitions>
-														<TextBlock Text="{Binding HeroName}"
+														<TextBlock Text="{Binding Name}"
 																   FontSize="25"
 																   VerticalAlignment="Center"
 																   FontFamily="Yu Gothic UI Semibold"
@@ -159,7 +159,7 @@
 													Background="Transparent"
 													Opacity="0.5"
 													Command="{Binding Path=DataContext.HeroDisplayCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
-													CommandParameter="{Binding HeroName}" />
+													CommandParameter="{Binding Name}" />
 
 										</Grid>
 									</DataTemplate>

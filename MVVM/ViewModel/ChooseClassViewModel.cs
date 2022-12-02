@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IOT1030_Phase2_GUI.Core;
+using IOT1030_Phase2_GUI.Core.Heroes;
 
 namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 {
@@ -37,27 +38,27 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             KnightButtonCommand = new RelayCommand(o =>
             {
-                HeroCreatorVM.StatSelection("Knight");
+                HeroCreatorVM.StatSelection(HeroClass.Knight);
             });
             WizardButtonCommand = new RelayCommand(o =>
             {
-                HeroCreatorVM.StatSelection("Wizard");
+                HeroCreatorVM.StatSelection(HeroClass.Mage);
             });
             ArcherButtonCommand = new RelayCommand(o =>
             {
-                HeroCreatorVM.StatSelection("Archer");
+                HeroCreatorVM.StatSelection(HeroClass.Archer);
             });
             PlayerButtonCommand = new RelayCommand(o =>
             {
-                HeroCreatorVM.StatSelection("Player");
+                HeroCreatorVM.StatSelection(HeroClass.Player);
             });
             KingButtonCommand = new RelayCommand(o =>
             {
-                HeroCreatorVM.StatSelection("King");
+                HeroCreatorVM.StatSelection(HeroClass.King);
             });
             QueenButtonCommand = new RelayCommand(o =>
             {
-                HeroCreatorVM.StatSelection("Queen");
+                HeroCreatorVM.StatSelection(HeroClass.Queen);
             });
         }
 

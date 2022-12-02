@@ -4,6 +4,7 @@ using IOT1030_Phase2_GUI.Core.Attacks;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace IOT1030_Phase2_GUI.Core.Heroes
 {
@@ -30,6 +31,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// </summary>
         /// <param name="stats">The stats.</param>
         /// <param name="name">The name.</param>
+        [JsonConstructor]
         public King(Dictionary<Stats, int> stats, string name) : this(name) 
         {
             _stats = stats;
