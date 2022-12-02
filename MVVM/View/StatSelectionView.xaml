@@ -9,7 +9,7 @@
 			 mc:Ignorable="d"
 			 d:DesignHeight="450"
 			 d:DesignWidth="700">
-
+	<!-- Base grid -->
 	<Grid Margin="5, 5, 15, 15">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="80"/>
@@ -19,7 +19,8 @@
 			<ColumnDefinition Width="350" />
 			<ColumnDefinition />
 		</Grid.ColumnDefinitions>
-
+		
+		<!-- Grid for cancel button and name title -->
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -38,7 +39,8 @@
 					Padding="10,0"
 					Content="Cancel"
 					Command="{Binding CancelButtonCommand}"/>
-
+			
+			<!-- Name title -->
 			<TextBlock Text="Name:"
 					   HorizontalAlignment="Right"
 					   VerticalAlignment="Center"
@@ -48,7 +50,8 @@
 					   Grid.Column="1"
 					   Margin="10" />
 		</Grid>
-
+		
+		<!-- Textbox input for hero name -->
 		<TextBox Grid.Column="1"
 				 Margin="10, 15, 10, 15"
 				 FontSize="32"
@@ -59,6 +62,7 @@
 				 BorderBrush="Black"
 				 Text="{Binding HeroName, UpdateSourceTrigger=PropertyChanged}"/>
 
+		<!-- Grid for points, class image, and create characer button-->
 		<Grid Grid.Row="1">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="55" />
@@ -69,6 +73,7 @@
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
+			<!-- Grid for points remaining -->
 			<Grid Grid.Row="0">
 				<Grid.RowDefinitions>
 					<RowDefinition />
@@ -77,7 +82,8 @@
 					<ColumnDefinition Width="255"/>
 					<ColumnDefinition Width="90" />
 				</Grid.ColumnDefinitions>
-
+				
+				<!-- Points remaining title -->
 				<TextBlock Text="Points remaining:"
 						   HorizontalAlignment="Right"
 						   VerticalAlignment="Center"
@@ -86,7 +92,8 @@
 						   FontFamily="Yu Gothic UI Semibold"
 						   Grid.Column="0"
 						   Margin="10" />
-
+				
+				<!-- The amount of points remaining -->
 				<TextBlock Text="{Binding RemainingPoints}"
 						   HorizontalAlignment="Left"
 						   VerticalAlignment="Center"
@@ -95,9 +102,9 @@
 						   FontFamily="Yu Gothic UI Semibold"
 						   Grid.Column="1"
 						   Margin="10" />
-
 			</Grid>
 
+			<!-- Class image -->
 			<Border Background="#3b0e0d"
 					CornerRadius="30"
 					Margin="30, 15, 30, 15"
@@ -123,7 +130,8 @@
 					Command="{Binding CreateCharacterButtonCommand}"
 					IsEnabled="{Binding CanCreateCharacter}"/>
 		</Grid>
-
+		
+		<!-- Grid for stat modifiers -->
 		<Grid Grid.Row="1"
 			  Grid.Column="1">
 			<Grid.RowDefinitions>

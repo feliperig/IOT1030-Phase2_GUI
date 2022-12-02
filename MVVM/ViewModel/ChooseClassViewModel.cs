@@ -9,7 +9,13 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 {
     class ChooseClassViewModel : ObservableObject
     {
+        // Reference to the parent ViewModel to relay page changing commands
         private HeroCreatorViewModel HeroCreatorVM;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChooseClassViewModel"/> class.
+        /// </summary>
+        /// <param name="HeroCreatorVM">The hero creator vm.</param>
         public ChooseClassViewModel(HeroCreatorViewModel HeroCreatorVM)
         {
             InitializeCommands();

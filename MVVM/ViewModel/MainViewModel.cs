@@ -23,6 +23,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainViewModel"/> class.
+        /// </summary>
         public MainViewModel()
         {
             InitializeViewModels();

@@ -9,26 +9,34 @@
 			 mc:Ignorable="d" 
              d:DesignHeight="450"
 			 d:DesignWidth="700">
+	<!-- Page background -->
 	<Border Background="#383a46"
 			CornerRadius="30">
+		
+		<!-- Base grid -->
 		<Grid Margin="10">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
 				<ColumnDefinition Width="600" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-
+			
+			<!-- My Heroes list background -->
 			<Border Background="#261c32"
 					CornerRadius="20"
 					BorderThickness="3"
 					BorderBrush="Black" 
 					Grid.Column="1"/>
+			
+			<!-- My Heroes list grid -->
 			<Grid Grid.Column="1"
 				  Margin="15">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="50" />
 					<RowDefinition />
 				</Grid.RowDefinitions>
+				
+				<!-- My Heroes title -->
 				<TextBlock Text="My Heroes"
 						   HorizontalAlignment="Center"
 						   VerticalAlignment="Center"
@@ -37,7 +45,8 @@
 						   FontFamily="Yu Gothic UI Semibold"
 						   Grid.Row="0"
 						   Margin="4" />
-
+				
+				<!-- Scroll viewer for the data grid -->
 				<ScrollViewer Grid.Row="1">
 					<!-- The binding here is the list containing objects (HeroStats) -->
 					<DataGrid ItemsSource="{Binding Heroes, UpdateSourceTrigger=PropertyChanged}"
@@ -49,6 +58,8 @@
 							  Grid.Column="0"
 							  BorderThickness="0"
 							  GridLinesVisibility="None">
+						
+						<!-- Changing the style of the DataGridCells to remove borders -->
 						<DataGrid.CellStyle>
 							<Style TargetType="{x:Type DataGridCell}">
 								<Style.Setters>
@@ -70,6 +81,8 @@
 								</Style.Triggers>
 							</Style>
 						</DataGrid.CellStyle>
+						
+						<!-- Changing the style of the DataGridRows to remove borders -->
 						<DataGrid.RowStyle>
 							<Style TargetType="{x:Type DataGridRow}">
 								<Style.Setters>
@@ -78,14 +91,18 @@
 								</Style.Setters>
 							</Style>
 						</DataGrid.RowStyle>
+						
+						<!-- Defining the columns of the datagrid -->
 						<DataGrid.Columns>
 							<!-- This is the definition of the column that uses this cell style -->
 							<DataGridTemplateColumn Header="Class"
 													Width="553">
+								
 								<DataGridTemplateColumn.CellTemplate>
 									<DataTemplate>
 										<!-- This is what is displayed in this cell-->
 										<Grid>
+											<!-- Row background -->
 											<Border Background="#113549"
 													HorizontalAlignment="Stretch"
 													Height="100"
@@ -99,6 +116,7 @@
 														<ColumnDefinition />
 													</Grid.ColumnDefinitions>
 
+													<!-- Class image -->
 													<Border Background="#3b0e0d"
 															CornerRadius="15"
 															Margin="5"
@@ -110,6 +128,8 @@
 														<Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
 															   Margin="10" />
 													</Border>
+
+													<!-- Hero name and class name-->
 													<Grid Grid.Column="1"
 														  Margin="10">
 														<Grid.RowDefinitions>
@@ -128,10 +148,10 @@
 																   FontFamily="Yu Gothic UI Semibold"
 																   Foreground="#c6c6c6" />
 													</Grid>
-
 												</Grid>
-
 											</Border>
+											
+											<!-- Button to go to hero display view for this hero -->
 											<Button Style="{StaticResource RoundedMyHeroButtonTheme}"
 													Margin="5"
 													Width="540"

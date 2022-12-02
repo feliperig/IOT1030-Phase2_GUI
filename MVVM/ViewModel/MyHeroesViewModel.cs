@@ -28,6 +28,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Reference to the parent ViewModel to relay page changing commands
+        /// </summary>
         private MainViewModel mainVM;
 
         /// <summary>
@@ -40,6 +43,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             InitializeCommands();
         }
 
+        // Defining button commands
         public RelayCommand HeroDisplayCommand { get; set; }
 
         /// <summary>
@@ -74,19 +78,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                     {
                         string jsonString = File.ReadAllText(filePath);
                         HeroStats hero = JsonSerializer.Deserialize<HeroStats>(jsonString);
-
-                        /*
-                        Console.WriteLine("Found saved hero:");
-                        Console.WriteLine("Name: " + hero.HeroName + "\nClass: " + hero.ClassName);
-                        Console.Write("Stats: ");
-                        string statsOutput = "";
-                        foreach (int i in hero.Stats)
-                        {
-                            statsOutput += i + ",";
-                        }
-                        statsOutput = statsOutput.Substring(0, statsOutput.Length - 1);
-                        Console.WriteLine(statsOutput);
-                        */
 
                         Heroes.Add(hero);
                     }

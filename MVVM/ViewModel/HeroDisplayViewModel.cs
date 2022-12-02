@@ -40,6 +40,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The class selection
+        /// </summary>
         private string _classSelection;
         public string ClassSelection
         {
@@ -51,6 +54,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The hero's attack names
+        /// </summary>
         private ObservableCollection<string> _attackNames;
         public ObservableCollection<string> AttackNames
         {
@@ -62,6 +68,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The stats list of the hero
+        /// </summary>
         private ObservableCollection<int> _statsList;
         public ObservableCollection<int> StatsList
         {
@@ -86,6 +95,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             this.ParentVM = ParentVM;
             InitializeCommands();
+
+            // Default attack descriptions
             _attackDescriptions = new List<string>
             {
                 "Description 1",
@@ -119,6 +130,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             });
         }
 
+        /// <summary>
+        /// The currently selected attack's description text
+        /// </summary>
         private string _descriptionText;
         public string DescriptionText
         {
@@ -130,6 +144,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The hero's attack descriptions
+        /// </summary>
         private List<string> _attackDescriptions;
 
         /// <summary>
