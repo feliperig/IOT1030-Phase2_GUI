@@ -115,6 +115,7 @@
     <Compile Include="Core\Heroes\Player.cs" />
     <Compile Include="Core\Heroes\Queen.cs" />
     <Compile Include="Core\Inventory\Weapons\Sword.cs" />
+    <Compile Include="Core\Monsters\Goblin.cs" />
     <Compile Include="Core\Monsters\Monster.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
