@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IOT1030_Phase2_GUI.Core.Inventory.ArmourItems
+namespace IOT1030_Phase2_GUI.Core.Inventory.Armours
 {
     public class ChestPlate : Armour
     {
