@@ -140,6 +140,16 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             }
             return attackDescriptions;
         }
+
+        /// <summary>
+        /// Gets the stat from the list of stats
+        /// </summary>
+        /// <param name="stat">The stat to get</param>
+        /// <returns></returns>
+        public virtual int GetStat(Stats stat)
+        {
+            return Stats[stat];
+        }
     }
 
     /// <summary>

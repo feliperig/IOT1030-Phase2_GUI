@@ -103,6 +103,7 @@
     <Compile Include="Core\Heroes\HeroConverter.cs" />
     <Compile Include="Core\Attacks\Attack.cs" />
     <Compile Include="Core\Inventory\Armour.cs" />
+    <Compile Include="Core\Inventory\ArmourItems\ChestPlate.cs" />
     <Compile Include="Core\Inventory\Inventory.cs" />
     <Compile Include="Core\Inventory\Item.cs" />
     <Compile Include="Core\Inventory\Weapon.cs" />
@@ -113,6 +114,8 @@
     <Compile Include="Core\Heroes\Mage.cs" />
     <Compile Include="Core\Heroes\Player.cs" />
     <Compile Include="Core\Heroes\Queen.cs" />
+    <Compile Include="Core\Inventory\Weapons\Sword.cs" />
+    <Compile Include="Core\Monsters\Monster.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
