@@ -10,7 +10,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="KingPowerAttack"/> class.
         /// </summary>
-        public KingPowerAttack()
+        public KingPowerAttack() : base()
         {
             _name = "King Power Attack";
             _description = "King attack with the double capacity of his strength.";
@@ -33,7 +33,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="KingRageAttack"/> class.
         /// </summary>
-        public KingRageAttack() 
+        public KingRageAttack() : base()
         {
             _name = "Rage King";
             _description = "Super strength, increased health and powered attack.";

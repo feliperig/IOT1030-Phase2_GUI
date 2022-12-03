@@ -31,7 +31,7 @@ namespace IOT1030_Phase2_GUI.Core.Monsters
         /// <summary>
         /// Initializes a new instance of the <see cref="Monster"/> class.
         /// </summary>
-        public Monster()
+        protected Monster()
         {
             _random = new Random();
         }

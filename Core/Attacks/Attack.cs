@@ -1,4 +1,5 @@
 ﻿using IOT1030_Phase2_GUI.Core.InventoryObjects;
+using System;
 using System.Collections.Generic;
 
 namespace IOT1030_Phase2_GUI.Core.Heroes
@@ -16,6 +17,16 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// </summary>
         protected string _description;
         public string Description { get { return _description; } }
+
+        /// <summary>
+        /// The random object
+        /// </summary>
+        protected Random _random;
+
+        protected Attack()
+        {
+            _random = new Random();
+        }
 
         /// <summary>
         /// Uses the attack.

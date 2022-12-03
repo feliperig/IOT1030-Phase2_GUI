@@ -10,7 +10,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="QueenRoyalAttack"/> class.
         /// </summary>
-        public QueenRoyalAttack()
+        public QueenRoyalAttack() : base()
         {
             _name = "Queen Royal Attack";
             _description = "Queen attacks dealing damage scaled using Weapon Use and Intelligence";
@@ -33,7 +33,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="QueenRageAttack"/> class.
         /// </summary>
-        public QueenRageAttack()
+        public QueenRageAttack() : base()
         {
             _name = "Queen Rage Attack";
             _description = "Queen throws a frenzy of attacks dealing damage scaled using Luck and Intelligence";

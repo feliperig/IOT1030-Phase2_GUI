@@ -10,7 +10,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="MageFireballAttack"/> class.
         /// </summary>
-        public MageFireballAttack()
+        public MageFireballAttack() : base()
         {
             _name = "Mage Fireball Attack";
             _description = "Mage fires a massive fireball dealing damage scaled with Magic and Weapon Use stats";
@@ -33,7 +33,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="MageIceBlastAttack"/> class.
         /// </summary>
-        public MageIceBlastAttack()
+        public MageIceBlastAttack() : base()
         {
             _name = "Mage Ice Blast Attack";
             _description = "Mage fires a blast of ice dealing damage scaled with Magic and Agility stats";

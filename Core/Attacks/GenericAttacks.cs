@@ -10,7 +10,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="NormalAttack"/> class.
         /// </summary>
-        public NormalAttack()
+        public NormalAttack() : base()
         {
             _name = "Normal Attack";
             _description = "Simple Attack depending on strength";
@@ -24,7 +24,14 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <exception cref="System.NotImplementedException"></exception>
         public override int UseAttack(Dictionary<Stats, int> heroStats, Weapon equippedWeapon)
         {
-            throw new NotImplementedException();
+            int weaponDamage = equippedWeapon.GetDamage(heroStats); // Get damage from weapon
+
+            int maxAttackMultiplier = (int)((1 + ((heroStats[Stats.Strength] / 5) * 0.35f)) * 100); // Get multiplier (+35% for possible for every 5 strength)
+            int attackMultiplierPercentage = _random.Next(1, maxAttackMultiplier);
+
+            float attackMultiplier = attackMultiplierPercentage / 100; // Convert to float for multiplying
+
+            return (int)(weaponDamage * attackMultiplier);
         }
     }
 
@@ -33,7 +40,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="LuckyAttack"/> class.
         /// </summary>
-        public LuckyAttack()
+        public LuckyAttack() : base()
         {
             _name = "Lucky Attack";
             _description = "Chance based on Luck stat to do big damage";
@@ -56,7 +63,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="MagicAttack"/> class.
         /// </summary>
-        public MagicAttack()
+        public MagicAttack() : base()
         {
             _name = "Magic Attack";
             _description = "Magic blast dealing damage scaled from Magic stat";
@@ -79,7 +86,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="StealthAttack"/> class.
         /// </summary>
-        public StealthAttack()
+        public StealthAttack() : base()
         {
             _name = "Stealth Attack";
             _description = "A stealthy attack with a small chance to do critical damage based on Stealth stat";
@@ -102,7 +109,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="WeaponAttack"/> class.
         /// </summary>
-        public WeaponAttack()
+        public WeaponAttack() : base()
         {
             _name = "Weapon Attack";
             _description = "A precision attack using the equipped weapon dealing damage scaled with the Weapon Use stat";

@@ -10,7 +10,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="ArcherPreciseShotAttack"/> class.
         /// </summary>
-        public ArcherPreciseShotAttack()
+        public ArcherPreciseShotAttack() : base()
         {
             _name = "Precise Shot Attack";
             _description = "Archer attacks with an expert bow shot scaled with Weapon Use stat";
@@ -33,7 +33,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="ArcherQuickAttack"/> class.
         /// </summary>
-        public ArcherQuickAttack()
+        public ArcherQuickAttack() : base()
         {
             _name = "Archer Quick Attack";
             _description = "Archer quickly attacks dealing damage scaled with Agility and Weapon Use stats";

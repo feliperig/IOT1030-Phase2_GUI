@@ -10,7 +10,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="KnightKnockoutAttack"/> class.
         /// </summary>
-        public KnightKnockoutAttack()
+        public KnightKnockoutAttack() : base()
         {
             _name = "Knockout Attack";
             _description = "Knight attacks with incredible strength";
@@ -33,7 +33,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// <summary>
         /// Initializes a new instance of the <see cref="KnightRageAttack"/> class.
         /// </summary>
-        public KnightRageAttack()
+        public KnightRageAttack() : base()
         {
             _name = "Knight Rage Attack";
             _description = "Knight attacks with a fury of swipes using Strength, Agility, and Weapon Use stats";

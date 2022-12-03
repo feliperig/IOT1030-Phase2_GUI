@@ -25,12 +25,12 @@ namespace IOT1030_Phase2_GUI.Core.MonsterAttacks
         /// <summary>
         /// The random object
         /// </summary>
-        private Random _random;
+        protected Random _random;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MonsterAttack"/> class.
         /// </summary>
-        public MonsterAttack()
+        protected MonsterAttack()
         {
             _random = new Random();
         }

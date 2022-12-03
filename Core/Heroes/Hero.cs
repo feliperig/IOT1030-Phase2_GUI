@@ -1,4 +1,6 @@
 ﻿using IOT1030_Phase2_GUI.Core.InventoryObjects;
+using IOT1030_Phase2_GUI.Core.InventoryObjects.Armours;
+using IOT1030_Phase2_GUI.Core.InventoryObjects.Weapons;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
@@ -74,9 +76,14 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// </summary>
         protected List<Attack> _attacks;
 
-        public Hero()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Hero"/> class.
+        /// </summary>
+        protected Hero()
         {
             _inventory = new Inventory(HeroConfig.HeroInventorySize);
+            _equippedWeapon = new Sword();
+            _equippedArmour = new ChestPlate();
         }
 
         /// <summary>
