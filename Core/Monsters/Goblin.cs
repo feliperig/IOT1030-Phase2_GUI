@@ -12,14 +12,5 @@ namespace IOT1030_Phase2_GUI.Core.Monsters
             _maxHealth = MonsterConfig.GoblinHealth;
             _currentHealth = _maxHealth;
         }
-
-        /// <summary>
-        /// Chooses what action the goblin should do
-        /// </summary>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public override void TakeAction()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

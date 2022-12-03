@@ -25,6 +25,7 @@ namespace IOT1030_Phase2_GUI.Core.Inventory.Weapons
 
             int maxDamageReduction = heroStats[Stats.Luck] / 5; // For every 5 points int luck, 10% better chance to do max damage
             maxDamageReduction = 5 - maxDamageReduction;
+
             if (maxDamageReduction < 0)
                 maxDamageReduction = 0;
 
