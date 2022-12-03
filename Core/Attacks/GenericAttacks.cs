@@ -26,10 +26,10 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         {
             int weaponDamage = equippedWeapon.GetDamage(heroStats); // Get damage from weapon
 
-            int maxAttackMultiplier = (int)((1 + ((heroStats[Stats.Strength] / 5) * 0.35f)) * 100); // Get multiplier (+35% for possible for every 5 strength)
-            int attackMultiplierPercentage = _random.Next(1, maxAttackMultiplier);
+            int maxAttackMultiplier = 100 + (heroStats[Stats.Strength] / 5 * 35); // Get multiplier (+35% for possible for every 5 strength)
+            int attackMultiplierPercentage = _random.Next(75, maxAttackMultiplier);
 
-            float attackMultiplier = attackMultiplierPercentage / 100; // Convert to float for multiplying
+            float attackMultiplier = attackMultiplierPercentage / 100f; // Convert to float for multiplying
 
             return (int)(weaponDamage * attackMultiplier);
         }
