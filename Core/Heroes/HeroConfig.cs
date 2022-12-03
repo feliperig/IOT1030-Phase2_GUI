@@ -6,6 +6,11 @@
     public class HeroConfig
     {
         /// <summary>
+        /// The inventory size for all heroes
+        /// </summary>
+        public const int HeroInventorySize = 20;
+
+        /// <summary>
         /// Archer Properties
         /// </summary>
         public const int ArcherHealth = 100;

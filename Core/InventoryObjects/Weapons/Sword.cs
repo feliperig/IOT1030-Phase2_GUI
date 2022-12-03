@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace IOT1030_Phase2_GUI.Core.Inventory.Weapons
+namespace IOT1030_Phase2_GUI.Core.InventoryObjects.Weapons
 {
     public class Sword : Weapon
     {

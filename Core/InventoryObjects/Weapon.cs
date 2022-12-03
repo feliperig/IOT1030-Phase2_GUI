@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace IOT1030_Phase2_GUI.Core.Inventory
+namespace IOT1030_Phase2_GUI.Core.InventoryObjects
 {
     public abstract class Weapon : Item
     {

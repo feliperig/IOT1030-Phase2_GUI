@@ -1,4 +1,4 @@
-﻿using IOT1030_Phase2_GUI.Core.Inventory;
+﻿using IOT1030_Phase2_GUI.Core.InventoryObjects;
 using IOT1030_Phase2_GUI.Core.Heroes;
 using System;
 using System.Collections.Generic;

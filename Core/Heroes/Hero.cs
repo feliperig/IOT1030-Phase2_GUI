@@ -1,4 +1,4 @@
-﻿using IOT1030_Phase2_GUI.Core.Inventory;
+﻿using IOT1030_Phase2_GUI.Core.InventoryObjects;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
@@ -47,6 +47,11 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         public string ClassName { get { return HeroClass.ToString(); } }
 
         /// <summary>
+        /// The inventory
+        /// </summary>
+        protected Inventory _inventory;
+
+        /// <summary>
         /// The equipped weapon
         /// </summary>
         protected Weapon _equippedWeapon;
@@ -68,6 +73,11 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// The attacks of the hero
         /// </summary>
         protected List<Attack> _attacks;
+
+        public Hero()
+        {
+            _inventory = new Inventory(HeroConfig.HeroInventorySize);
+        }
 
         /// <summary>
         /// Gets the attack at the given index.

@@ -103,12 +103,12 @@
     <Compile Include="Core\Heroes\HeroConfig.cs" />
     <Compile Include="Core\Heroes\HeroConverter.cs" />
     <Compile Include="Core\Attacks\Attack.cs" />
-    <Compile Include="Core\Inventory\Armour.cs" />
-    <Compile Include="Core\Inventory\Armours\ChestPlate.cs" />
-    <Compile Include="Core\Inventory\Inventory.cs" />
-    <Compile Include="Core\Inventory\Item.cs" />
-    <Compile Include="Core\Inventory\ItemConfig.cs" />
-    <Compile Include="Core\Inventory\Weapon.cs" />
+    <Compile Include="Core\InventoryObjects\Armour.cs" />
+    <Compile Include="Core\InventoryObjects\Armours\ChestPlate.cs" />
+    <Compile Include="Core\InventoryObjects\Inventory.cs" />
+    <Compile Include="Core\InventoryObjects\Item.cs" />
+    <Compile Include="Core\InventoryObjects\ItemConfig.cs" />
+    <Compile Include="Core\InventoryObjects\Weapon.cs" />
     <Compile Include="Core\Heroes\Archer.cs" />
     <Compile Include="Core\Heroes\Hero.cs" />
     <Compile Include="Core\Heroes\King.cs" />
@@ -116,7 +116,7 @@
     <Compile Include="Core\Heroes\Mage.cs" />
     <Compile Include="Core\Heroes\Player.cs" />
     <Compile Include="Core\Heroes\Queen.cs" />
-    <Compile Include="Core\Inventory\Weapons\Sword.cs" />
+    <Compile Include="Core\InventoryObjects\Weapons\Sword.cs" />
     <Compile Include="Core\MonsterAttacks\GoblinAttacks.cs" />
     <Compile Include="Core\MonsterAttacks\MonsterAttack.cs" />
     <Compile Include="Core\Monsters\Goblin.cs" />

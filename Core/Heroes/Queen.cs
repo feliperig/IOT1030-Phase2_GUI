@@ -37,7 +37,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// Initializes a new instance of the <see cref="Queen"/> class.
         /// </summary>
         /// <param name="name">The name.</param>
-        private Queen(string name)
+        private Queen(string name) : base()
         {
             _name = name;
             _heroClass = HeroClass.Queen;
