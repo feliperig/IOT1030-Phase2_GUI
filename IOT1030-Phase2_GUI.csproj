@@ -107,6 +107,7 @@
     <Compile Include="Core\Inventory\Armours\ChestPlate.cs" />
     <Compile Include="Core\Inventory\Inventory.cs" />
     <Compile Include="Core\Inventory\Item.cs" />
+    <Compile Include="Core\Inventory\ItemConfig.cs" />
     <Compile Include="Core\Inventory\Weapon.cs" />
     <Compile Include="Core\Heroes\Archer.cs" />
     <Compile Include="Core\Heroes\Hero.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Core\Inventory\Weapons\Sword.cs" />
     <Compile Include="Core\Monsters\Goblin.cs" />
     <Compile Include="Core\Monsters\Monster.cs" />
+    <Compile Include="Core\Monsters\MonsterConfig.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">

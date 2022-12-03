@@ -6,6 +6,9 @@ namespace IOT1030_Phase2_GUI.Core.Inventory.Armours
 {
     public class ChestPlate : Armour
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChestPlate"/> class.
+        /// </summary>
         public ChestPlate() : base() 
         {
             _protection = 5;
@@ -22,7 +25,23 @@ namespace IOT1030_Phase2_GUI.Core.Inventory.Armours
         /// <exception cref="System.NotImplementedException"></exception>
         public override int MitigateDamage(int damage, Dictionary<Stats, int> heroStats)
         {
-            throw new NotImplementedException();
+            float mitigation = _protection * (heroStats[Stats.Strength] / 2); // amount of mitigation percent is protection * (hero strength stat / 2)
+
+            float maxReduction = 10 - (heroStats[Stats.Luck] / 5); // Max amount of reduction gets better for every 5 luck
+            float reduction = (1 - (_random.Next(0, (int)maxReduction) / 10)); // Random amount of reduction up to max amount
+
+            if(reduction > ItemConfig.MaxReduction) // Ensure reduction amount is <= ItemConfig.MaxReduction
+                reduction = ItemConfig.MaxReduction;
+
+            mitigation *= reduction; // Reduce mitigation percent by reduction
+
+            if(mitigation > ItemConfig.MaxMitigation)
+                mitigation = ItemConfig.MaxMitigation; // Ensure migigation is <= MaxMitigation
+            
+
+            int damageLeftover = (int)(damage * mitigation); // Apply mitigation to damage
+
+            return damageLeftover;
         }
     }
 }

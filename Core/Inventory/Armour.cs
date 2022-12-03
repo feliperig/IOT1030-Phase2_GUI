@@ -1,4 +1,5 @@
 ﻿using IOT1030_Phase2_GUI.Core.Heroes;
+using System;
 using System.Collections.Generic;
 
 namespace IOT1030_Phase2_GUI.Core.Inventory
@@ -12,11 +13,17 @@ namespace IOT1030_Phase2_GUI.Core.Inventory
         public int Protection { get { return _protection; } }
 
         /// <summary>
+        /// Random object
+        /// </summary>
+        protected Random _random;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Armour"/> class.
         /// </summary>
         protected Armour()
         {
             _type = ItemType.Armour;
+            _random = new Random();
         }
 
         /// <summary>
