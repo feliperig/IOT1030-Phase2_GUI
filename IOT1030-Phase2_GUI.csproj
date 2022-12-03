@@ -100,6 +100,7 @@
     <Compile Include="Core\Attacks\KnightAttacks.cs" />
     <Compile Include="Core\Attacks\MageAttacks.cs" />
     <Compile Include="Core\Attacks\QueenAttacks.cs" />
+    <Compile Include="Core\Heroes\HeroConfig.cs" />
     <Compile Include="Core\Heroes\HeroConverter.cs" />
     <Compile Include="Core\Attacks\Attack.cs" />
     <Compile Include="Core\Inventory\Armour.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Core\Heroes\Player.cs" />
     <Compile Include="Core\Heroes\Queen.cs" />
     <Compile Include="Core\Inventory\Weapons\Sword.cs" />
+    <Compile Include="Core\Monsters\Goblin.cs" />
     <Compile Include="Core\Monsters\Monster.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />

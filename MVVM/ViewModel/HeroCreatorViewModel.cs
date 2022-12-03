@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Xml;
-using System.Xml.Serialization;
 using IOT1030_Phase2_GUI.Core;
 using IOT1030_Phase2_GUI.Core.Heroes;
 

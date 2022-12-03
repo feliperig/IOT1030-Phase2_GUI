@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using IOT1030_Phase2_GUI.Core.Attacks;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json.Serialization;
 
 namespace IOT1030_Phase2_GUI.Core.Heroes
@@ -53,6 +49,9 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
                  new KingPowerAttack(),
                  new KingRageAttack()
             };
+
+            _maxHealth = HeroConfig.KingHealth;
+            _currentHealth = _maxHealth;
         }
     }
 }

@@ -1,9 +1,7 @@
-﻿using IOT1030_Phase2_GUI.MVVM.ViewModel;
-using IOT1030_Phase2_GUI.Core;
+﻿using IOT1030_Phase2_GUI.Core;
 using IOT1030_Phase2_GUI.Core.Heroes;
 using System.Windows;
 using System.Linq;
-using System.Windows.Documents;
 using System.Collections.Generic;
 
 namespace IOT1030_Phase2_GUI.MVVM.ViewModel

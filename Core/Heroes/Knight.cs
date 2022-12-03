@@ -1,10 +1,6 @@
 ﻿using IOT1030_Phase2_GUI.Core.Attacks;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace IOT1030_Phase2_GUI.Core.Heroes
 {
@@ -53,6 +49,9 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
                  new KnightKnockoutAttack(),
                  new KnightRageAttack()
             };
+
+            _maxHealth = HeroConfig.KnightHealth;
+            _currentHealth = _maxHealth;
         }
     }
 }

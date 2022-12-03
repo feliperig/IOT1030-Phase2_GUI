@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IOT1030_Phase2_GUI.Core;
+﻿using IOT1030_Phase2_GUI.Core;
 using IOT1030_Phase2_GUI.Core.Heroes;
 
 namespace IOT1030_Phase2_GUI.MVVM.ViewModel
