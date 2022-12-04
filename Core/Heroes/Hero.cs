@@ -21,7 +21,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// <value>
         /// The image path.
         /// </value>
-        public string ImagePath { get { return "/Images/" + HeroClass.ToString() + "Sprite.png"; } }
+        public string ImagePath { get { return "/Images/" + ClassName + "Sprite.png"; } }
 
         /// <summary>
         /// The maximum health of the hero
@@ -108,7 +108,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         {
             if (index > _attacks.Count)
                 return 0;
-            return _attacks[index].UseAttack(Stats, EquippedWeapon);
+            return _attacks[index].UseAttack(_stats, _equippedWeapon);
         }
 
         /// <summary>
@@ -118,7 +118,13 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// <returns>If the hero is still alive</returns>
         public virtual bool TakeDamage(int damage)
         {
-            _currentHealth -= damage;
+            int damageToTake = damage;
+            if(_equippedArmour != null)
+            {
+                damageToTake = _equippedArmour.MitigateDamage(damage, _stats);
+            }
+
+            _currentHealth -= damageToTake;
 
             if(_currentHealth <= 0) 
                 return false; // Hero dead

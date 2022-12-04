@@ -21,7 +21,6 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         /// </summary>
         /// <param name="heroStats">The hero stats of the hero that used this attack.</param>
         /// <returns>The amount of damage calculated</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
         public override int UseAttack(Dictionary<Stats, int> heroStats, Weapon equippedWeapon)
         {
             int weaponDamage = equippedWeapon.GetDamage(heroStats); // Get damage from weapon

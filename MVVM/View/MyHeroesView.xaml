@@ -46,78 +46,162 @@
 						   Grid.Row="0"
 						   Margin="4" />
 				
-				<!-- Scroll viewer for the data grid -->
-				<ScrollViewer Grid.Row="1">
-					<!-- The binding here is the list containing objects (HeroStats) -->
-					<DataGrid ItemsSource="{Binding Heroes, UpdateSourceTrigger=PropertyChanged}"
-							  Foreground="Black"
-							  Background="Transparent"
-							  IsReadOnly="True"
-							  AutoGenerateColumns="False"
-							  HeadersVisibility="None"
-							  Grid.Column="0"
-							  BorderThickness="0"
-							  GridLinesVisibility="None">
+				<!-- The binding here is the list containing objects (HeroStats) -->
+				<DataGrid ItemsSource="{Binding Heroes, UpdateSourceTrigger=PropertyChanged}"
+							Foreground="Black"
+							Background="Transparent"
+							IsReadOnly="True"
+							AutoGenerateColumns="False"
+							HeadersVisibility="None"
+							Grid.Column="0"
+							Grid.Row="1"
+							BorderThickness="0"
+							GridLinesVisibility="None"
+						  ScrollViewer.CanContentScroll="False">
+					
+					<!-- Custom Scrollbar Style -->
+					<DataGrid.Resources>
+						<Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+							<Setter Property="Template">
+								<Setter.Value>
+									<ControlTemplate TargetType="{x:Type Thumb}">
+										<Grid x:Name="Grid">
+											<Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Fill="Transparent"/>
+											<Border x:Name="Rectangle1" CornerRadius="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto"  Background="{TemplateBinding Background}" />
+										</Grid>
+										<ControlTemplate.Triggers>
+											<Trigger Property="Tag" Value="Horizontal">
+												<Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+												<Setter TargetName="Rectangle1" Property="Height" Value="7" />
+											</Trigger>
+										</ControlTemplate.Triggers>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
 						
-						<!-- Changing the style of the DataGridCells to remove borders -->
-						<DataGrid.CellStyle>
-							<Style TargetType="{x:Type DataGridCell}">
-								<Style.Setters>
-									<Setter Property="Background"
+						<Style TargetType="ScrollBar">
+							<Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+							<Setter Property="Foreground" Value="#FF444656" />
+							<Setter Property="Background" Value="Transparent" />
+							<Setter Property="Width" Value="10" />
+							<Setter Property="MinWidth" Value="10"/>
+							<Setter Property="MaxWidth" Value="10"/>
+							<Setter Property="Template">
+								<Setter.Value>
+									<ControlTemplate TargetType="{x:Type ScrollBar}">
+										<Grid x:Name="GridRoot" Width="10" Background="{TemplateBinding Background}">
+											<Grid.RowDefinitions>
+												<RowDefinition Height="0.00001*" />
+											</Grid.RowDefinitions>
+
+											<Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="false">
+												<Track.Thumb>
+													<Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" Style="{DynamicResource ScrollThumbs}" />
+												</Track.Thumb>
+												<Track.IncreaseRepeatButton>
+													<RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="false" />
+												</Track.IncreaseRepeatButton>
+												<Track.DecreaseRepeatButton>
+													<RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="false" />
+												</Track.DecreaseRepeatButton>
+											</Track>
+										</Grid>
+
+										<ControlTemplate.Triggers>
+											<Trigger SourceName="Thumb" Property="IsMouseOver" Value="true">
+												<Setter Value="{DynamicResource ButtonSelectBrush}" TargetName="Thumb" Property="Background" />
+											</Trigger>
+											<Trigger SourceName="Thumb" Property="IsDragging" Value="true">
+												<Setter Value="{DynamicResource DarkBrush}" TargetName="Thumb" Property="Background" />
+											</Trigger>
+
+											<Trigger Property="IsEnabled" Value="false">
+												<Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+											</Trigger>
+											<Trigger Property="Orientation" Value="Horizontal">
+												<Setter TargetName="GridRoot" Property="LayoutTransform">
+													<Setter.Value>
+														<RotateTransform Angle="-90" />
+													</Setter.Value>
+												</Setter>
+												<Setter TargetName="PART_Track" Property="LayoutTransform">
+													<Setter.Value>
+														<RotateTransform Angle="-90" />
+													</Setter.Value>
+												</Setter>
+												<Setter Property="Width" Value="Auto" />
+												<Setter Property="Height" Value="12" />
+												<Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+												<Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+												<Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+											</Trigger>
+										</ControlTemplate.Triggers>
+									</ControlTemplate>
+								</Setter.Value>
+							</Setter>
+						</Style>
+					</DataGrid.Resources>
+
+					<!-- Changing the style of the DataGridCells to remove borders -->
+					<DataGrid.CellStyle>
+						<Style TargetType="{x:Type DataGridCell}">
+							<Style.Setters>
+								<Setter Property="Background"
 											Value="Transparent" />
-								</Style.Setters>
-								<Style.Triggers>
-									<Trigger Property="DataGridCell.IsSelected"
+							</Style.Setters>
+							<Style.Triggers>
+								<Trigger Property="DataGridCell.IsSelected"
 											 Value="True">
-										<Setter Property="BorderBrush"
+									<Setter Property="BorderBrush"
 												Value="Transparent" />
-										<Setter Property="BorderThickness"
+									<Setter Property="BorderThickness"
 												Value="0" />
-										<Setter Property="Foreground"
+									<Setter Property="Foreground"
 												Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
-										<Setter Property="Background"
-												Value="Transparent" />
-									</Trigger>
-								</Style.Triggers>
-							</Style>
-						</DataGrid.CellStyle>
-						
-						<!-- Changing the style of the DataGridRows to remove borders -->
-						<DataGrid.RowStyle>
-							<Style TargetType="{x:Type DataGridRow}">
-								<Style.Setters>
 									<Setter Property="Background"
+												Value="Transparent" />
+								</Trigger>
+							</Style.Triggers>
+						</Style>
+					</DataGrid.CellStyle>
+
+					<!-- Changing the style of the DataGridRows to remove borders -->
+					<DataGrid.RowStyle>
+						<Style TargetType="{x:Type DataGridRow}">
+							<Style.Setters>
+								<Setter Property="Background"
 											Value="Transparent" />
-								</Style.Setters>
-							</Style>
-						</DataGrid.RowStyle>
-						
-						<!-- Defining the columns of the datagrid -->
-						<DataGrid.Columns>
-							<!-- This is the definition of the column that uses this cell style -->
-							<DataGridTemplateColumn Header="Class"
+							</Style.Setters>
+						</Style>
+					</DataGrid.RowStyle>
+
+					<!-- Defining the columns of the datagrid -->
+					<DataGrid.Columns>
+						<!-- This is the definition of the column that uses this cell style -->
+						<DataGridTemplateColumn Header="Class"
 													Width="553">
-								
-								<DataGridTemplateColumn.CellTemplate>
-									<DataTemplate>
-										<!-- This is what is displayed in this cell-->
-										<Grid>
-											<!-- Row background -->
-											<Border Background="#113549"
+
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<!-- This is what is displayed in this cell-->
+									<Grid>
+										<!-- Row background -->
+										<Border Background="#113549"
 													HorizontalAlignment="Stretch"
 													Height="100"
 													BorderBrush="Black"
 													BorderThickness="1"
 													CornerRadius="15"
 													Margin="5">
-												<Grid>
-													<Grid.ColumnDefinitions>
-														<ColumnDefinition Width="100" />
-														<ColumnDefinition />
-													</Grid.ColumnDefinitions>
+											<Grid>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition Width="100" />
+													<ColumnDefinition />
+												</Grid.ColumnDefinitions>
 
-													<!-- Class image -->
-													<Border Background="#3b0e0d"
+												<!-- Class image -->
+												<Border Background="#3b0e0d"
 															CornerRadius="15"
 															Margin="5"
 															BorderThickness="3"
@@ -125,34 +209,34 @@
 															Grid.Column="0"
 															Grid.Row="0">
 
-														<Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
+													<Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
 															   Margin="10" />
-													</Border>
+												</Border>
 
-													<!-- Hero name and class name-->
-													<Grid Grid.Column="1"
+												<!-- Hero name and class name-->
+												<Grid Grid.Column="1"
 														  Margin="10">
-														<Grid.RowDefinitions>
-															<RowDefinition />
-															<RowDefinition />
-														</Grid.RowDefinitions>
-														<TextBlock Text="{Binding Name}"
+													<Grid.RowDefinitions>
+														<RowDefinition />
+														<RowDefinition />
+													</Grid.RowDefinitions>
+													<TextBlock Text="{Binding Name}"
 																   FontSize="25"
 																   VerticalAlignment="Center"
 																   FontFamily="Yu Gothic UI Semibold"
 																   Foreground="White" />
-														<TextBlock Text="{Binding ClassName}"
+													<TextBlock Text="{Binding ClassName}"
 																   FontSize="25"
 																   Grid.Row="1"
 																   VerticalAlignment="Center"
 																   FontFamily="Yu Gothic UI Semibold"
 																   Foreground="#c6c6c6" />
-													</Grid>
 												</Grid>
-											</Border>
-											
-											<!-- Button to go to hero display view for this hero -->
-											<Button Style="{StaticResource RoundedMyHeroButtonTheme}"
+											</Grid>
+										</Border>
+
+										<!-- Button to go to hero display view for this hero -->
+										<Button Style="{StaticResource RoundedMyHeroButtonTheme}"
 													Margin="5"
 													Width="540"
 													HorizontalAlignment="Left"
@@ -161,13 +245,12 @@
 													Command="{Binding Path=DataContext.HeroDisplayCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
 													CommandParameter="{Binding Name}" />
 
-										</Grid>
-									</DataTemplate>
-								</DataGridTemplateColumn.CellTemplate>
-							</DataGridTemplateColumn>
-						</DataGrid.Columns>
-					</DataGrid>
-				</ScrollViewer>
+									</Grid>
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+					</DataGrid.Columns>
+				</DataGrid>
 
 			</Grid>
 
