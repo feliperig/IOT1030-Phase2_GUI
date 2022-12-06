@@ -317,15 +317,16 @@
 
 				<!-- Battle button -->
 				<Button Margin="10"
-							Grid.Row="4"
-							Style="{StaticResource RoundedButtonTheme}"
-							Background="#FF55901D"
-							Foreground="Black"
-							FontFamily="Yu Gothic UI Semibold"
-							FontSize="16"
-							BorderThickness="0"
-							Padding="10,0"
-							Content="Battle!" />
+						Grid.Row="4"
+						Style="{StaticResource RoundedButtonTheme}"
+						Background="#FF55901D"
+						Foreground="Black"
+						FontFamily="Yu Gothic UI Semibold"
+						FontSize="16"
+						BorderThickness="0"
+						Padding="10,0"
+						IsEnabled="{Binding BattleButtonEnabled}"
+						Content="Battle!" />
 
 			</Grid>
 			

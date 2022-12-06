@@ -52,6 +52,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
             set 
             { 
                 _selectedHero = value;
+                BattleButtonEnabled = SelectedMonster != null && SelectedHero != null;
                 OnPropertyChanged();
             }
         }
@@ -65,7 +66,22 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
             get { return _selectedMonster; }
             set 
             { 
-                _selectedMonster = value; 
+                _selectedMonster = value;
+                BattleButtonEnabled = SelectedMonster != null && SelectedHero != null;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether [battle button enabled].
+        /// </summary>
+        private bool _battleButtonEnabled;
+        public bool BattleButtonEnabled 
+        {
+            get { return _battleButtonEnabled; }
+            set
+            {
+                _battleButtonEnabled = value;
                 OnPropertyChanged();
             }
         }
@@ -98,7 +114,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
         }
 
         /// <summary>
-        /// Updates the lists.
+        /// Updates the hero and monster lists.
         /// </summary>
         public void UpdateLists() 
         {
