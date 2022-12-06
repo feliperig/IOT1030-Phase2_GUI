@@ -14,6 +14,7 @@
 				<ResourceDictionary Source="Theme/RoundedButtonTheme.xaml" />
 				<ResourceDictionary Source="Theme/RoundedClassButtonTheme.xaml" />
 				<ResourceDictionary Source="Theme/RoundedMyHeroButtonTheme.xaml" />
+				<ResourceDictionary Source="Theme/ScrollBarTheme.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 
 			<!-- Connecting the Views to the ViewModels -->
