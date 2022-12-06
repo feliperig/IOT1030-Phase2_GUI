@@ -1,6 +1,7 @@
 ﻿using IOT1030_Phase2_GUI.Core.MonsterAttacks;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace IOT1030_Phase2_GUI.Core.Monsters
 {
@@ -17,6 +18,19 @@ namespace IOT1030_Phase2_GUI.Core.Monsters
         /// </summary>
         protected int _currentHealth;
         public int CurrentHealth { get { return _currentHealth; } }
+
+        /// <summary>
+        /// Gets the name of the monster
+        /// </summary>
+        public string Name { get { return GetType().ToString().Split('.').Last(); } }
+
+        /// <summary>
+        /// Gets the image path.
+        /// </summary>
+        /// <value>
+        /// The image path.
+        /// </value>
+        public string ImagePath { get { return "/Images/" + Name + "Sprite.png"; } }
 
         /// <summary>
         /// The attacks of the monster

@@ -105,7 +105,15 @@
 							 FontFamily="Yu Gothic UI Semibold"
 							 Style="{StaticResource MenuButtonTheme}"
 							 Command="{Binding MyHeroesViewCommand}" />
-            </StackPanel>
+				<!-- Battle simulator page button -->
+				<RadioButton Content="Battle Simulator"
+							 Height="50"
+							 Foreground="White"
+							 FontSize="14"
+							 FontFamily="Yu Gothic UI Semibold"
+							 Style="{StaticResource MenuButtonTheme}"
+							 Command="{Binding BattleSimulatorViewCommand}" />
+			</StackPanel>
             <!-- Contains the current page -->
             <ContentControl Grid.Row="1"
 							Grid.Column="1"

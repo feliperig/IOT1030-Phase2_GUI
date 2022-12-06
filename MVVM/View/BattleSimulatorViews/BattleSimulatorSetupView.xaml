@@ -1,0 +1,477 @@
+﻿<UserControl x:Class="IOT1030_Phase2_GUI.MVVM.View.BattleSimulatorViews.BattleSimulatorSetupView"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:local="clr-namespace:IOT1030_Phase2_GUI.MVVM.View.BattleSimulatorViews"
+			 xmlns:viewModel="clr-namespace:IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels"
+			 d:DataContext="{d:DesignInstance Type=viewModel:BattleSimulatorSetupViewModel}"
+			 mc:Ignorable="d"
+			 d:DesignHeight="450"
+			 d:DesignWidth="700">
+	<!-- Base Grid -->
+	<Grid Margin="20">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<TextBlock Text="Battle Setup"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Foreground="White"
+					FontSize="35"
+					FontFamily="Yu Gothic UI Semibold"
+					Grid.Row="0"
+					Margin="4" />
+
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			
+			<!-- Hero List -->
+			<Border Grid.Column="0"
+					CornerRadius="15"
+					Background="#FF3C190C"
+					BorderBrush="Black"
+					BorderThickness="3">
+				<Grid Margin="5">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="40"/>
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<!-- My Heroes title -->
+					<TextBlock Text="My Heroes"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   Foreground="White"
+						   FontSize="25"
+						   FontFamily="Yu Gothic UI Semibold"
+						   Grid.Row="0"
+						   Margin="4" />
+
+					<!-- The binding here is the list containing objects (HeroStats) -->
+					<DataGrid ItemsSource="{Binding Heroes, UpdateSourceTrigger=PropertyChanged}"
+							Foreground="Black"
+							Background="Transparent"
+							IsReadOnly="True"
+							AutoGenerateColumns="False"
+							HeadersVisibility="None"
+							Grid.Column="0"
+							Grid.Row="1"
+							BorderThickness="0"
+							GridLinesVisibility="None"
+						  ScrollViewer.CanContentScroll="False">
+
+						<!-- Custom Scrollbar Style -->
+						<DataGrid.Resources>
+							<Style TargetType="ScrollBar" 
+							   BasedOn="{StaticResource ScrollBarTheme}"/>
+						</DataGrid.Resources>
+
+						<!-- Changing the style of the DataGridCells to remove borders -->
+						<DataGrid.CellStyle>
+							<Style TargetType="{x:Type DataGridCell}">
+								<Style.Setters>
+									<Setter Property="Background"
+											Value="Transparent" />
+								</Style.Setters>
+								<Style.Triggers>
+									<Trigger Property="DataGridCell.IsSelected"
+											 Value="True">
+										<Setter Property="BorderBrush"
+												Value="Transparent" />
+										<Setter Property="Foreground"
+												Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+										<Setter Property="Background"
+												Value="Transparent" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</DataGrid.CellStyle>
+
+						<!-- Changing the style of the DataGridRows to remove borders -->
+						<DataGrid.RowStyle>
+							<Style TargetType="{x:Type DataGridRow}">
+								<Style.Setters>
+									<Setter Property="Background"
+											Value="Transparent" />
+								</Style.Setters>
+							</Style>
+						</DataGrid.RowStyle>
+
+						<!-- Defining the columns of the datagrid -->
+						<DataGrid.Columns>
+							<!-- This is the definition of the column that uses this cell style -->
+							<DataGridTemplateColumn Header="Class"
+													Width="190">
+
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<!-- This is what is displayed in this cell-->
+										<Grid>
+											<!-- Row background -->
+											<Border Background="#FF373D44"
+													HorizontalAlignment="Stretch"
+													Height="50"
+													BorderBrush="Black"
+													BorderThickness="1"
+													CornerRadius="15"
+													Margin="2">
+												<Grid Margin="10,0,0,0">
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition Width="50" />
+														<ColumnDefinition />
+													</Grid.ColumnDefinitions>
+
+													<!-- Class image -->
+													<Border Background="#FF250908"
+															CornerRadius="5"
+															Margin="3"
+															BorderThickness="3"
+															BorderBrush="Black"
+															Grid.Column="0"
+															Grid.Row="0">
+
+														<Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
+															   Margin="1" />
+													</Border>
+
+													<!-- Hero name and class name-->
+													<Grid Grid.Column="1"
+														  Margin="5">
+														<Grid.RowDefinitions>
+															<RowDefinition />
+															<RowDefinition />
+														</Grid.RowDefinitions>
+														<TextBlock Text="{Binding Name}"
+																   FontSize="15"
+																   VerticalAlignment="Center"
+																   FontFamily="Yu Gothic UI Semibold"
+																   Foreground="White" />
+														<TextBlock Text="{Binding ClassName}"
+																   FontSize="11"
+																   Grid.Row="1"
+																   VerticalAlignment="Center"
+																   FontFamily="Yu Gothic UI Semibold"
+																   Foreground="#FF8C8C8C" />
+													</Grid>
+												</Grid>
+											</Border>
+
+											<!-- Button to select this hero -->
+											<Button Style="{StaticResource RoundedMyHeroButtonTheme}"
+													Margin="2"
+													Width="184"
+													HorizontalAlignment="Left"
+													Background="Transparent"
+													Opacity="0.5"
+													Command="{Binding Path=DataContext.SelectHeroCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
+													CommandParameter="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGridCell}}"/>
+
+										</Grid>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</Grid>
+			</Border>
+
+			<!-- Selected hero/monster grid -->
+			<Grid Grid.Column="1">
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition Height="50"/>
+				</Grid.RowDefinitions>
+				
+				<!-- Hero selection -->
+				<Border Grid.Row="0"
+						CornerRadius="15"
+						Background="#FF3C190C"
+						BorderBrush="Black"
+						BorderThickness="3"
+						Margin="7">
+					<Grid Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="30"/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+						
+						<TextBlock Text="Hero Selection"
+								   HorizontalAlignment="Center"
+								   VerticalAlignment="Center"
+								   Foreground="White"
+								   FontSize="25"
+								   FontFamily="Yu Gothic UI Semibold"
+								   Grid.Row="0"
+								   Margin="4" />
+
+						<Grid Grid.Row="1">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="75"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<!-- Class image -->
+							<Border Background="#FF250908"
+									CornerRadius="5"
+									Margin="3"
+									BorderThickness="3"
+									BorderBrush="Black"
+									Grid.Column="0"
+									Grid.Row="0">
+
+								<Image Source="{Binding SelectedHero.ImagePath, UpdateSourceTrigger=PropertyChanged}"
+									   Margin="1" />
+							</Border>
+							<Grid Grid.Column="1"
+								  Margin="4">
+								<Grid.RowDefinitions>
+									<RowDefinition/>
+									<RowDefinition/>
+								</Grid.RowDefinitions>
+								<TextBlock Text="{Binding SelectedHero.Name}"
+										   HorizontalAlignment="Left"
+										   VerticalAlignment="Center"
+										   Foreground="White"
+										   FontSize="20"
+										   FontFamily="Yu Gothic UI Semibold"
+										   Grid.Row="0"
+										   Margin="4" 
+										   TextWrapping="Wrap"/>
+								<TextBlock Text="{Binding SelectedHero.HeroClass}"
+								   HorizontalAlignment="Left"
+								   VerticalAlignment="Top"
+								   Foreground="#FFADADAD"
+								   FontSize="18"
+								   FontFamily="Yu Gothic UI Semibold"
+								   Grid.Row="1"
+								   Margin="4" />
+							</Grid>
+							
+						</Grid>
+
+					</Grid>
+
+				</Border>
+
+				<!-- Monster selection -->
+				<Border Grid.Row="1"
+						CornerRadius="15"
+						Background="#FF353C0C"
+						BorderBrush="Black"
+						BorderThickness="3"
+						Margin="7">
+
+					<Grid Margin="10">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="30"/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+
+						<TextBlock Text="Monster Selection"
+								   HorizontalAlignment="Center"
+								   VerticalAlignment="Center"
+								   Foreground="White"
+								   FontSize="21"
+								   FontFamily="Yu Gothic UI Semibold"
+								   Grid.Row="0"
+								   Margin="4" />
+
+						<Grid Grid.Row="1">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="75"/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<!-- Class image -->
+							<Border Background="#FF292F09"
+									CornerRadius="5"
+									Margin="3"
+									BorderThickness="3"
+									BorderBrush="Black"
+									Grid.Column="0"
+									Grid.Row="0">
+
+								<Image Source="{Binding SelectedMonster.ImagePath, UpdateSourceTrigger=PropertyChanged}"
+									   Margin="1" />
+							</Border>
+							<TextBlock Text="{Binding SelectedMonster.Name}"
+									   HorizontalAlignment="Left"
+									   VerticalAlignment="Center"
+									   Foreground="White"
+									   FontSize="20"
+									   FontFamily="Yu Gothic UI Semibold"
+									   Grid.Column="1"
+									   Margin="4" 
+									   TextWrapping="Wrap"/>
+						</Grid>
+
+						
+					</Grid>
+
+				</Border>
+
+				<!-- Battle button -->
+				<Button Margin="10"
+							Grid.Row="4"
+							Style="{StaticResource RoundedButtonTheme}"
+							Background="#FF55901D"
+							Foreground="Black"
+							FontFamily="Yu Gothic UI Semibold"
+							FontSize="16"
+							BorderThickness="0"
+							Padding="10,0"
+							Content="Battle!" />
+
+			</Grid>
+			
+			<!--- Monster list -->
+			<Border Grid.Column="2"
+					CornerRadius="15"
+					Background="#FF353C0C"
+					BorderBrush="Black"
+					BorderThickness="3">
+				<Grid Margin="5">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="40"/>
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<!-- Monsters title -->
+					<TextBlock Text="Monsters"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center"
+						   Foreground="White"
+						   FontSize="25"
+						   FontFamily="Yu Gothic UI Semibold"
+						   Grid.Row="0"
+						   Margin="4" />
+
+					<!-- The binding here is the list containing objects (Monsters) -->
+					<DataGrid ItemsSource="{Binding Monsters, UpdateSourceTrigger=PropertyChanged}"
+							Foreground="Black"
+							Background="Transparent"
+							IsReadOnly="True"
+							AutoGenerateColumns="False"
+							HeadersVisibility="None"
+							Grid.Column="0"
+							Grid.Row="1"
+							BorderThickness="0"
+							GridLinesVisibility="None"
+						  ScrollViewer.CanContentScroll="False">
+
+						<!-- Custom Scrollbar Style -->
+						<DataGrid.Resources>
+							<Style TargetType="ScrollBar" 
+							   BasedOn="{StaticResource ScrollBarTheme}"/>
+						</DataGrid.Resources>
+
+						<!-- Changing the style of the DataGridCells to remove borders -->
+						<DataGrid.CellStyle>
+							<Style TargetType="{x:Type DataGridCell}">
+								<Style.Setters>
+									<Setter Property="Background"
+											Value="Transparent" />
+								</Style.Setters>
+								<Style.Triggers>
+									<Trigger Property="DataGridCell.IsSelected"
+											 Value="True">
+										<Setter Property="BorderBrush"
+												Value="Transparent" />
+										<Setter Property="Foreground"
+												Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+										<Setter Property="Background"
+												Value="Transparent" />
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</DataGrid.CellStyle>
+
+						<!-- Changing the style of the DataGridRows to remove borders -->
+						<DataGrid.RowStyle>
+							<Style TargetType="{x:Type DataGridRow}">
+								<Style.Setters>
+									<Setter Property="Background"
+											Value="Transparent" />
+								</Style.Setters>
+							</Style>
+						</DataGrid.RowStyle>
+
+						<!-- Defining the columns of the datagrid -->
+						<DataGrid.Columns>
+							<!-- This is the definition of the column that uses this cell style -->
+							<DataGridTemplateColumn Header="Class"
+													Width="190">
+
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<!-- This is what is displayed in this cell-->
+										<Grid>
+											<!-- Row background -->
+											<Border Background="#FF373D44"
+													HorizontalAlignment="Stretch"
+													Height="50"
+													BorderBrush="Black"
+													BorderThickness="1"
+													CornerRadius="15"
+													Margin="2">
+												<Grid Margin="10,0,0,0">
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition Width="50" />
+														<ColumnDefinition />
+													</Grid.ColumnDefinitions>
+
+													<!-- Class image -->
+													<Border Background="#FF292F09"
+															CornerRadius="5"
+															Margin="3"
+															BorderThickness="3"
+															BorderBrush="Black"
+															Grid.Column="0"
+															Grid.Row="0">
+
+														<Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
+															   Margin="1" />
+													</Border>
+
+													<!-- Monster name -->
+													<Grid Grid.Column="1"
+														  Margin="5">
+														<Grid.RowDefinitions>
+															<RowDefinition />
+														</Grid.RowDefinitions>
+														<TextBlock Text="{Binding Name}"
+																   FontSize="18"
+																   VerticalAlignment="Center"
+																   FontFamily="Yu Gothic UI Semibold"
+																   Foreground="White" />
+													</Grid>
+												</Grid>
+											</Border>
+
+											<!-- Button to select this monster -->
+											<Button Style="{StaticResource RoundedMyHeroButtonTheme}"
+													Margin="2"
+													Width="184"
+													HorizontalAlignment="Left"
+													Background="Transparent"
+													Opacity="0.5"
+													Command="{Binding Path=DataContext.SelectMonsterCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
+													CommandParameter="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGridCell}}" />
+
+										</Grid>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</Grid>
+			</Border>
+
+		</Grid>
+	</Grid>
+
+</UserControl>

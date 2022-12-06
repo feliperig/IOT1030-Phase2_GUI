@@ -3,6 +3,7 @@ using IOT1030_Phase2_GUI.Core.Heroes;
 using System.Windows;
 using System.Linq;
 using System.Collections.Generic;
+using IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels;
 
 namespace IOT1030_Phase2_GUI.MVVM.ViewModel
 {
@@ -42,6 +43,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         public HeroCreatorViewModel HeroCreatorVM;
         public MyHeroesViewModel MyHeroesVM;
         public HeroDisplayViewModel HeroDisplayVM;
+        public BattleSimulatorMainViewModel BattleSimulatorVM;
 
         /// <summary>
         /// Initializes the view models.
@@ -52,14 +54,17 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             HeroCreatorVM = new HeroCreatorViewModel();
             HeroDisplayVM = new HeroDisplayViewModel(this);
             MyHeroesVM = new MyHeroesViewModel(this);
+            BattleSimulatorVM = new BattleSimulatorMainViewModel();
         }
 
         // Defining RelayCommands for UI buttons
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand HeroCreatorViewCommand { get; set; }
         public RelayCommand MyHeroesViewCommand { get; set; }
+        public RelayCommand BattleSimulatorViewCommand { get; set; }
         public RelayCommand CloseWindowCommand { get; set; }
         public RelayCommand MinimizeWindowCommand { get; set; }
+        
 
         /// <summary>
         /// Initializes the RelayCommand functionality for UI buttons.
@@ -91,6 +96,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             {
                 MyHeroesVM.GetHeroes(); // get heroes created list
                 CurrentView = MyHeroesVM; // sets current page to "My Heroes"
+            });
+            BattleSimulatorViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = BattleSimulatorVM; // sets current page to "Battle Simulator"
             });
         }
 

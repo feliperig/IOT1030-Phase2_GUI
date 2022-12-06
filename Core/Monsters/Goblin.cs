@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IOT1030_Phase2_GUI.Core.MonsterAttacks;
+using System;
+using System.Collections.Generic;
 
 namespace IOT1030_Phase2_GUI.Core.Monsters
 {
@@ -11,6 +13,13 @@ namespace IOT1030_Phase2_GUI.Core.Monsters
         {
             _maxHealth = MonsterConfig.GoblinHealth;
             _currentHealth = _maxHealth;
+            _attacks = new List<MonsterAttack>
+            {
+                new GoblinNormalAttack(),
+                new GoblinSlapAttack(),
+                new GoblinKickAttack(),
+                new GoblinBodySlamAttack()
+            };
         }
     }
 }

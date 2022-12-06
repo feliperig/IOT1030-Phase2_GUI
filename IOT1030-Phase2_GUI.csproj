@@ -119,15 +119,25 @@
     <Compile Include="Core\InventoryObjects\Weapons\Sword.cs" />
     <Compile Include="Core\MonsterAttacks\GoblinAttacks.cs" />
     <Compile Include="Core\MonsterAttacks\MonsterAttack.cs" />
+    <Compile Include="Core\MonsterAttacks\OrcAttacks.cs" />
     <Compile Include="Core\Monsters\Goblin.cs" />
     <Compile Include="Core\Monsters\Monster.cs" />
     <Compile Include="Core\Monsters\MonsterConfig.cs" />
+    <Compile Include="Core\Monsters\Orc.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\BattleSimulatorViews\BattleSimulatorMainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\BattleSimulatorViews\BattleSimulatorSetupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\ChooseClassView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +184,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ViewModel\BattleSimulatorViewModels\BattleSimulatorMainViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\BattleSimulatorViewModels\BattleSimulatorSetupViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ChooseClassViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HeroCreatorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HeroDisplayViewModel.cs" />
@@ -181,6 +193,12 @@
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MyHeroesViewModel.cs" />
     <Compile Include="MVVM\ViewModel\StatSelectionViewModel.cs" />
+    <Compile Include="MVVM\View\BattleSimulatorViews\BattleSimulatorMainView.xaml.cs">
+      <DependentUpon>BattleSimulatorMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\BattleSimulatorViews\BattleSimulatorSetupView.xaml.cs">
+      <DependentUpon>BattleSimulatorSetupView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\ChooseClassView.xaml.cs">
       <DependentUpon>ChooseClassView.xaml</DependentUpon>
     </Compile>
@@ -261,6 +279,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\CharacterCreator.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GoblinSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrcSprite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

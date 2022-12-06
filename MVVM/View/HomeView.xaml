@@ -30,7 +30,8 @@
 					Margin="10"
 					Grid.Column="0"
 					Grid.Row="0">
-                <Image Source="/Images/college_icon_cambrian.png"/>
+                <Image Source="/Images/college_icon_cambrian.png"
+					   Margin="10"/>
             </Border >
 			
 			<!-- Program title -->
@@ -65,13 +66,13 @@
 							   FontFamily="Yu Gothic UI Semibold" 
                                TextWrapping="Wrap"
                                Margin="0,0,0,30"/>
-                    <TextBlock Text="Project Phase 2"
+                    <TextBlock Text="Project Phase 3"
 							   Foreground="LightGray"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
 							   FontSize="20"
 							   FontFamily="Yu Gothic UI Semibold" />
-                    <TextBlock Text="Heroes and Character Generation"
+                    <TextBlock Text="Battle Simulation"
 							   Foreground="LightGray"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
