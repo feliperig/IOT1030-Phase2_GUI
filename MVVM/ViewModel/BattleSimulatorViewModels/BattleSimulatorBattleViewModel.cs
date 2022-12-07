@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -125,6 +126,19 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
             }
         }
 
+        /// <summary>
+        /// The selected attack
+        /// </summary>
+        private Attack _selectedAttack;
+        public Attack SelectedAttack
+        {
+            get { return _selectedAttack; }
+            set 
+            {
+                _selectedAttack = value; 
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// The main vm for the battle simulator
@@ -174,6 +188,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
         public RelayCommand StatsButtonCommand { get; set; }
         public RelayCommand InventoryButtonCommand { get; set; }
         public RelayCommand MonsterAttackButtonCommand { get; set; }
+        public RelayCommand HeroAttackButtonCommand { get; set; }
         private void InitializeCommands()
         {
             ArmourButtonCommand = new RelayCommand(o =>
@@ -220,6 +235,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
                 MonsterAttack monsterAttack = (MonsterAttack)o;
                 DetailsTitle = monsterAttack.Name;
                 DetailsText = monsterAttack.Description;
+            });
+            HeroAttackButtonCommand = new RelayCommand(o =>
+            {
+                Attack attack = (Attack)o;
+                SelectedAttack = attack;
             });
         }
     }
