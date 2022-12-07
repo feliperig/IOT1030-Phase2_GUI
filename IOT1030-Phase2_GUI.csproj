@@ -100,6 +100,7 @@
     <Compile Include="Core\Attacks\KnightAttacks.cs" />
     <Compile Include="Core\Attacks\MageAttacks.cs" />
     <Compile Include="Core\Attacks\QueenAttacks.cs" />
+    <Compile Include="Core\BattleObjects\Battle.cs" />
     <Compile Include="Core\Heroes\HeroConfig.cs" />
     <Compile Include="Core\Heroes\HeroConverter.cs" />
     <Compile Include="Core\Attacks\Attack.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Core\Monsters\Orc.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Core\RNG.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

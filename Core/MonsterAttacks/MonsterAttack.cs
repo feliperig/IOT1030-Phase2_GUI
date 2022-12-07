@@ -1,31 +1,15 @@
-﻿using IOT1030_Phase2_GUI.Core.Monsters;
+﻿using IOT1030_Phase2_GUI.Core.Heroes;
+using IOT1030_Phase2_GUI.Core.Monsters;
 using System;
 
 namespace IOT1030_Phase2_GUI.Core.MonsterAttacks
 {
-    public abstract class MonsterAttack
+    public class MonsterAttack : Attack
     {
-        /// <summary>
-        /// The name of the Attack
-        /// </summary>
-        protected string _name;
-        public string Name { get { return _name; } }
-
-        /// <summary>
-        /// The description of the Attack
-        /// </summary>
-        protected string _description;
-        public string Description { get { return _description; } }
-
         /// <summary>
         /// The maximum damage of the attack
         /// </summary>
         protected int _maxDamage;
-
-        /// <summary>
-        /// The random object
-        /// </summary>
-        protected Random _random;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MonsterAttack"/> class.
@@ -35,6 +19,13 @@ namespace IOT1030_Phase2_GUI.Core.MonsterAttacks
             _random = new Random();
         }
 
+        public MonsterAttack(string name, string description, int damageDealt)
+        {
+            _name= name;
+            _description= description;
+            _damageDealt = damageDealt;
+        }
+
         /// <summary>
         /// Uses the attack.
         /// </summary>
@@ -42,8 +33,11 @@ namespace IOT1030_Phase2_GUI.Core.MonsterAttacks
         public virtual int UseAttack()
         {
             int damageReductionPercent = _random.Next(0, MonsterConfig.MaxMonsterAttackReductionPercent);
-            float maxReduction = damageReductionPercent / 100;
-            return (int)(_maxDamage * maxReduction);
+            float damageReduction = (100 - damageReductionPercent) / 100f;
+            Console.WriteLine($"Damage Reduction: {damageReduction}");
+            _damageDealt = (int)(_maxDamage * damageReduction);
+            Console.WriteLine($"Damage dealt: {_damageDealt}");
+            return _damageDealt;
         }
     }
 }

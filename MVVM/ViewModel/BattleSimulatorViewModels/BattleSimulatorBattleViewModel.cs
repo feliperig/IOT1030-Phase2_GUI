@@ -1,4 +1,5 @@
 ﻿using IOT1030_Phase2_GUI.Core;
+using IOT1030_Phase2_GUI.Core.BattleObjects;
 using IOT1030_Phase2_GUI.Core.Heroes;
 using IOT1030_Phase2_GUI.Core.MonsterAttacks;
 using IOT1030_Phase2_GUI.Core.Monsters;
@@ -135,7 +136,50 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
             get { return _selectedAttack; }
             set 
             {
-                _selectedAttack = value; 
+                _selectedAttack = value;
+                ExecuteButtonEnabled = SelectedAttack != null;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// The battle object
+        /// </summary>
+        private Battle _battle;
+        public Battle Battle
+        {
+            get { return _battle; }
+            set 
+            { 
+                _battle = value; 
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// The attack log
+        /// </summary>
+        private ObservableCollection<Attack> _attackLog;
+        public ObservableCollection<Attack> AttackLog
+        {
+            get { return _attackLog; }
+            set 
+            { 
+                _attackLog = value; 
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether [execute button enabled].
+        /// </summary>
+        private bool _executeButtonEnabled = false;
+        public bool ExecuteButtonEnabled
+        {
+            get { return _executeButtonEnabled; }
+            set
+            {
+                _executeButtonEnabled = value;
                 OnPropertyChanged();
             }
         }
@@ -163,6 +207,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
             Monster = monster;
             MyAttacks = new ObservableCollection<Attack>();
             MonsterAttacks = new ObservableCollection<MonsterAttack>();
+            Battle = new Battle(hero, monster);
+            AttackLog = new ObservableCollection<Attack>();
             foreach (Attack attack in Hero.Attacks)
             {
                 _myAttacks.Add(attack);
@@ -172,6 +218,27 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
                 _monsterAttacks.Add(monsterAttack);
             }
             CalculateHealthBarWidth();
+
+            if(Battle.ChooseFirstTurn() != Turn.Hero)
+            {
+                Battle.TakeTurn(Turn.Monster);
+                GetBattleInfo();
+            }
+        }
+
+        /// <summary>
+        /// Gets the battle information.
+        /// </summary>
+        private void GetBattleInfo()
+        {
+            Hero = Battle.Hero;
+            Monster = Battle.Monster;
+            CalculateHealthBarWidth();
+
+            foreach(Attack attack in Battle.AttackLog)
+            {
+                AttackLog.Add(attack);
+            }
         }
 
         /// <summary>
@@ -179,8 +246,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
         /// </summary>
         public void CalculateHealthBarWidth()
         {
-            MonsterHealthBarWidth = (int)(178 * ((float)Monster.CurrentHealth / (float)Monster.MaxHealth));
-            HeroHealthBarWidth = (int)(178 * ((float)Hero.CurrentHealth / (float)Hero.MaxHealth));
+            MonsterHealthBarWidth = (int)(178 * ((float)Monster.CurrentHealth / Monster.MaxHealth));
+            HeroHealthBarWidth = (int)(178 * ((float)Hero.CurrentHealth / Hero.MaxHealth));
         }
 
         public RelayCommand ArmourButtonCommand { get; set; }
@@ -189,6 +256,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
         public RelayCommand InventoryButtonCommand { get; set; }
         public RelayCommand MonsterAttackButtonCommand { get; set; }
         public RelayCommand HeroAttackButtonCommand { get; set; }
+        public RelayCommand ExecuteAttackButtonCommand { get; set; }
         private void InitializeCommands()
         {
             ArmourButtonCommand = new RelayCommand(o =>
@@ -240,6 +308,11 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
             {
                 Attack attack = (Attack)o;
                 SelectedAttack = attack;
+            });
+            ExecuteAttackButtonCommand = new RelayCommand(o =>
+            {
+                Battle.TakeTurn(Turn.Hero, SelectedAttack);
+                GetBattleInfo();
             });
         }
     }

@@ -246,7 +246,8 @@
 								BorderThickness="0"
 								Padding="10,0"
 								Content="Execute"
-								Command="{Binding BattleButtonCommand}"/>
+								IsEnabled="{Binding ExecuteButtonEnabled}"
+								Command="{Binding ExecuteAttackButtonCommand}"/>
 
 					</Grid>
 				</Border>
@@ -280,6 +281,125 @@
 							CornerRadius="15"
 							Margin="2"
 							Grid.Row="1">
+
+						<Grid Margin="10">
+							<!-- The binding here is the list containing objects (HeroStats) -->
+							<DataGrid ItemsSource="{Binding AttackLog, UpdateSourceTrigger=PropertyChanged}"
+										Foreground="Black"
+										Background="Transparent"
+										IsReadOnly="True"
+										AutoGenerateColumns="False"
+										HeadersVisibility="None"
+										Grid.Column="0"
+										Grid.Row="1"
+										BorderThickness="0"
+										GridLinesVisibility="None"
+									  ScrollViewer.CanContentScroll="False"
+									  x:Name="BattleLog"
+									  ScrollViewer.ScrollChanged="BattleLog_ScrollChanged">
+
+								<!-- Custom Scrollbar Style -->
+								<DataGrid.Resources>
+									<Style TargetType="ScrollBar" 
+											BasedOn="{StaticResource ScrollBarTheme}"/>
+								</DataGrid.Resources>
+
+								<!-- Changing the style of the DataGridCells to remove borders -->
+								<DataGrid.CellStyle>
+									<Style TargetType="{x:Type DataGridCell}">
+										<Style.Setters>
+											<Setter Property="Background"
+											Value="Transparent" />
+										</Style.Setters>
+										<Style.Triggers>
+											<Trigger Property="DataGridCell.IsSelected"
+											 Value="True">
+												<Setter Property="BorderBrush"
+												Value="Transparent" />
+												<Setter Property="Foreground"
+												Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+												<Setter Property="Background"
+												Value="Transparent" />
+											</Trigger>
+										</Style.Triggers>
+									</Style>
+								</DataGrid.CellStyle>
+
+								<!-- Changing the style of the DataGridRows to remove borders -->
+								<DataGrid.RowStyle>
+									<Style TargetType="{x:Type DataGridRow}">
+										<Style.Setters>
+											<Setter Property="Background"
+											Value="Transparent" />
+										</Style.Setters>
+									</Style>
+								</DataGrid.RowStyle>
+
+								<!-- Defining the columns of the datagrid -->
+								<DataGrid.Columns>
+									<!-- This is the definition of the column that uses this cell style -->
+									<DataGridTemplateColumn Header="Class"
+													Width="172">
+
+										<DataGridTemplateColumn.CellTemplate>
+											<DataTemplate>
+												<!-- This is what is displayed in this cell-->
+												<Grid>
+													<!-- Row background -->
+													<Border Background="#FF373D44"
+													HorizontalAlignment="Stretch"
+													Height="50"
+													BorderBrush="Black"
+													BorderThickness="1"
+													CornerRadius="15"
+													Margin="2">
+														<Grid>
+															<Grid.ColumnDefinitions>
+																<ColumnDefinition />
+															</Grid.ColumnDefinitions>
+
+															<!-- Hero name and class name-->
+															<Grid Grid.Column="1"
+																  Margin="3">
+																<Grid.RowDefinitions>
+																	<RowDefinition/>
+																	<RowDefinition/>
+																</Grid.RowDefinitions>
+																<TextBlock Text="{Binding Name}"
+																		   FontSize="15"
+																		   VerticalAlignment="Center"
+																		   HorizontalAlignment="Center"
+																		   FontFamily="Yu Gothic UI Semibold"
+																		   Foreground="White" />
+																<TextBlock Text="{Binding DamageDealt}"
+																		   FontSize="15"
+																		   VerticalAlignment="Center"
+																		   HorizontalAlignment="Center"
+																		   FontFamily="Yu Gothic UI Semibold"
+																		   Foreground="White"
+																		   Grid.Row="1"/>
+															</Grid>
+														</Grid>
+													</Border>
+
+													<!-- Button to select this hero -->
+													<Button Style="{StaticResource RoundedMyHeroButtonTheme}"
+													Margin="2"
+													Width="166"
+													HorizontalAlignment="Left"
+													Background="Transparent"
+													Opacity="0.5"
+													Command="{Binding Path=DataContext.HeroAttackButtonCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
+													CommandParameter="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGridCell}}"/>
+
+												</Grid>
+											</DataTemplate>
+										</DataGridTemplateColumn.CellTemplate>
+									</DataGridTemplateColumn>
+								</DataGrid.Columns>
+							</DataGrid>
+						</Grid>
+
 					</Border>
 
 
@@ -355,6 +475,7 @@
 							Margin="4"
 							VerticalAlignment="Stretch"
 							HorizontalAlignment="Center"
+							Width="182"
 							BorderBrush="Black"
 							BorderThickness="2"
 							CornerRadius="5">
@@ -362,7 +483,7 @@
 							<Border Background="#FF712306"
 									VerticalAlignment="Stretch"
 									HorizontalAlignment="Left"
-									Width="178"
+									Width="{Binding HeroHealthBarWidth}"
 									CornerRadius="4"/>
 							<Grid>
 								<Grid.ColumnDefinitions>
@@ -604,13 +725,14 @@
 							VerticalAlignment="Stretch"
 							HorizontalAlignment="Center"
 							BorderBrush="Black"
+							Width="182"
 							BorderThickness="2"
 							CornerRadius="5">
 						<Grid>
 							<Border Background="#FF677709"
 									VerticalAlignment="Stretch"
 									HorizontalAlignment="Left"
-									Width="178"
+									Width="{Binding MonsterHealthBarWidth}"
 									CornerRadius="4"/>
 							<Grid>
 								<Grid.ColumnDefinitions>

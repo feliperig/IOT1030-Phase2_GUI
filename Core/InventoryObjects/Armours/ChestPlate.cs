@@ -26,20 +26,28 @@ namespace IOT1030_Phase2_GUI.Core.InventoryObjects.Armours
         /// <exception cref="System.NotImplementedException"></exception>
         public override int MitigateDamage(int damage, Dictionary<Stats, int> heroStats)
         {
-            float mitigation = (_protection * (heroStats[Stats.Strength])) / 100; // amount of mitigation percent is (protection * (hero strength stat)) / 100
+            float mitigation = (100 - ((float)_protection * (heroStats[Stats.Strength]))) / 100f; // amount of mitigation percent is (protection * (hero strength stat)) / 100
 
-            float maxReduction = 10 - (heroStats[Stats.Luck] / 5); // Max amount of reduction gets better for every 5 luck
-            float reduction = _random.Next(0, (int)maxReduction) / 10; // Random amount of reduction up to max amount
+            Console.WriteLine($"Base mitigation: {mitigation}");
 
-            if(reduction > ItemConfig.MaxReduction) // Ensure reduction amount is <= ItemConfig.MaxReduction
+            int maxReduction = 5 - (heroStats[Stats.Luck] / 5); // Max amount of reduction gets better for every 5 luck
+
+            if (maxReduction > 8)
+                maxReduction = 8;
+            else if(maxReduction < 0) 
+                maxReduction = 0;
+
+            float reduction = (_random.Next(0, maxReduction) / 10f) + 1f; // Random amount of reduction up to max amount
+
+            if(reduction < ItemConfig.MaxReduction) // Ensure reduction amount is >= ItemConfig.MaxReduction
                 reduction = ItemConfig.MaxReduction;
 
             mitigation *= reduction; // Reduce mitigation percent by reduction
 
-            if(mitigation > ItemConfig.MaxMitigation)
+            if(mitigation < ItemConfig.MaxMitigation)
                 mitigation = ItemConfig.MaxMitigation; // Ensure migigation is <= MaxMitigation
-            
 
+            Console.WriteLine($"Reduction: {reduction} Mitigation: {mitigation}, Max Reduction: {maxReduction}");
             int damageLeftover = (int)(damage * mitigation); // Apply mitigation to damage
 
             return damageLeftover;

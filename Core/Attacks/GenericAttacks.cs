@@ -14,23 +14,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         {
             _name = "Normal Attack";
             _description = "Simple Attack depending on strength";
-        }
-
-        /// <summary>
-        /// Uses the attack.
-        /// </summary>
-        /// <param name="heroStats">The hero stats of the hero that used this attack.</param>
-        /// <returns>The amount of damage calculated</returns>
-        public override int UseAttack(Dictionary<Stats, int> heroStats, Weapon equippedWeapon)
-        {
-            int weaponDamage = equippedWeapon.GetDamage(heroStats); // Get damage from weapon
-
-            int maxAttackMultiplier = 100 + (heroStats[Stats.Strength] / 5 * 35); // Get multiplier (+35% for possible for every 5 strength)
-            int attackMultiplierPercentage = _random.Next(75, maxAttackMultiplier);
-
-            float attackMultiplier = attackMultiplierPercentage / 100f; // Convert to float for multiplying
-
-            return (int)(weaponDamage * attackMultiplier);
+            _basicStat = Stats.Strength;
         }
     }
 
@@ -43,17 +27,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         {
             _name = "Lucky Attack";
             _description = "Chance based on Luck stat to do big damage";
-        }
-
-        /// <summary>
-        /// Uses the attack.
-        /// </summary>
-        /// <param name="heroStats">The hero stats of the hero that used this attack.</param>
-        /// <returns>The amount of damage calculated</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public override int UseAttack(Dictionary<Stats, int> heroStats, Weapon equippedWeapon)
-        {
-            throw new NotImplementedException();
+            _basicStat = Stats.Luck;
         }
     }
 
@@ -66,17 +40,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         {
             _name = "Magic Attack";
             _description = "Magic blast dealing damage scaled from Magic stat";
-        }
-
-        /// <summary>
-        /// Uses the attack.
-        /// </summary>
-        /// <param name="heroStats">The hero stats of the hero that used this attack.</param>
-        /// <returns>The amount of damage calculated</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public override int UseAttack(Dictionary<Stats, int> heroStats, Weapon equippedWeapon)
-        {
-            throw new NotImplementedException();
+            _basicStat = Stats.Magic;
         }
     }
 
@@ -89,17 +53,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         {
             _name = "Stealth Attack";
             _description = "A stealthy attack with a small chance to do critical damage based on Stealth stat";
-        }
-
-        /// <summary>
-        /// Uses the attack.
-        /// </summary>
-        /// <param name="heroStats">The hero stats of the hero that used this attack.</param>
-        /// <returns>The amount of damage calculated</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public override int UseAttack(Dictionary<Stats, int> heroStats, Weapon equippedWeapon)
-        {
-            throw new NotImplementedException();
+            _basicStat = Stats.Stealth;
         }
     }
 
@@ -112,17 +66,7 @@ namespace IOT1030_Phase2_GUI.Core.Attacks
         {
             _name = "Weapon Attack";
             _description = "A precision attack using the equipped weapon dealing damage scaled with the Weapon Use stat";
-        }
-
-        /// <summary>
-        /// Uses the attack.
-        /// </summary>
-        /// <param name="heroStats">The hero stats of the hero that used this attack.</param>
-        /// <returns>The amount of damage calculated</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public override int UseAttack(Dictionary<Stats, int> heroStats, Weapon equippedWeapon)
-        {
-            throw new NotImplementedException();
+            _basicStat = Stats.WeaponUse;
         }
     }
 }

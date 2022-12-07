@@ -119,11 +119,13 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// <returns>If the hero is still alive</returns>
         public virtual bool TakeDamage(int damage)
         {
+            System.Console.WriteLine($"Hero to take {damage} damage");
             int damageToTake = damage;
             if(_equippedArmour != null)
             {
                 damageToTake = _equippedArmour.MitigateDamage(damage, _stats);
             }
+            System.Console.WriteLine($"Hero took {damageToTake} damage");
 
             _currentHealth -= damageToTake;
 

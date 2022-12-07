@@ -19,6 +19,6 @@ namespace IOT1030_Phase2_GUI.Core.Monsters
         /// <summary>
         /// Monster attack properties
         /// </summary>
-        public const int MaxMonsterAttackReductionPercent = 100;
+        public const int MaxMonsterAttackReductionPercent = 50;
     }
 }
