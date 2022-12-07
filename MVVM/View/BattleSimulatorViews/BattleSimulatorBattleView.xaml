@@ -35,18 +35,17 @@
 					Grid.Column="0">
 				<Grid Margin="5">
 					<Grid.RowDefinitions>
-						<RowDefinition Height="50"/>
+						<RowDefinition Height="38"/>
 						<RowDefinition/>
 					</Grid.RowDefinitions>
 					
 					<TextBlock Text="My Attacks"
 								HorizontalAlignment="Center"
-								VerticalAlignment="Center"
+								VerticalAlignment="Top"
 								Foreground="White"
-								FontSize="28"
+								FontSize="25"
 								FontFamily="Yu Gothic UI Semibold"
-								Grid.Row="0"
-								Margin="4" />
+								Grid.Row="0"/>
 
 					<Border Background="#FF4A2010"
 							CornerRadius="15"
@@ -171,7 +170,7 @@
 				</Grid.RowDefinitions>
 				
 				<!-- Current Turn -->
-				<TextBlock Text="Your Turn"
+				<TextBlock Text="Battle"
 					HorizontalAlignment="Center"
 					VerticalAlignment="Center"
 					Foreground="White"
@@ -264,25 +263,24 @@
 
 				<Grid Margin="5">
 					<Grid.RowDefinitions>
-						<RowDefinition Height="50"/>
+						<RowDefinition Height="38"/>
 						<RowDefinition/>
 					</Grid.RowDefinitions>
 
 					<TextBlock Text="Battle Log"
 								HorizontalAlignment="Center"
-								VerticalAlignment="Center"
+								VerticalAlignment="Top"
 								Foreground="White"
-								FontSize="28"
+								FontSize="25"
 								FontFamily="Yu Gothic UI Semibold"
-								Grid.Row="0"
-								Margin="4" />
+								Grid.Row="0"/>
 
 					<Border Background="#FF3E3154"
 							CornerRadius="15"
 							Margin="2"
 							Grid.Row="1">
 
-						<Grid Margin="10">
+						<Grid Margin="6">
 							<!-- The binding here is the list containing objects (HeroStats) -->
 							<DataGrid ItemsSource="{Binding AttackLog, UpdateSourceTrigger=PropertyChanged}"
 										Foreground="Black"
@@ -296,7 +294,9 @@
 										GridLinesVisibility="None"
 									  ScrollViewer.CanContentScroll="False"
 									  x:Name="BattleLog"
-									  ScrollViewer.ScrollChanged="BattleLog_ScrollChanged">
+									  ScrollViewer.ScrollChanged="BattleLog_ScrollChanged"
+									  MouseEnter="BattleLog_MouseEnter"
+									  MouseLeave="BattleLog_MouseLeave">
 
 								<!-- Custom Scrollbar Style -->
 								<DataGrid.Resources>
@@ -339,7 +339,7 @@
 								<DataGrid.Columns>
 									<!-- This is the definition of the column that uses this cell style -->
 									<DataGridTemplateColumn Header="Class"
-													Width="172">
+													Width="180">
 
 										<DataGridTemplateColumn.CellTemplate>
 											<DataTemplate>
@@ -348,10 +348,10 @@
 													<!-- Row background -->
 													<Border Background="#FF373D44"
 													HorizontalAlignment="Stretch"
-													Height="50"
+													Height="97"
 													BorderBrush="Black"
-													BorderThickness="1"
-													CornerRadius="15"
+													BorderThickness="3"
+													CornerRadius="8"
 													Margin="2">
 														<Grid>
 															<Grid.ColumnDefinitions>
@@ -359,39 +359,141 @@
 															</Grid.ColumnDefinitions>
 
 															<!-- Hero name and class name-->
-															<Grid Grid.Column="1"
-																  Margin="3">
+															<Grid Grid.Column="1">
 																<Grid.RowDefinitions>
-																	<RowDefinition/>
-																	<RowDefinition/>
+																	<RowDefinition Height="18"/>
+																	<RowDefinition Height="18"/>
+																	<RowDefinition Height="18"/>
+																	<RowDefinition Height="18"/>
+																	<RowDefinition Height="18"/>
 																</Grid.RowDefinitions>
 																<TextBlock Text="{Binding Name}"
-																		   FontSize="15"
-																		   VerticalAlignment="Center"
-																		   HorizontalAlignment="Center"
+																		   FontSize="14"
+																		   VerticalAlignment="Top"
+																		   HorizontalAlignment="Left"
 																		   FontFamily="Yu Gothic UI Semibold"
-																		   Foreground="White" />
-																<TextBlock Text="{Binding DamageDealt}"
-																		   FontSize="15"
-																		   VerticalAlignment="Center"
-																		   HorizontalAlignment="Center"
-																		   FontFamily="Yu Gothic UI Semibold"
-																		   Foreground="White"
-																		   Grid.Row="1"/>
+																		   Foreground="White" 
+																		   Margin="5,0,0,0"/>
+
+																<Border Background="#FF312644"
+																		CornerRadius="5"
+																		Grid.Row="1"
+																		Grid.Column="0"
+																		Margin="2"/>
+																<Grid Grid.Row="1"
+																	  Margin="8,0,0,0">
+																	<Grid.ColumnDefinitions>
+																		<ColumnDefinition Width="115"/>
+																		<ColumnDefinition />
+																	</Grid.ColumnDefinitions>
+
+																	<TextBlock Text="Weapon Damage:"
+																			   FontSize="11"
+																			   VerticalAlignment="Center"
+																			   HorizontalAlignment="Left"
+																			   FontFamily="Yu Gothic UI Semibold"
+																			   Foreground="#FFB9B6B6"
+																			   Grid.Column="0"/>
+
+																	<TextBlock Text="{Binding WeaponDamage}"
+																			   FontSize="11"
+																			   VerticalAlignment="Center"
+																			   HorizontalAlignment="Left"
+																			   FontFamily="Yu Gothic UI Semibold"
+																			   Foreground="#FFB9B6B6"
+																			   Grid.Column="1"/>
+																</Grid>
+
+																<Border Background="#FF312644"
+																		CornerRadius="5"
+																		Grid.Row="2"
+																		Grid.Column="0"
+																		Margin="2"/>
+																<Grid Grid.Row="2"
+																	  Margin="8,0,0,0">
+																	<Grid.ColumnDefinitions>
+																		<ColumnDefinition Width="115"/>
+																		<ColumnDefinition />
+																	</Grid.ColumnDefinitions>
+
+																	<TextBlock Text="Damage Dealt:"
+																			   FontSize="11"
+																			   VerticalAlignment="Center"
+																			   HorizontalAlignment="Left"
+																			   FontFamily="Yu Gothic UI Semibold"
+																			   Foreground="#FFB9B6B6"
+																			   Grid.Column="0"/>
+
+																	<TextBlock Text="{Binding DamageDealt}"
+																			   FontSize="11"
+																			   VerticalAlignment="Center"
+																			   HorizontalAlignment="Left"
+																			   FontFamily="Yu Gothic UI Semibold"
+																			   Foreground="#FFB9B6B6"
+																			   Grid.Column="1"/>
+																</Grid>
+
+																<Border Background="#FF312644"
+																		CornerRadius="5"
+																		Grid.Row="3"
+																		Grid.Column="0"
+																		Margin="2"/>
+																<Grid Grid.Row="3"
+																	  Margin="8,0,0,0">
+																	<Grid.ColumnDefinitions>
+																		<ColumnDefinition Width="115"/>
+																		<ColumnDefinition />
+																	</Grid.ColumnDefinitions>
+
+																	<TextBlock Text="Damage Mitigated: "
+																			   FontSize="11"
+																			   VerticalAlignment="Center"
+																			   HorizontalAlignment="Left"
+																			   FontFamily="Yu Gothic UI Semibold"
+																			   Foreground="#FFB9B6B6"
+																			   Grid.Column="0"/>
+
+																	<TextBlock Text="{Binding DamageMitigated}"
+																			   FontSize="11"
+																			   VerticalAlignment="Center"
+																			   HorizontalAlignment="Left"
+																			   FontFamily="Yu Gothic UI Semibold"
+																			   Foreground="#FFB9B6B6"
+																			   Grid.Column="1"/>
+																</Grid>
+
+																<Border Background="#FF443026"
+																		CornerRadius="5"
+																		Grid.Row="4"
+																		Grid.Column="0"
+																		Margin="2"/>
+																<Grid Grid.Row="4"
+																	  Margin="8,0,0,0">
+																	<Grid.ColumnDefinitions>
+																		<ColumnDefinition Width="115"/>
+																		<ColumnDefinition />
+																	</Grid.ColumnDefinitions>
+
+																	<TextBlock Text="Damage Taken:"
+																			   FontSize="11"
+																			   VerticalAlignment="Center"
+																			   HorizontalAlignment="Left"
+																			   FontFamily="Yu Gothic UI Semibold"
+																			   Foreground="#FFB9B6B6"
+																			   Grid.Column="0"/>
+
+																	<TextBlock Text="{Binding DamageTaken}"
+																			   FontSize="11"
+																			   VerticalAlignment="Center"
+																			   HorizontalAlignment="Left"
+																			   FontFamily="Yu Gothic UI Semibold"
+																			   Foreground="#FFB9B6B6"
+																			   Grid.Column="1"/>
+																</Grid>
+
 															</Grid>
 														</Grid>
 													</Border>
-
-													<!-- Button to select this hero -->
-													<Button Style="{StaticResource RoundedMyHeroButtonTheme}"
-													Margin="2"
-													Width="166"
-													HorizontalAlignment="Left"
-													Background="Transparent"
-													Opacity="0.5"
-													Command="{Binding Path=DataContext.HeroAttackButtonCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
-													CommandParameter="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType=DataGridCell}}"/>
-
 												</Grid>
 											</DataTemplate>
 										</DataGridTemplateColumn.CellTemplate>

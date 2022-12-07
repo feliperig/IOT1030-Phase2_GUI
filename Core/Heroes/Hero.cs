@@ -116,8 +116,8 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// Takes the amount damage given.
         /// </summary>
         /// <param name="damage">The damage.</param>
-        /// <returns>If the hero is still alive</returns>
-        public virtual bool TakeDamage(int damage)
+        /// <returns>The total damage taken</returns>
+        public virtual int TakeDamage(int damage)
         {
             System.Console.WriteLine($"Hero to take {damage} damage");
             int damageToTake = damage;
@@ -129,10 +129,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
 
             _currentHealth -= damageToTake;
 
-            if(_currentHealth <= 0) 
-                return false; // Hero dead
-
-            return true; // Hero still alive
+            return damageToTake;
         }
 
         /// <summary>

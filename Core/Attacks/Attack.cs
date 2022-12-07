@@ -48,6 +48,17 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         public int DamageDealt { get { return _damageDealt; } }
 
         /// <summary>
+        /// Gets the damage mitigated.
+        /// </summary>
+        public int DamageMitigated { get { return _damageDealt - _damageTaken; } }
+
+        /// <summary>
+        /// The total damage taken
+        /// </summary>
+        protected int _damageTaken;
+        public int DamageTaken { get { return _damageTaken; } }
+
+        /// <summary>
         /// The random object
         /// </summary>
         protected Random _random;
@@ -93,6 +104,15 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
             _damageDealt = (int)(_weaponDamage * weaponMultiplier); // Apply multiplier
 
             return _damageDealt;
+        }
+
+        /// <summary>
+        /// Sets the damage taken.
+        /// </summary>
+        /// <param name="damageTaken">The damage taken.</param>
+        public virtual void SetDamageTaken(int damageTaken)
+        {
+            _damageTaken = damageTaken;
         }
     }
 }

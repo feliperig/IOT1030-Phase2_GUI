@@ -115,14 +115,16 @@ namespace IOT1030_Phase2_GUI.Core.BattleObjects
 
             if (turn == Turn.Hero)
             {
-                monsterAlive = _monster.TakeDamage(attack.UseAttack(Hero.Stats, Hero.EquippedWeapon));
+                int damage = attack.UseAttack(Hero.Stats, Hero.EquippedWeapon);
+                monsterAlive = _monster.TakeDamage(damage);
+                attack.SetDamageTaken(damage);
                 _attackLog.Add(attack);
             }
 
             if (monsterAlive)
             {
                 monsterAttack = Monster.TakeAction();
-                _hero.TakeDamage(monsterAttack.UseAttack());
+                monsterAttack.SetDamageTaken(_hero.TakeDamage(monsterAttack.UseAttack()));
                 _attackLog.Add(monsterAttack);
             }
             else

@@ -28,12 +28,11 @@ namespace IOT1030_Phase2_GUI.MVVM.View.BattleSimulatorViews
 
         private bool AutoScroll = true;
 
-        private void BattleLog_ScrollChanged(object sender, ScrollChangedEventArgs e)
-        {
-            ScrollViewer scrollViewer = GetScrollViewer(BattleLog);
-            scrollViewer.ScrollToVerticalOffset(scrollViewer.ExtentHeight);
-        }
-
+        /// <summary>
+        /// Gets the scroll viewer.
+        /// </summary>
+        /// <param name="element">The element.</param>
+        /// <returns></returns>
         public static ScrollViewer GetScrollViewer(UIElement element)
         {
             if (element == null) return null;
@@ -51,6 +50,43 @@ namespace IOT1030_Phase2_GUI.MVVM.View.BattleSimulatorViews
                 }
             }
             return retour;
+        }
+
+        /// <summary>
+        /// Handles the ScrollChanged event of the BattleLog control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="ScrollChangedEventArgs"/> instance containing the event data.</param>
+        private void BattleLog_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            if (AutoScroll)
+            {
+                ScrollViewer scrollViewer = GetScrollViewer(BattleLog);
+                if (scrollViewer != null)
+                {
+                    scrollViewer.ScrollToVerticalOffset(scrollViewer.ExtentHeight);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles the MouseEnter event of the BattleLog control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void BattleLog_MouseEnter(object sender, MouseEventArgs e)
+        {
+            AutoScroll = false;
+        }
+
+        /// <summary>
+        /// Handles the MouseLeave event of the BattleLog control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void BattleLog_MouseLeave(object sender, MouseEventArgs e)
+        {
+            AutoScroll = true;
         }
     }
 }
