@@ -98,9 +98,16 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
             InitializeCommands();
         }
 
+        /// <summary>
+        /// Defining the button commands
+        /// </summary>
         public RelayCommand SelectHeroCommand { get; set; }
         public RelayCommand SelectMonsterCommand { get; set; }
+        public RelayCommand BattleButtonCommand { get; set; }
 
+        /// <summary>
+        /// Initializes the commands.
+        /// </summary>
         private void InitializeCommands()
         {
             SelectHeroCommand = new RelayCommand(o =>
@@ -110,6 +117,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
             SelectMonsterCommand = new RelayCommand(o =>
             {
                 SelectedMonster = (Monster)o;
+            });
+            BattleButtonCommand = new RelayCommand(o =>
+            {
+                _mainVM.StartBattle(SelectedHero, SelectedMonster);
             });
         }
 

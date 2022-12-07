@@ -53,6 +53,10 @@
 				<battleSimView:BattleSimulatorSetupView />
 			</DataTemplate>
 
+			<DataTemplate DataType="{x:Type battleSimViewModel:BattleSimulatorBattleViewModel}">
+				<battleSimView:BattleSimulatorBattleView />
+			</DataTemplate>
+
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

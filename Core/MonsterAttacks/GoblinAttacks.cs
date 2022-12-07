@@ -8,7 +8,7 @@ namespace IOT1030_Phase2_GUI.Core.MonsterAttacks
         /// </summary>
         public GoblinNormalAttack() : base()
         {
-            _name = "Goblin Punch";
+            _name = "Goblin Punch Attack";
             _description = "Goblin simple punch";
             _maxDamage = 25;
         }

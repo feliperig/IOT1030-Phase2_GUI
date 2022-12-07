@@ -12,6 +12,7 @@ namespace IOT1030_Phase2_GUI.Core.InventoryObjects.Armours
         public ChestPlate() : base() 
         {
             _protection = 5;
+            _name = "Chest Plate";
         }
 
         /// <summary>

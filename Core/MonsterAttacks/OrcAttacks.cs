@@ -13,8 +13,8 @@ namespace IOT1030_Phase2_GUI.Core.MonsterAttacks
         /// </summary>
         public OrcNormalAttack() : base()
         {
-            _name = "Orc Punch";
-            _description = "Goblin simple punch";
+            _name = "Orc Punch Attack";
+            _description = "Orc simple punch";
             _maxDamage = 29;
         }
     }

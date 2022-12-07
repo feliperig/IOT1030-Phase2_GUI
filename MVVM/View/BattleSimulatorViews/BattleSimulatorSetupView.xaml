@@ -326,7 +326,8 @@
 						BorderThickness="0"
 						Padding="10,0"
 						IsEnabled="{Binding BattleButtonEnabled}"
-						Content="Battle!" />
+						Content="Battle!"
+						Command="{Binding BattleButtonCommand}"/>
 
 			</Grid>
 			

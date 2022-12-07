@@ -130,6 +130,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\BattleSimulatorViews\BattleSimulatorBattleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\BattleSimulatorViews\BattleSimulatorMainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -184,6 +188,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ViewModel\BattleSimulatorViewModels\BattleSimulatorBattleViewModel.cs" />
     <Compile Include="MVVM\ViewModel\BattleSimulatorViewModels\BattleSimulatorMainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\BattleSimulatorViewModels\BattleSimulatorSetupViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ChooseClassViewModel.cs" />
@@ -193,6 +198,9 @@
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MyHeroesViewModel.cs" />
     <Compile Include="MVVM\ViewModel\StatSelectionViewModel.cs" />
+    <Compile Include="MVVM\View\BattleSimulatorViews\BattleSimulatorBattleView.xaml.cs">
+      <DependentUpon>BattleSimulatorBattleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\BattleSimulatorViews\BattleSimulatorMainView.xaml.cs">
       <DependentUpon>BattleSimulatorMainView.xaml</DependentUpon>
     </Compile>
@@ -285,6 +293,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\OrcSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ArmourSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InventorySprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WeaponSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StatsSprite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

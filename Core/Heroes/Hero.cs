@@ -75,6 +75,7 @@ namespace IOT1030_Phase2_GUI.Core.Heroes
         /// The attacks of the hero
         /// </summary>
         protected List<Attack> _attacks;
+        public List<Attack> Attacks { get { return _attacks; } }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Hero"/> class.

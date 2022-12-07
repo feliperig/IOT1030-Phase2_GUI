@@ -1,4 +1,6 @@
 ﻿using IOT1030_Phase2_GUI.Core;
+using IOT1030_Phase2_GUI.Core.Heroes;
+using IOT1030_Phase2_GUI.Core.Monsters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
 
         // Defining page view models
         private BattleSimulatorSetupViewModel SetupVM;
+        private BattleSimulatorBattleViewModel BattleVM;
 
         public BattleSimulatorMainViewModel()
         {
@@ -36,6 +39,18 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
         private void InitializeViewModels()
         {
             SetupVM = new BattleSimulatorSetupViewModel(this);
+            BattleVM = new BattleSimulatorBattleViewModel(this);
+        }
+
+        /// <summary>
+        /// Starts the battle.
+        /// </summary>
+        /// <param name="hero">The hero.</param>
+        /// <param name="monster">The monster.</param>
+        public void StartBattle(Hero hero, Monster monster)
+        {
+            BattleVM.StartBattle(hero, monster);
+            CurrentPage = BattleVM;
         }
     }
 }

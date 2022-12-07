@@ -36,6 +36,7 @@ namespace IOT1030_Phase2_GUI.Core.Monsters
         /// The attacks of the monster
         /// </summary>
         protected List<MonsterAttack> _attacks;
+        public List<MonsterAttack> Attacks { get { return _attacks; } }
 
         /// <summary>
         /// The random object

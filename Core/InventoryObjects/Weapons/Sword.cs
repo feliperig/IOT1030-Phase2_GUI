@@ -12,6 +12,7 @@ namespace IOT1030_Phase2_GUI.Core.InventoryObjects.Weapons
         public Sword() : base() 
         {
             _damage = 5;
+            _name = "Sword";
         }
 
         /// <summary>
