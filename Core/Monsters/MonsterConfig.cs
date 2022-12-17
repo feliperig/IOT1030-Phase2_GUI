@@ -17,6 +17,11 @@ namespace IOT1030_Phase2_GUI.Core.Monsters
         public const int OrcHealth = 50;
 
         /// <summary>
+        /// Zombie Bear health
+        /// </summary>
+        public const int ZombieBearHealth = 200;
+
+        /// <summary>
         /// Monster attack properties
         /// </summary>
         public const int MaxMonsterAttackReductionPercent = 50;
