@@ -9,9 +9,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" 
 			 d:DesignWidth="700">
-
+	<!-- Page background -->
 	<Border Background="#383a46"
 			CornerRadius="30">
+
+		<!-- Base grid -->
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition />
@@ -21,13 +23,18 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+			
+			<!-- Cambrian college image -->
             <Border Background="#2B0B00"
 					CornerRadius="30"
 					Margin="10"
 					Grid.Column="0"
 					Grid.Row="0">
-                <Image Source="/Images/college_icon_cambrian.png"/>
+                <Image Source="/Images/college_icon_cambrian.png"
+					   Margin="10"/>
             </Border >
+			
+			<!-- Program title -->
             <Border Background="#1c1510"
 					CornerRadius="30"
 					Margin="10"
@@ -42,20 +49,16 @@
                            TextWrapping="Wrap"
                            TextAlignment="Center"/>
             </Border >
+			
+			<!-- Course and project title -->
             <Border Background="#10141c"
 					CornerRadius="30"
 					Margin="10"
 					Grid.Column="0"
 					Grid.Row="1">
-                <StackPanel Margin="20,10,20,10"
+				<StackPanel Margin="20,10,20,10"
                             VerticalAlignment="Center">
-                    <!-- <TextBlock Text="IOT1030:"
-							   Foreground="White"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-							   FontSize="25"
-							   FontFamily="Yu Gothic UI Semibold" /> -->
-                    <TextBlock Text="Object-Oriented Programming II"
+					<TextBlock Text="Object-Oriented Programming II"
 							   Foreground="White"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
@@ -63,13 +66,13 @@
 							   FontFamily="Yu Gothic UI Semibold" 
                                TextWrapping="Wrap"
                                Margin="0,0,0,30"/>
-                    <TextBlock Text="Project Phase 2"
+                    <TextBlock Text="Project Phase 3"
 							   Foreground="LightGray"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
 							   FontSize="20"
 							   FontFamily="Yu Gothic UI Semibold" />
-                    <TextBlock Text="Heroes and Character Generation"
+                    <TextBlock Text="Battle Simulation"
 							   Foreground="LightGray"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
@@ -78,6 +81,8 @@
                                TextWrapping="Wrap"/>
                 </StackPanel>
             </Border >
+			
+			<!-- Group members -->
             <Border Background="#1b101c"
 					CornerRadius="30"
 					Margin="10"

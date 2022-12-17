@@ -8,8 +8,11 @@
 			 d:DataContext="{d:DesignInstance Type=viewModel:HeroDisplayViewModel}"
 			 mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="700">
+	<!-- Background of this page -->
 	<Border Background="#383a46"
 			CornerRadius="30">
+		
+		<!-- Base grid -->
 		<Grid Margin="15">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -18,7 +21,8 @@
 			<Grid.RowDefinitions>
 				<RowDefinition />
 			</Grid.RowDefinitions>
-
+			
+			<!-- Another grid -->
 			<Grid Grid.Row="0">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
@@ -30,28 +34,26 @@
 					<RowDefinition />
 					<RowDefinition Height="150" />
 				</Grid.RowDefinitions>
+
+				<!-- Attack buttons background grid -->
 				<Grid Grid.Row="2">
 					<Grid.RowDefinitions>
 						<RowDefinition />
 						<RowDefinition />
 						<RowDefinition />
 					</Grid.RowDefinitions>
-
 					<Border Grid.Column="0"
 							Grid.Row="0"
 							Background="#23242b" />
-
 					<Border Grid.Column="0"
 							Grid.Row="1"
 							Background="#444755" />
-
 					<Border Grid.Column="0"
 							Grid.Row="2"
 							Background="#23242b" />
-
-
 				</Grid>
 
+				<!-- Attack buttons grid -->
 				<Grid Grid.Row="2">
 					<Grid.RowDefinitions>
 						<RowDefinition />
@@ -63,6 +65,7 @@
 						<ColumnDefinition />
 					</Grid.ColumnDefinitions>
 
+					<!-- Special attacks title -->
 					<Border Grid.Column="0"
 							Grid.Row="0"
 							HorizontalAlignment="Stretch"
@@ -79,8 +82,7 @@
 							   Grid.Column="0" />
 					</Border>
 
-					
-
+					<!-- Attack Button 1 -->
 					<TextBlock Text="{Binding AttackNames[0], UpdateSourceTrigger=PropertyChanged}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -98,9 +100,9 @@
 							Margin="4"
 							Command="{Binding DescriptionButtonCommand}"
 							CommandParameter="0">
-						
 					</Button>
 
+					<!-- Attack Button 2 -->
 					<TextBlock Text="{Binding AttackNames[1], UpdateSourceTrigger=PropertyChanged}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -119,6 +121,7 @@
 							Command="{Binding DescriptionButtonCommand}"
 							CommandParameter="1" />
 
+					<!-- Attack Button 3 -->
 					<TextBlock Text="{Binding AttackNames[2], UpdateSourceTrigger=PropertyChanged}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -137,6 +140,7 @@
 							Command="{Binding DescriptionButtonCommand}"
 							CommandParameter="2" />
 
+					<!-- Attack Button 4 -->
 					<TextBlock Text="{Binding AttackNames[3], UpdateSourceTrigger=PropertyChanged}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -155,6 +159,7 @@
 							Command="{Binding DescriptionButtonCommand}"
 							CommandParameter="3" />
 
+					<!-- Attack Button 5 -->
 					<TextBlock Text="{Binding AttackNames[4], UpdateSourceTrigger=PropertyChanged}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -172,26 +177,16 @@
 							Margin="4"
 							Command="{Binding DescriptionButtonCommand}"
 							CommandParameter="4" />
-
-
 				</Grid>
 
-				<Grid Grid.Column="1"
-					  Grid.Row="2"
-					  Margin="3">
-					<Grid.RowDefinitions>
-						<RowDefinition />
-						<RowDefinition />
-						<RowDefinition />
-					</Grid.RowDefinitions>
-				</Grid>
-
+				<!-- Grid for go back button and name -->
 				<Grid>
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition />
 						<ColumnDefinition />
 					</Grid.ColumnDefinitions>
 
+					<!-- Go back button -->
 					<Button Margin="10"
 							Grid.Column="0"
 							Style="{StaticResource RoundedButtonTheme}"
@@ -204,6 +199,7 @@
 							Content="Go back"
 							Command="{Binding GoBackButtonCommand}" />
 
+					<!-- Name title -->
 					<TextBlock Text="Name:"
 							   HorizontalAlignment="Right"
 							   VerticalAlignment="Center"
@@ -214,6 +210,7 @@
 							   Margin="10" />
 				</Grid>
 
+				<!-- Hero name title -->
 				<TextBlock Text="{Binding HeroName}"
 						   HorizontalAlignment="Left"
 						   VerticalAlignment="Center"
@@ -223,6 +220,7 @@
 						   Grid.Column="1"
 						   Margin="10" />
 
+				<!-- Hero class image -->
 				<Border Background="#3b0e0d"
 						CornerRadius="30"
 						Margin="60, 15, 60, 15"
@@ -234,6 +232,7 @@
 						   Margin="15" />
 				</Border>
 
+				<!-- Stats grid background -->
 				<Grid Grid.Row="1"
 					  Grid.Column="1">
 					<Grid.ColumnDefinitions>
@@ -265,9 +264,9 @@
 					<Border Grid.Column="0"
 							Grid.Row="4"
 							Background="#444755" />
-
 				</Grid>
 
+				<!-- Stats grid -->
 				<Grid Grid.Row="1"
 					  Grid.Column="1">
 					<Grid.ColumnDefinitions>
@@ -292,7 +291,6 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="0"
 							   Grid.Row="0" />
-
 					<TextBlock Text="{Binding StatsList[0]}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -310,7 +308,6 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="0"
 							   Grid.Row="1" />
-
 					<TextBlock Text="{Binding StatsList[1]}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -328,7 +325,6 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="0"
 							   Grid.Row="2" />
-
 					<TextBlock Text="{Binding StatsList[2]}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -346,7 +342,6 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="0"
 							   Grid.Row="3" />
-
 					<TextBlock Text="{Binding StatsList[3]}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -364,7 +359,6 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="0"
 							   Grid.Row="4" />
-
 					<TextBlock Text="{Binding StatsList[4]}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -382,7 +376,6 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="2"
 							   Grid.Row="0" />
-
 					<TextBlock Text="{Binding StatsList[5]}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -400,7 +393,6 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="2"
 							   Grid.Row="1" />
-
 					<TextBlock Text="{Binding StatsList[6]}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -418,7 +410,6 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="2"
 							   Grid.Row="2" />
-
 					<TextBlock Text="{Binding StatsList[7]}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -436,7 +427,6 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="2"
 							   Grid.Row="3" />
-
 					<TextBlock Text="{Binding StatsList[8]}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -454,7 +444,6 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="2"
 							   Grid.Row="4" />
-
 					<TextBlock Text="{Binding StatsList[9]}"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -463,8 +452,9 @@
 							   FontFamily="Yu Gothic UI Semibold"
 							   Grid.Column="3"
 							   Grid.Row="4" />
-
 				</Grid>
+
+				<!-- Attack description -->
 				<Border	Grid.Row="2"
 						Grid.Column="1"
 						Background="#FF23242B"
@@ -477,7 +467,8 @@
 							<RowDefinition Height="25" />
 							<RowDefinition />
 						</Grid.RowDefinitions>
-						
+
+						<!-- Attack description title -->
 						<TextBlock Text="Attack Description"
 								   HorizontalAlignment="Left"
 								   VerticalAlignment="Center"
@@ -486,10 +477,12 @@
 								   FontFamily="Yu Gothic UI Semibold"
 								   Grid.Column="1"
 								   Margin="5,0,0,5"/>
+
 						<Border	Grid.Row="1"
 								Grid.Column="0"
 								Background="#FF444755"
 								CornerRadius="10">
+							<!-- Attack description text -->
 							<TextBlock Text="{Binding DescriptionText}"
 									   HorizontalAlignment="Left"
 									   VerticalAlignment="Top"
@@ -501,22 +494,21 @@
 									   Margin="5"
 									   TextWrapping="Wrap"/>
 						</Border>
-						
 					</Grid>
 				</Border>
 
+				<!-- Border for attack buttons -->
 				<Border Grid.Row="2"
 						BorderThickness="2"
 						BorderBrush="Black" />
 
+				<!-- Border for stats -->
 				<Border Grid.Row="1"
 						Grid.Column="1"
 						BorderThickness="2"
 						BorderBrush="Black" />
 
 			</Grid>
-			
-
 		</Grid>
 	</Border>
 </UserControl>

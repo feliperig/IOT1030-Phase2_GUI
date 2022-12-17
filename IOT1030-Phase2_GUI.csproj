@@ -94,19 +94,58 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Core\Attacks\ArcherAttacks.cs" />
+    <Compile Include="Core\Attacks\GenericAttacks.cs" />
+    <Compile Include="Core\Attacks\KingAttacks.cs" />
+    <Compile Include="Core\Attacks\KnightAttacks.cs" />
+    <Compile Include="Core\Attacks\MageAttacks.cs" />
+    <Compile Include="Core\Attacks\QueenAttacks.cs" />
+    <Compile Include="Core\BattleObjects\Battle.cs" />
+    <Compile Include="Core\Heroes\HeroConfig.cs" />
+    <Compile Include="Core\Heroes\HeroConverter.cs" />
+    <Compile Include="Core\Attacks\Attack.cs" />
+    <Compile Include="Core\InventoryObjects\Armour.cs" />
+    <Compile Include="Core\InventoryObjects\Armours\ChestPlate.cs" />
+    <Compile Include="Core\InventoryObjects\Inventory.cs" />
+    <Compile Include="Core\InventoryObjects\Item.cs" />
+    <Compile Include="Core\InventoryObjects\ItemConfig.cs" />
+    <Compile Include="Core\InventoryObjects\Weapon.cs" />
     <Compile Include="Core\Heroes\Archer.cs" />
+    <Compile Include="Core\Heroes\Hero.cs" />
     <Compile Include="Core\Heroes\King.cs" />
     <Compile Include="Core\Heroes\Knight.cs" />
     <Compile Include="Core\Heroes\Mage.cs" />
     <Compile Include="Core\Heroes\Player.cs" />
     <Compile Include="Core\Heroes\Queen.cs" />
-    <Compile Include="Core\HeroStats.cs" />
+    <Compile Include="Core\InventoryObjects\Weapons\Sword.cs" />
+    <Compile Include="Core\MonsterAttacks\GoblinAttacks.cs" />
+    <Compile Include="Core\MonsterAttacks\MonsterAttack.cs" />
+    <Compile Include="Core\MonsterAttacks\OrcAttacks.cs" />
+    <Compile Include="Core\MonsterAttacks\ZombieBearAttacks.cs" />
+    <Compile Include="Core\Monsters\Goblin.cs" />
+    <Compile Include="Core\Monsters\Monster.cs" />
+    <Compile Include="Core\Monsters\MonsterConfig.cs" />
+    <Compile Include="Core\Monsters\Orc.cs" />
+    <Compile Include="Core\Monsters\ZombieBear.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Core\RNG.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\BattleSimulatorViews\BattleSimulatorBattleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\BattleSimulatorViews\BattleSimulatorMainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\BattleSimulatorViews\BattleSimulatorSetupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\ChooseClassView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,8 +186,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Theme\ScrollBarTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ViewModel\BattleSimulatorViewModels\BattleSimulatorBattleViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\BattleSimulatorViewModels\BattleSimulatorMainViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\BattleSimulatorViewModels\BattleSimulatorSetupViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ChooseClassViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HeroCreatorViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HeroDisplayViewModel.cs" />
@@ -156,6 +202,15 @@
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MyHeroesViewModel.cs" />
     <Compile Include="MVVM\ViewModel\StatSelectionViewModel.cs" />
+    <Compile Include="MVVM\View\BattleSimulatorViews\BattleSimulatorBattleView.xaml.cs">
+      <DependentUpon>BattleSimulatorBattleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\BattleSimulatorViews\BattleSimulatorMainView.xaml.cs">
+      <DependentUpon>BattleSimulatorMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\BattleSimulatorViews\BattleSimulatorSetupView.xaml.cs">
+      <DependentUpon>BattleSimulatorSetupView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\ChooseClassView.xaml.cs">
       <DependentUpon>ChooseClassView.xaml</DependentUpon>
     </Compile>
@@ -214,7 +269,7 @@
     <Resource Include="Images\PlayerSprite.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\WizardSprite.png" />
+    <Resource Include="Images\MageSprite.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\LeftArrow.png" />
@@ -236,6 +291,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\CharacterCreator.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GoblinSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\OrcSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ArmourSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\InventorySprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WeaponSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\StatsSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ZombieBearSprite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

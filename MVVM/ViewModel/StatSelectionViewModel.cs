@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using IOT1030_Phase2_GUI.Core;
 using IOT1030_Phase2_GUI.Core.Heroes;
 
@@ -39,7 +35,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         /// <summary>
-        /// Character Stats
+        /// Strength stat with some input sanitizing functionality
         /// </summary>
         private int _strengthStat = 5;
         public string StrengthStat
@@ -72,6 +68,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Intelligence stat with some input sanitizing functionality
+        /// </summary>
         private int _intelligenceStat = 5;
         public string IntelligenceStat
         {
@@ -104,6 +103,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Agility stat with some input sanitizing functionality
+        /// </summary>
         private int _agilityStat = 5;
         public string AgilityStat
         {
@@ -135,6 +137,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Vitality stat with some input sanitizing functionality
+        /// </summary>
         private int _vitalityStat = 5;
         public string VitalityStat
         {
@@ -167,6 +172,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                     
         }
 
+        /// <summary>
+        /// Luck stat with some input sanitizing functionality
+        /// </summary>
         private int _luckStat = 5;
         public string LuckStat
         {
@@ -198,6 +206,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Magic stat with some input sanitizing functionality
+        /// </summary>
         private int _magicStat = 5;
         public string MagicStat
         {
@@ -229,6 +240,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Weapon Use stat with some input sanitizing functionality
+        /// </summary>
         private int _weaponUseStat = 5;
         public string WeaponUseStat
         {
@@ -260,6 +274,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Parry stat with some input sanitizing functionality
+        /// </summary>
         private int _parryStat = 5;
         public string ParryStat
         {
@@ -291,6 +308,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Dodge stat with some input sanitizing functionality
+        /// </summary>
         private int _dodgeStat = 5;
         public string DodgeStat
         {
@@ -322,6 +342,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// Stealth stat with some input sanitizing functionality
+        /// </summary>
         private int _stealthStat = 5;
         public string StealthStat
         {
@@ -426,7 +449,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// <summary>
         /// The class selection
         /// </summary>
-        private string classSelection;
+        private HeroClass _classSelection;
 
         /// <summary>
         /// Defining the ViewModels
@@ -470,7 +493,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
                     _dodgeStat,
                     _stealthStat
                 };
-                HeroCreatorVM.CreateCharacter(stats, classSelection, HeroName);
+                HeroCreatorVM.CreateCharacter(stats, _classSelection, HeroName);
             });
             EditStatButtonCommand = new RelayCommand(o =>
             {
@@ -512,10 +535,10 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// Sets the name of the image path from the selected class name.
         /// </summary>
         /// <param name="classSelection">The class selection.</param>
-        public void SetImagePathFromClassName(string classSelection)
+        public void SetImagePathFromClassName(HeroClass classSelection)
         {
-            this.classSelection = classSelection;
-            ImagePath = "/Images/" + classSelection + "Sprite.png";
+            _classSelection = classSelection;
+            ImagePath = "/Images/" + classSelection.ToString() + "Sprite.png";
         }
 
         /// <summary>

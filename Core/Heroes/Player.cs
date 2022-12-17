@@ -1,111 +1,57 @@
-﻿using System;
+﻿using IOT1030_Phase2_GUI.Core.Attacks;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace IOT1030_Phase2_GUI.Core.Heroes
 {
-    public class Player
+    public class Player : Hero
     {
-        protected const int MaxHealth = 100;
-        protected static int _health = MaxHealth;
-        protected List<int> _stats;
-        protected bool hit = true;
-        protected bool _hasMap = true;
-        protected bool _hasSword = false;
-        protected string _characterName;
-        protected PlayerName _characterClass;
-        protected List<string> _attacks = new List<string>()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Player"/> class.
+        /// </summary>
+        /// <param name="stats">The stats.</param>
+        /// <param name="name">The name.</param>
+        public Player(List<int> stats, string name) : this(name)
         {
-            "Normal Attack",
-            "One Time Ability",
-            "Player Protection",
-            "Rage Player"
-        };
-        protected List<string> _attackDescriptions = new List<string>()
-        {
-            "Simple attack with equipped weapon",
-            "Player special sorcery, available only once",
-            "Player protects himself from damage",
-            "Player enrages"
-        };   
+            _stats = new Dictionary<Stats, int>();
 
-        /*****************************************************
-           * Needs to be adjusted when Monster class is made.
-           * When monster hit the hero player will take the damage.
-         *****************************************************/
-        public bool Hit
-        {
-            get { return hit; }
-            protected set { hit = value; }
-        }
-
-        protected void Defend()
-        {
-            int crit = 10;
-            if(_health < crit)
+            // Convert list to dictionary
+            for (int i = 0; i < stats.Count; i++)
             {
-                for(int i = 0; i < MaxHealth/5; i++)
-                {
-                    Damage(0);
-                }
+                _stats.Add((Stats)i, stats[i]);
             }
         }
 
         /// <summary>
-        /// Heal the health
+        /// Initializes a new instance of the <see cref="Player"/> class.
         /// </summary>
-        /// <param name="amount"> amount with which health can be increased </param>
-        protected void Heal(int amount)
+        /// <param name="stats">The stats.</param>
+        /// <param name="name">The name.</param>
+        [JsonConstructor]
+        public Player(Dictionary<Stats, int> stats, string name) : this(name)
         {
-            _health += amount;
-            if (_health > MaxHealth)
-            {
-                _health = MaxHealth;
-            }
-        }
-        
-        public virtual int NormalAttack()
-        {
-                return MaxHealth/2;
-        }
-
-        protected void Damage(int amount)
-        {
-            _health -= amount;
-            if (_health < 0)
-            {
-                _health = 0;
-            }
-        } 
-        
-        public Player(List<int> stats, PlayerName playerClass, string name) 
-        { 
             _stats = stats;
-            _characterClass = playerClass;
-            _characterName = name;
         }
 
-        public List<string> GetAttackNames()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Player"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        private Player(string name) : base()
         {
-            return _attacks;
-        }
+            _name = name;
+            _heroClass = HeroClass.Player;
+            _attacks = new List<Attack>
+            {
+                 new NormalAttack(),
+                 new LuckyAttack(),
+                 new StealthAttack(),
+                 new WeaponAttack(),
+                 new MagicAttack()
+            };
 
-        public List<string> GetAttackDescriptions()
-        {
-            return _attackDescriptions;
-        }
-        
-        public string CauseOfDeath { get; private set; }
-        
-        public void Kill(string cause)
-        {
-            _health = 0;
-            CauseOfDeath = cause;
+            _maxHealth = HeroConfig.PlayerHealth;
+            _currentHealth = _maxHealth;
         }
     }
-
-    public enum PlayerName { King, Queen, Knight, Mage, Player, Archer };
 }
-

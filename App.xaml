@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:IOT1030_Phase2_GUI"
 			 xmlns:viewModel="clr-namespace:IOT1030_Phase2_GUI.MVVM.ViewModel"
 			 xmlns:view="clr-namespace:IOT1030_Phase2_GUI.MVVM.View"
+			 xmlns:battleSimViewModel="clr-namespace:IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels"
+			 xmlns:battleSimView="clr-namespace:IOT1030_Phase2_GUI.MVVM.View.BattleSimulatorViews"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 		
@@ -14,6 +16,7 @@
 				<ResourceDictionary Source="Theme/RoundedButtonTheme.xaml" />
 				<ResourceDictionary Source="Theme/RoundedClassButtonTheme.xaml" />
 				<ResourceDictionary Source="Theme/RoundedMyHeroButtonTheme.xaml" />
+				<ResourceDictionary Source="Theme/ScrollBarTheme.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 
 			<!-- Connecting the Views to the ViewModels -->
@@ -40,6 +43,18 @@
 
 			<DataTemplate DataType="{x:Type viewModel:MyHeroesViewModel}">
 				<view:MyHeroesView />
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type battleSimViewModel:BattleSimulatorMainViewModel}">
+				<battleSimView:BattleSimulatorMainView />
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type battleSimViewModel:BattleSimulatorSetupViewModel}">
+				<battleSimView:BattleSimulatorSetupView />
+			</DataTemplate>
+
+			<DataTemplate DataType="{x:Type battleSimViewModel:BattleSimulatorBattleViewModel}">
+				<battleSimView:BattleSimulatorBattleView />
 			</DataTemplate>
 
 		</ResourceDictionary>

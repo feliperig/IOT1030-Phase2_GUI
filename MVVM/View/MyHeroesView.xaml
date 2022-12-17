@@ -9,26 +9,34 @@
 			 mc:Ignorable="d" 
              d:DesignHeight="450"
 			 d:DesignWidth="700">
+	<!-- Page background -->
 	<Border Background="#383a46"
 			CornerRadius="30">
+		
+		<!-- Base grid -->
 		<Grid Margin="10">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
 				<ColumnDefinition Width="600" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-
+			
+			<!-- My Heroes list background -->
 			<Border Background="#261c32"
 					CornerRadius="20"
 					BorderThickness="3"
 					BorderBrush="Black" 
 					Grid.Column="1"/>
+			
+			<!-- My Heroes list grid -->
 			<Grid Grid.Column="1"
 				  Margin="15">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="50" />
 					<RowDefinition />
 				</Grid.RowDefinitions>
+				
+				<!-- My Heroes title -->
 				<TextBlock Text="My Heroes"
 						   HorizontalAlignment="Center"
 						   VerticalAlignment="Center"
@@ -37,69 +45,83 @@
 						   FontFamily="Yu Gothic UI Semibold"
 						   Grid.Row="0"
 						   Margin="4" />
+				
+				<!-- The binding here is the list containing objects (HeroStats) -->
+				<DataGrid ItemsSource="{Binding Heroes, UpdateSourceTrigger=PropertyChanged}"
+							Foreground="Black"
+							Background="Transparent"
+							IsReadOnly="True"
+							AutoGenerateColumns="False"
+							HeadersVisibility="None"
+							Grid.Column="0"
+							Grid.Row="1"
+							BorderThickness="0"
+							GridLinesVisibility="None"
+						  ScrollViewer.CanContentScroll="False">
+					
+					<!-- Custom Scrollbar Style -->
+					<DataGrid.Resources>
+						<Style TargetType="ScrollBar" 
+							   BasedOn="{StaticResource ScrollBarTheme}"/>
+					</DataGrid.Resources>
 
-				<ScrollViewer Grid.Row="1">
-					<!-- The binding here is the list containing objects (HeroStats) -->
-					<DataGrid ItemsSource="{Binding Heroes, UpdateSourceTrigger=PropertyChanged}"
-							  Foreground="Black"
-							  Background="Transparent"
-							  IsReadOnly="True"
-							  AutoGenerateColumns="False"
-							  HeadersVisibility="None"
-							  Grid.Column="0"
-							  BorderThickness="0"
-							  GridLinesVisibility="None">
-						<DataGrid.CellStyle>
-							<Style TargetType="{x:Type DataGridCell}">
-								<Style.Setters>
-									<Setter Property="Background"
+					<!-- Changing the style of the DataGridCells to remove borders -->
+					<DataGrid.CellStyle>
+						<Style TargetType="{x:Type DataGridCell}">
+							<Style.Setters>
+								<Setter Property="Background"
 											Value="Transparent" />
-								</Style.Setters>
-								<Style.Triggers>
-									<Trigger Property="DataGridCell.IsSelected"
+							</Style.Setters>
+							<Style.Triggers>
+								<Trigger Property="DataGridCell.IsSelected"
 											 Value="True">
-										<Setter Property="BorderBrush"
+									<Setter Property="BorderBrush"
 												Value="Transparent" />
-										<Setter Property="BorderThickness"
-												Value="0" />
-										<Setter Property="Foreground"
+									<Setter Property="Foreground"
 												Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
-										<Setter Property="Background"
-												Value="Transparent" />
-									</Trigger>
-								</Style.Triggers>
-							</Style>
-						</DataGrid.CellStyle>
-						<DataGrid.RowStyle>
-							<Style TargetType="{x:Type DataGridRow}">
-								<Style.Setters>
 									<Setter Property="Background"
+												Value="Transparent" />
+								</Trigger>
+							</Style.Triggers>
+						</Style>
+					</DataGrid.CellStyle>
+
+					<!-- Changing the style of the DataGridRows to remove borders -->
+					<DataGrid.RowStyle>
+						<Style TargetType="{x:Type DataGridRow}">
+							<Style.Setters>
+								<Setter Property="Background"
 											Value="Transparent" />
-								</Style.Setters>
-							</Style>
-						</DataGrid.RowStyle>
-						<DataGrid.Columns>
-							<!-- This is the definition of the column that uses this cell style -->
-							<DataGridTemplateColumn Header="Class"
+							</Style.Setters>
+						</Style>
+					</DataGrid.RowStyle>
+
+					<!-- Defining the columns of the datagrid -->
+					<DataGrid.Columns>
+						<!-- This is the definition of the column that uses this cell style -->
+						<DataGridTemplateColumn Header="Class"
 													Width="553">
-								<DataGridTemplateColumn.CellTemplate>
-									<DataTemplate>
-										<!-- This is what is displayed in this cell-->
-										<Grid>
-											<Border Background="#113549"
+
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<!-- This is what is displayed in this cell-->
+									<Grid>
+										<!-- Row background -->
+										<Border Background="#113549"
 													HorizontalAlignment="Stretch"
 													Height="100"
 													BorderBrush="Black"
 													BorderThickness="1"
 													CornerRadius="15"
 													Margin="5">
-												<Grid>
-													<Grid.ColumnDefinitions>
-														<ColumnDefinition Width="100" />
-														<ColumnDefinition />
-													</Grid.ColumnDefinitions>
+											<Grid>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition Width="100" />
+													<ColumnDefinition />
+												</Grid.ColumnDefinitions>
 
-													<Border Background="#3b0e0d"
+												<!-- Class image -->
+												<Border Background="#3b0e0d"
 															CornerRadius="15"
 															Margin="5"
 															BorderThickness="3"
@@ -107,47 +129,48 @@
 															Grid.Column="0"
 															Grid.Row="0">
 
-														<Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
+													<Image Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"
 															   Margin="10" />
-													</Border>
-													<Grid Grid.Column="1"
+												</Border>
+
+												<!-- Hero name and class name-->
+												<Grid Grid.Column="1"
 														  Margin="10">
-														<Grid.RowDefinitions>
-															<RowDefinition />
-															<RowDefinition />
-														</Grid.RowDefinitions>
-														<TextBlock Text="{Binding HeroName}"
+													<Grid.RowDefinitions>
+														<RowDefinition />
+														<RowDefinition />
+													</Grid.RowDefinitions>
+													<TextBlock Text="{Binding Name}"
 																   FontSize="25"
 																   VerticalAlignment="Center"
 																   FontFamily="Yu Gothic UI Semibold"
 																   Foreground="White" />
-														<TextBlock Text="{Binding ClassName}"
-																   FontSize="25"
+													<TextBlock Text="{Binding ClassName}"
+																   FontSize="21"
 																   Grid.Row="1"
 																   VerticalAlignment="Center"
 																   FontFamily="Yu Gothic UI Semibold"
-																   Foreground="#c6c6c6" />
-													</Grid>
-
+																   Foreground="#FF8C8C8C" />
 												</Grid>
+											</Grid>
+										</Border>
 
-											</Border>
-											<Button Style="{StaticResource RoundedMyHeroButtonTheme}"
+										<!-- Button to go to hero display view for this hero -->
+										<Button Style="{StaticResource RoundedMyHeroButtonTheme}"
 													Margin="5"
 													Width="540"
 													HorizontalAlignment="Left"
 													Background="Transparent"
 													Opacity="0.5"
 													Command="{Binding Path=DataContext.HeroDisplayCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}"
-													CommandParameter="{Binding HeroName}" />
+													CommandParameter="{Binding Name}" />
 
-										</Grid>
-									</DataTemplate>
-								</DataGridTemplateColumn.CellTemplate>
-							</DataGridTemplateColumn>
-						</DataGrid.Columns>
-					</DataGrid>
-				</ScrollViewer>
+									</Grid>
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+					</DataGrid.Columns>
+				</DataGrid>
 
 			</Grid>
 

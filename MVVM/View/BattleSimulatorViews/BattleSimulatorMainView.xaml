@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="IOT1030_Phase2_GUI.MVVM.View.BattleSimulatorViews.BattleSimulatorMainView"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:local="clr-namespace:IOT1030_Phase2_GUI.MVVM.View.BattleSimulatorViews"
+			 xmlns:viewModel="clr-namespace:IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels"
+			 d:DataContext="{d:DesignInstance Type=viewModel:BattleSimulatorMainViewModel}"
+			 mc:Ignorable="d"
+			 d:DesignHeight="450"
+			 d:DesignWidth="700">
+	<!-- The battle simulator uses multiple pages -->
+	<!-- So this view contains the reference to the current page -->
+	<Border Background="#383a46"
+			CornerRadius="30">
+		<ContentControl Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}" />
+	</Border>
+
+</UserControl>

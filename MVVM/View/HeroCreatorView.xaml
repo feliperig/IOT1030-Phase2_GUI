@@ -9,7 +9,8 @@
 			 mc:Ignorable="d"
 			 d:DesignHeight="450"
 			 d:DesignWidth="700">
-	
+	<!-- The hero creator uses multiple pages -->
+	<!-- So this view contains the reference to the current page -->
 	<Border Background="#383a46"
 			CornerRadius="30">
 		<ContentControl Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}" />

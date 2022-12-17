@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using IOT1030_Phase2_GUI.Core;
 using IOT1030_Phase2_GUI.Core.Heroes;
 
@@ -40,6 +35,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The class selection
+        /// </summary>
         private string _classSelection;
         public string ClassSelection
         {
@@ -51,6 +49,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The hero's attack names
+        /// </summary>
         private ObservableCollection<string> _attackNames;
         public ObservableCollection<string> AttackNames
         {
@@ -62,6 +63,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The stats list of the hero
+        /// </summary>
         private ObservableCollection<int> _statsList;
         public ObservableCollection<int> StatsList
         {
@@ -86,6 +90,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         {
             this.ParentVM = ParentVM;
             InitializeCommands();
+
+            // Default attack descriptions
             _attackDescriptions = new List<string>
             {
                 "Description 1",
@@ -119,6 +125,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             });
         }
 
+        /// <summary>
+        /// The currently selected attack's description text
+        /// </summary>
         private string _descriptionText;
         public string DescriptionText
         {
@@ -130,12 +139,14 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
             }
         }
 
+        /// <summary>
+        /// The hero's attack descriptions
+        /// </summary>
         private List<string> _attackDescriptions;
 
         /// <summary>
         /// Description for character attack
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
         private void DescriptionButton(int index)
         {
             if (index > _attackDescriptions.Count - 1)
@@ -160,15 +171,6 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         }
 
         /// <summary>
-        /// Get list of stats from created hero
-        /// </summary>
-        /// <param name="heroName">Hero name for stats</param>
-        public void GetStatsList(string heroName) 
-        {
-
-        }
-
-        /// <summary>
         /// Sets the stats list using List<int>
         /// </summary>
         /// <param name="stats">The stats.</param>
@@ -184,7 +186,7 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// <summary>
         /// Gets the stats list as a List<int>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List<int> stats</returns>
         private List<int> GetStatsList()
         {
             List<int> returnList = new List<int>();
@@ -222,41 +224,42 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel
         /// Sets the name of the image path from the selected class name.
         /// </summary>
         /// <param name="classSelection">The class selection.</param>
-        public void SetImagePathFromClassName(string classSelection)
+        public void SetImagePathFromClassName(HeroClass classSelection)
         {
-            ClassSelection = classSelection;
-            ImagePath = "/Images/" + classSelection + "Sprite.png";
+            ClassSelection = classSelection.ToString();
+            ImagePath = "/Images/" + classSelection.ToString() + "Sprite.png";
         }
 
-        public void GetHeroClass(string classSelection)
+        /// <summary>
+        /// Gets the hero class from the class selection
+        /// </summary>
+        /// <param name="classSelection">The class selection.</param>
+        public void GetHeroClass(HeroClass classSelection)
         {
-            Player player = new Player(GetStatsList(), PlayerName.Player, HeroName);
-
-            Console.WriteLine(ClassSelection);
-            classSelection = classSelection.ToLower();
+            Hero hero = new Player(GetStatsList(), HeroName);
             switch (classSelection)
             {
-                case "wizard":
-                    Console.WriteLine("Wizard selected");
-                    player = new Mage(GetStatsList(), HeroName);
+                case HeroClass.Mage:
+                    hero = new Mage(GetStatsList(), HeroName);
                     break;
-                case "knight":
-                    player = new Knight(GetStatsList(), HeroName);
+                case HeroClass.Knight:
+                    hero = new Knight(GetStatsList(), HeroName);
                     break;
-                case "king":
-                    player = new King(GetStatsList(), HeroName);
+                case HeroClass.King:
+                    hero = new King(GetStatsList(), HeroName);
                     break;
-                case "queen":
-                    player = new Queen(GetStatsList(), HeroName);
+                case HeroClass.Queen:
+                    hero = new Queen(GetStatsList(), HeroName);
+                    break;
+                case HeroClass.Archer:
+                    hero = new Archer(GetStatsList(), HeroName);
                     break;
                 default:
                     break;
             }
 
-            Console.WriteLine(player.GetAttackDescriptions()[2]);
-
-            AttackNames = StringListToCollection(player.GetAttackNames());
-            _attackDescriptions = player.GetAttackDescriptions();
+            AttackNames = StringListToCollection(hero.GetAttackNames());
+            _attackDescriptions = hero.GetAttackDescriptions();
             DescriptionText = _attackDescriptions[0];
         }
     }
