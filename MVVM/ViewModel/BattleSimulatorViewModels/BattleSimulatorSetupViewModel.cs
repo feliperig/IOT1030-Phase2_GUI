@@ -169,7 +169,8 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
             Monsters = new ObservableCollection<Monster>
             {
                 new Goblin(),
-                new Orc()
+                new Orc(),
+                new ZombieBear()
             };
         }
     }
