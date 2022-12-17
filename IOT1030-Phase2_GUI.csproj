@@ -313,5 +313,11 @@
   <ItemGroup>
     <Resource Include="Images\ZombieBearSprite.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\VenomSprite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PishachaSprite.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
