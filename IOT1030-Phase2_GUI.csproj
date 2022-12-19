@@ -121,11 +121,14 @@
     <Compile Include="Core\MonsterAttacks\GoblinAttacks.cs" />
     <Compile Include="Core\MonsterAttacks\MonsterAttack.cs" />
     <Compile Include="Core\MonsterAttacks\OrcAttacks.cs" />
+    <Compile Include="Core\MonsterAttacks\VenomAttacks.cs" />
     <Compile Include="Core\MonsterAttacks\ZombieBearAttacks.cs" />
     <Compile Include="Core\Monsters\Goblin.cs" />
     <Compile Include="Core\Monsters\Monster.cs" />
     <Compile Include="Core\Monsters\MonsterConfig.cs" />
     <Compile Include="Core\Monsters\Orc.cs" />
+    <Compile Include="Core\Monsters\Pishacha.cs" />
+    <Compile Include="Core\Monsters\Venom.cs" />
     <Compile Include="Core\Monsters\ZombieBear.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />

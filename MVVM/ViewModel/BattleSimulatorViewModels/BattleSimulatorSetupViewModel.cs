@@ -170,7 +170,9 @@ namespace IOT1030_Phase2_GUI.MVVM.ViewModel.BattleSimulatorViewModels
             {
                 new Goblin(),
                 new Orc(),
-                new ZombieBear()
+                new ZombieBear(),
+                new Pishacha(),
+                new Venom()
             };
         }
     }

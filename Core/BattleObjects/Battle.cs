@@ -104,7 +104,14 @@ namespace IOT1030_Phase2_GUI.Core.BattleObjects
         public void TakeTurn(Turn turn, Attack attack = null)
         {
             _attackLog = new List<Attack>();
-            if(turn != CurrentTurn)
+
+            if (Hero.CurrentHealth <= 0)
+            {
+                Console.WriteLine("Hero is dead!");
+                return;
+            }
+
+            if (turn != CurrentTurn)
             {
                 Console.WriteLine("Not your turn!");
                 return;
